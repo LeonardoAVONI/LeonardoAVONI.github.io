@@ -1,0 +1,137 @@
+<!DOCTYPE HTML>
+<!--
+	Massively by HTML5 UP — Leonardo Avoni Portfolio
+-->
+<html>
+	<head>
+		<title>First Drone Development: Theory — Leonardo Avoni</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+	</head>
+	<body class="is-preload">
+
+		<!-- Wrapper -->
+		<div id="wrapper">
+
+			<!-- Header -->
+			<header id="header">
+				<a href="index.html" class="logo">Leonardo Avoni</a>
+			</header>
+
+			<!-- Nav -->
+			<nav id="nav">
+				<ul class="links">
+					<li><a href="index.html">Home</a></li>
+					<li><a href="index.html#projects">Projects</a></li>
+					<li class="active"><a href="project-drone-theory.html">This Project</a></li>
+				</ul>
+				<ul class="icons">
+					<li><a href="https://www.linkedin.com/in/leonardo-avoni/" target="_blank" class="icon brands fa-linkedin"><span class="label">LinkedIn</span></a></li>
+					<li><a href="https://github.com/LeonardoAVONI" target="_blank" class="icon brands fa-github"><span class="label">GitHub</span></a></li>
+				</ul>
+			</nav>
+
+			<!-- Main -->
+			<div id="main">
+				<section class="post">
+					<header class="major">
+						<span class="date">Personal Project · 2023–2024</span>
+						<h1>First Drone Development<br />Theory</h1>
+						<p>From Newton's laws to motor equations — building the mathematical foundations of a quadcopter from scratch.</p>
+					</header>
+					<div class="image main"><img src="images/pic02.jpg" alt="First Drone Development: Theory" /></div>
+
+					<h2>Overview</h2>
+					<p>Before touching a single component, I committed to fully understanding the physics behind a quadcopter. This project documents the theoretical groundwork: rigid-body dynamics, rotor aerodynamics, motor-propeller matching, and linear control design.</p>
+
+					<h2>Key Topics Covered</h2>
+					<h3>1. Rigid-Body Dynamics</h3>
+					<p>Derivation of the 6-DOF equations of motion for a quadrotor using Newton-Euler formalism. The translational and rotational dynamics are coupled through the inertia tensor and gyroscopic effects of spinning rotors. Understanding these equations is the prerequisite for any meaningful control design.</p>
+
+					<h3>2. Rotor Aerodynamics</h3>
+					<p>Application of Blade Element Momentum Theory (BEMT) to size propellers for a target thrust-to-weight ratio. Key parameters: blade pitch, chord distribution, tip speed, and the trade-off between efficiency and responsiveness.</p>
+
+					<h3>3. Motor &amp; ESC Selection</h3>
+					<p>Matching brushless DC motors (BLDC) to the propeller load curve using KV ratings, torque constants, and efficiency maps. ESC selection criteria based on current draw at hover and full-throttle burst.</p>
+
+					<h3>4. Control Architecture</h3>
+					<p>Design of a cascaded PID controller: outer loop for position/altitude, inner loop for attitude (roll, pitch, yaw). Linearisation of the nonlinear dynamics around hover to enable frequency-domain analysis and gain tuning.</p>
+
+					<h3>5. Battery &amp; Power Budget</h3>
+					<p>LiPo cell selection based on C-rating, capacity, and target flight time. Power consumption breakdown across motors, flight controller, and peripherals.</p>
+
+					<h2>Tools Used</h2>
+					<p>Python (NumPy, SciPy, Matplotlib) · MATLAB/Simulink · Pencil &amp; paper (the best simulation tool)</p>
+
+					<h2>Outcome</h2>
+					<p>A fully documented design specification document — frame size, motor KV, propeller pitch/diameter, battery configuration, estimated hover time — that fed directly into the <a href="project-drone-practice.html">practical build phase</a>.</p>
+
+					<ul class="actions special">
+						<li><a href="index.html#projects" class="button">← Back to Projects</a></li>
+					</ul>
+				</section>
+			</div>
+
+			<!-- Footer / Contact -->
+			<footer id="footer">
+				<section>
+					<h2>Get in Touch</h2>
+					<form method="post" action="https://formsubmit.co/avonileonardo@gmail.com">
+						<input type="hidden" name="_captcha" value="false">
+						<div class="fields">
+							<div class="field">
+								<label for="name">Name</label>
+								<input type="text" name="name" id="name" required />
+							</div>
+							<div class="field">
+								<label for="email">Email</label>
+								<input type="email" name="email" id="email" required />
+							</div>
+							<div class="field">
+								<label for="message">Message</label>
+								<textarea name="message" id="message" rows="3" required></textarea>
+							</div>
+						</div>
+						<ul class="actions">
+							<li><input type="submit" value="Send Message" /></li>
+						</ul>
+					</form>
+				</section>
+				<section class="split contact">
+					<section>
+						<h3>Email</h3>
+						<p><a href="mailto:avonileonardo@gmail.com">avonileonardo@gmail.com</a></p>
+					</section>
+					<section>
+						<h3>Social</h3>
+						<ul class="icons alt">
+							<li><a href="https://www.linkedin.com/in/leonardo-avoni/" target="_blank" class="icon brands alt fa-linkedin"><span class="label">LinkedIn</span></a></li>
+							<li><a href="https://github.com/LeonardoAVONI" target="_blank" class="icon brands alt fa-github"><span class="label">GitHub</span></a></li>
+						</ul>
+					</section>
+				</section>
+			</footer>
+
+			<!-- Copyright -->
+			<div id="copyright">
+				<ul>
+					<li>&copy; Leonardo Avoni</li>
+					<li>Design: <a href="https://html5up.net">HTML5 UP</a></li>
+				</ul>
+			</div>
+
+		</div>
+
+		<!-- Scripts -->
+		<script src="assets/js/jquery.min.js"></script>
+		<script src="assets/js/jquery.scrollex.min.js"></script>
+		<script src="assets/js/jquery.scrolly.min.js"></script>
+		<script src="assets/js/browser.min.js"></script>
+		<script src="assets/js/breakpoints.min.js"></script>
+		<script src="assets/js/util.js"></script>
+		<script src="assets/js/main.js"></script>
+
+	</body>
+</html>

@@ -1,0 +1,134 @@
+<!DOCTYPE HTML>
+<!--
+	Massively by HTML5 UP — Leonardo Avoni Portfolio
+-->
+<html>
+	<head>
+		<title>DroneDetective — Morphing Drone Wind Tunnel — Leonardo Avoni</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+	</head>
+	<body class="is-preload">
+
+		<!-- Wrapper -->
+		<div id="wrapper">
+
+			<!-- Header -->
+			<header id="header">
+				<a href="index.html" class="logo">Leonardo Avoni</a>
+			</header>
+
+			<!-- Nav -->
+			<nav id="nav">
+				<ul class="links">
+					<li><a href="index.html">Home</a></li>
+					<li><a href="index.html#projects">Projects</a></li>
+					<li class="active"><a href="project-dronedetective.html">This Project</a></li>
+				</ul>
+				<ul class="icons">
+					<li><a href="https://www.linkedin.com/in/leonardo-avoni/" target="_blank" class="icon brands fa-linkedin"><span class="label">LinkedIn</span></a></li>
+					<li><a href="https://github.com/LeonardoAVONI" target="_blank" class="icon brands fa-github"><span class="label">GitHub</span></a></li>
+				</ul>
+			</nav>
+
+			<!-- Main -->
+			<div id="main">
+				<section class="post">
+					<header class="major">
+						<span class="date">Master Thesis Project · EPFL LIS Lab · 2022–2023</span>
+						<h1>DroneDetective<br />Morphing Drone Wind Tunnel</h1>
+						<p>Automated aerodynamic characterisation of a bio-inspired morphing drone — Master's thesis at EPFL's LIS lab.</p>
+					</header>
+					<div class="image main"><img src="images/pic07.jpg" alt="DroneDetective — Morphing Drone Wind Tunnel" /></div>
+
+					<h2>Context</h2>
+					<p>The LIS (Laboratory of Intelligent Systems) at EPFL develops bio-inspired robots, including a <strong>morphing drone</strong> capable of changing its wing shape mid-flight — inspired by birds. Understanding the aerodynamic envelope of such a vehicle requires characterising lift, drag, and pitching moment across a vast parameter space: airspeed, angle of attack, morphing configuration, and yaw angle.</p>
+
+					<h2>My Role</h2>
+					<p>I was responsible for designing and implementing a fully automated wind-tunnel characterisation system — <strong>DroneDetective</strong> — that could systematically explore this parameter space without manual intervention.</p>
+
+					<h2>System Architecture</h2>
+					<h3>Mechanical Setup</h3>
+					<p>Design and manufacturing of a force-balance mount that rigidly holds the drone in the test section while measuring 6-DOF loads (forces and moments) via a calibrated ATI force-torque sensor. A motorised angle-of-attack mechanism allows automated incidence sweeps.</p>
+
+					<h3>Automation Software</h3>
+					<p>Python control scripts orchestrate the entire test sequence: set wind-tunnel speed → command drone morphing configuration → sweep angle of attack → acquire sensor data → log results. The system runs overnight without supervision.</p>
+
+					<h3>Data Pipeline</h3>
+					<p>Raw force data corrected for tare loads, inertial effects, and support-structure interference. Aerodynamic coefficients (CL, CD, CM) computed and plotted in polar form for each configuration tested.</p>
+
+					<h2>Results</h2>
+					<p>A comprehensive aerodynamic database covering the morphing drone's full configuration space — providing the LIS lab with a validated dataset for control design and performance optimisation.</p>
+
+					<h2>Tech Stack</h2>
+					<p>Python · ATI F/T sensor API · EPFL wind tunnel instrumentation · SolidWorks · NumPy · Matplotlib</p>
+
+					<ul class="actions special">
+						<li><a href="index.html#projects" class="button">← Back to Projects</a></li>
+					</ul>
+				</section>
+			</div>
+
+			<!-- Footer / Contact -->
+			<footer id="footer">
+				<section>
+					<h2>Get in Touch</h2>
+					<form method="post" action="https://formsubmit.co/avonileonardo@gmail.com">
+						<input type="hidden" name="_captcha" value="false">
+						<div class="fields">
+							<div class="field">
+								<label for="name">Name</label>
+								<input type="text" name="name" id="name" required />
+							</div>
+							<div class="field">
+								<label for="email">Email</label>
+								<input type="email" name="email" id="email" required />
+							</div>
+							<div class="field">
+								<label for="message">Message</label>
+								<textarea name="message" id="message" rows="3" required></textarea>
+							</div>
+						</div>
+						<ul class="actions">
+							<li><input type="submit" value="Send Message" /></li>
+						</ul>
+					</form>
+				</section>
+				<section class="split contact">
+					<section>
+						<h3>Email</h3>
+						<p><a href="mailto:avonileonardo@gmail.com">avonileonardo@gmail.com</a></p>
+					</section>
+					<section>
+						<h3>Social</h3>
+						<ul class="icons alt">
+							<li><a href="https://www.linkedin.com/in/leonardo-avoni/" target="_blank" class="icon brands alt fa-linkedin"><span class="label">LinkedIn</span></a></li>
+							<li><a href="https://github.com/LeonardoAVONI" target="_blank" class="icon brands alt fa-github"><span class="label">GitHub</span></a></li>
+						</ul>
+					</section>
+				</section>
+			</footer>
+
+			<!-- Copyright -->
+			<div id="copyright">
+				<ul>
+					<li>&copy; Leonardo Avoni</li>
+					<li>Design: <a href="https://html5up.net">HTML5 UP</a></li>
+				</ul>
+			</div>
+
+		</div>
+
+		<!-- Scripts -->
+		<script src="assets/js/jquery.min.js"></script>
+		<script src="assets/js/jquery.scrollex.min.js"></script>
+		<script src="assets/js/jquery.scrolly.min.js"></script>
+		<script src="assets/js/browser.min.js"></script>
+		<script src="assets/js/breakpoints.min.js"></script>
+		<script src="assets/js/util.js"></script>
+		<script src="assets/js/main.js"></script>
+
+	</body>
+</html>
