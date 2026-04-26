@@ -1,18 +1,14 @@
 <!DOCTYPE HTML>
-<!--
-	Massively by HTML5 UP — Leonardo Avoni Portfolio
--->
 <html>
 	<head>
 		<title>Synova SA Internship — Jet Stability — Leonardo Avoni</title>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 		<link rel="stylesheet" href="assets/css/main.css" />
+		<link rel="stylesheet" href="assets/css/custom.css" />
 		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
 	</head>
 	<body class="is-preload">
-
-		<!-- Wrapper -->
 		<div id="wrapper">
 
 			<!-- Header -->
@@ -24,8 +20,28 @@
 			<nav id="nav">
 				<ul class="links">
 					<li><a href="index.html">Home</a></li>
-					<li><a href="index.html#projects">Projects</a></li>
-					<li class="active"><a href="project-synova-stability.html">This Project</a></li>
+					<li><a href="skills.html">Skills &amp; Certifications</a></li>
+					<li class="has-dropdown active">
+						<a href="projects.html">Projects</a>
+						<ul class="dropdown">
+							<li class="dropdown-cat">PhD Contributions</li>
+							<li><a href="project-aswing.html">ASWING Extended Manual</a></li>
+							<li><a href="project-wingloop.html">WingLoop Library</a></li>
+							<li><a href="project-stall.html">Stall Implementation</a></li>
+							<li class="dropdown-cat">Master Projects</li>
+							<li><a href="project-dronedetective.html">DroneDetective</a></li>
+							<li><a href="project-wind-tunnel.html">Supersonic Wind Tunnel</a></li>
+							<li class="dropdown-cat">Personal Projects</li>
+							<li><a href="project-drone-theory.html">Drone Dev: Theory</a></li>
+							<li><a href="project-drone-practice.html">Drone Dev: Practice</a></li>
+							<li><a href="project-3d-printing.html">3D Printed Projects</a></li>
+							<li class="dropdown-cat">Internships</li>
+							<li><a href="project-synova-calibration.html">Synova: Calibration</a></li>
+							<li><a href="project-synova-stability.html">Synova: Jet Stability</a></li>
+							<li class="dropdown-cat">Other</li>
+							<li><a href="project-tpe.html">TPE/TM — CERN</a></li>
+						</ul>
+					</li>
 				</ul>
 				<ul class="icons">
 					<li><a href="https://www.linkedin.com/in/leonardo-avoni/" target="_blank" class="icon brands fa-linkedin"><span class="label">LinkedIn</span></a></li>
@@ -33,7 +49,6 @@
 				</ul>
 			</nav>
 
-			<!-- Main -->
 			<div id="main">
 				<section class="post">
 					<header class="major">
@@ -44,36 +59,43 @@
 					<div class="image main"><img src="images/pic03.jpg" alt="Synova SA Internship — Jet Stability" /></div>
 
 					<h2>The Stability Problem</h2>
-					<p>The performance of Synova's Laser MicroJet process depends critically on the <strong>coherence length</strong> of the water jet — the distance over which the jet remains a stable, laminar cylinder before breaking up into droplets (Rayleigh-Plateau instability). Maximising this coherence length is essential for deep-cut applications.</p>
+					<p>The performance of the Laser MicroJet process depends critically on the <strong>jet coherence length</strong> — the distance the jet remains a stable laminar cylinder before breaking into droplets (Rayleigh-Plateau instability). Maximising this is essential for deep-cut applications.</p>
 
 					<h2>Theoretical Framework</h2>
+
 					<h3>Rayleigh-Plateau Instability</h3>
-					<p>Linear stability analysis of a cylindrical jet subject to surface-tension-driven perturbations. Derivation of the dispersion relation and growth rate as a function of wavenumber, jet velocity, and fluid properties (surface tension, viscosity, density). Identification of the most amplified wavelength and its dependence on nozzle geometry.</p>
+					<p>Linear stability analysis of a cylindrical jet subject to surface-tension-driven perturbations. Derivation of the dispersion relation and growth rate as a function of wavenumber, jet velocity, and fluid properties. Identification of the most amplified wavelength.</p>
 
 					<h3>Influence of Nozzle Geometry</h3>
-					<p>Study of how the nozzle exit velocity profile (plug flow vs. parabolic) affects the initial disturbance spectrum imposed on the jet. CFD simulations (ANSYS Fluent) of the nozzle internal flow to characterise the exit conditions.</p>
+					<p>Study of how nozzle exit velocity profile (plug vs. parabolic) affects the initial disturbance spectrum. CFD simulations (ANSYS Fluent) of internal nozzle flow to characterise exit conditions.</p>
 
 					<h2>Experimental Work</h2>
-					<p>High-speed camera imaging (up to 50,000 fps) of jets at various pressures and nozzle diameters to measure coherence lengths experimentally. Comparison with theoretical predictions — good agreement confirmed the validity of the linear stability model for the operational parameter range.</p>
+					<p>High-speed camera imaging (up to 50,000 fps) of jets at various pressures and nozzle diameters. Measured coherence lengths compared against theoretical predictions — good agreement confirmed the linear stability model's validity across the operational range.</p>
 
-					<h2>Outcome &amp; Impact</h2>
-					<p>Recommendations for nozzle geometry and operating pressure to maximise jet coherence length for different workpiece thicknesses. Results fed into Synova's nozzle design guidelines.</p>
+					<h2>Outcome</h2>
+					<p>Nozzle geometry and operating-pressure recommendations to maximise jet coherence for different workpiece thicknesses. Results fed directly into Synova's nozzle design guidelines.</p>
 
 					<h2>Skills</h2>
-					<p>Fluid stability theory · CFD (ANSYS Fluent) · High-speed imaging · Python data analysis · Technical reporting</p>
+					<ul>
+						<li>Fluid stability theory</li>
+						<li>CFD (ANSYS Fluent)</li>
+						<li>High-speed imaging</li>
+						<li>Python data analysis</li>
+					</ul>
 
 					<ul class="actions special">
-						<li><a href="index.html#projects" class="button">← Back to Projects</a></li>
+						<li><a href="projects.html" class="button">← Back to Projects</a></li>
 					</ul>
 				</section>
 			</div>
 
-			<!-- Footer / Contact -->
+			<!-- Footer -->
 			<footer id="footer">
 				<section>
 					<h2>Get in Touch</h2>
-					<form method="post" action="https://formsubmit.co/avonileonardo@gmail.com">
-						<input type="hidden" name="_captcha" value="false">
+					<p>Collaboration, opportunity, or just a chat about aerospace — I'm all ears.</p>
+					<form method="post" action="https://formsubmit.co/508f2442ee8d91ab130219ae9c0e5b1b">
+						<input type="hidden" name="_captcha" value="false" />
 						<div class="fields">
 							<div class="field">
 								<label for="name">Name</label>
@@ -95,6 +117,10 @@
 				</section>
 				<section class="split contact">
 					<section>
+						<h3>Location</h3>
+						<p>Toulouse, France<br />(Open to relocation)</p>
+					</section>
+					<section>
 						<h3>Email</h3>
 						<p><a href="mailto:avonileonardo@gmail.com">avonileonardo@gmail.com</a></p>
 					</section>
@@ -107,16 +133,11 @@
 					</section>
 				</section>
 			</footer>
-
-			<!-- Copyright -->
 			<div id="copyright">
-				<ul>
-					<li>&copy; Leonardo Avoni</li>
-					<li>Design: <a href="https://html5up.net">HTML5 UP</a></li>
-				</ul>
+				<ul><li>&copy; Leonardo Avoni</li><li>Design: <a href="https://html5up.net">HTML5 UP</a></li></ul>
 			</div>
 
-		</div>
+		</div><!-- end #wrapper -->
 
 		<!-- Scripts -->
 		<script src="assets/js/jquery.min.js"></script>
@@ -126,6 +147,5 @@
 		<script src="assets/js/breakpoints.min.js"></script>
 		<script src="assets/js/util.js"></script>
 		<script src="assets/js/main.js"></script>
-
 	</body>
 </html>

@@ -1,18 +1,14 @@
 <!DOCTYPE HTML>
-<!--
-	Massively by HTML5 UP — Leonardo Avoni Portfolio
--->
 <html>
 	<head>
 		<title>Supersonic Wind Tunnel — Design & Testing — Leonardo Avoni</title>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 		<link rel="stylesheet" href="assets/css/main.css" />
+		<link rel="stylesheet" href="assets/css/custom.css" />
 		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
 	</head>
 	<body class="is-preload">
-
-		<!-- Wrapper -->
 		<div id="wrapper">
 
 			<!-- Header -->
@@ -24,8 +20,28 @@
 			<nav id="nav">
 				<ul class="links">
 					<li><a href="index.html">Home</a></li>
-					<li><a href="index.html#projects">Projects</a></li>
-					<li class="active"><a href="project-wind-tunnel.html">This Project</a></li>
+					<li><a href="skills.html">Skills &amp; Certifications</a></li>
+					<li class="has-dropdown active">
+						<a href="projects.html">Projects</a>
+						<ul class="dropdown">
+							<li class="dropdown-cat">PhD Contributions</li>
+							<li><a href="project-aswing.html">ASWING Extended Manual</a></li>
+							<li><a href="project-wingloop.html">WingLoop Library</a></li>
+							<li><a href="project-stall.html">Stall Implementation</a></li>
+							<li class="dropdown-cat">Master Projects</li>
+							<li><a href="project-dronedetective.html">DroneDetective</a></li>
+							<li><a href="project-wind-tunnel.html">Supersonic Wind Tunnel</a></li>
+							<li class="dropdown-cat">Personal Projects</li>
+							<li><a href="project-drone-theory.html">Drone Dev: Theory</a></li>
+							<li><a href="project-drone-practice.html">Drone Dev: Practice</a></li>
+							<li><a href="project-3d-printing.html">3D Printed Projects</a></li>
+							<li class="dropdown-cat">Internships</li>
+							<li><a href="project-synova-calibration.html">Synova: Calibration</a></li>
+							<li><a href="project-synova-stability.html">Synova: Jet Stability</a></li>
+							<li class="dropdown-cat">Other</li>
+							<li><a href="project-tpe.html">TPE/TM — CERN</a></li>
+						</ul>
+					</li>
 				</ul>
 				<ul class="icons">
 					<li><a href="https://www.linkedin.com/in/leonardo-avoni/" target="_blank" class="icon brands fa-linkedin"><span class="label">LinkedIn</span></a></li>
@@ -33,7 +49,6 @@
 				</ul>
 			</nav>
 
-			<!-- Main -->
 			<div id="main">
 				<section class="post">
 					<header class="major">
@@ -44,40 +59,48 @@
 					<div class="image main"><img src="images/pic08.jpg" alt="Supersonic Wind Tunnel — Design & Testing" /></div>
 
 					<h2>Overview</h2>
-					<p>As part of EPFL's experimental aerodynamics course, our team designed and built a small-scale supersonic wind tunnel capable of reaching Mach numbers between 1.5 and 2.5 in the test section. The project covered the full engineering cycle: aerodynamic design, structural sizing, manufacturing, instrumentation, and experimental validation.</p>
+					<p>As part of EPFL's experimental aerodynamics course, our team designed and built a small-scale supersonic wind tunnel capable of reaching Mach 1.5 – 2.5 in the test section. Full cycle: aerodynamic design → structural sizing → manufacturing → instrumentation → experimental validation.</p>
 
 					<h2>Design Phase</h2>
+
 					<h3>Nozzle Geometry</h3>
-					<p>Method of Characteristics (MoC) was used to design the convergent-divergent (de Laval) nozzle contour that produces a uniform supersonic flow at the desired Mach number. The area ratio A*/A was computed for each target Mach number, and the nozzle wall profiles were generated numerically.</p>
+					<p>Method of Characteristics (MoC) used to design the convergent-divergent (de Laval) nozzle contour for uniform supersonic flow. Area ratios A*/A computed per Mach number; nozzle wall profiles generated numerically.</p>
 
 					<h3>Structural &amp; Sealing Design</h3>
-					<p>The tunnel body was designed to withstand internal pressure differentials. Optical access windows (acrylic) were sized and sealed for schlieren visualisation. All parts were manufactured using CNC machining and 3D printing.</p>
+					<p>Tunnel body sized for internal pressure differentials. Optical access windows (acrylic) sealed for schlieren visualisation. CNC machining and 3D printing for all parts.</p>
 
 					<h2>Experimental Testing</h2>
+
 					<h3>Pitot-Static Measurements</h3>
-					<p>Mach number verification using pitot-static probes and Rayleigh Pitot formula for supersonic flow. Comparison against design targets.</p>
+					<p>Mach number verification via Rayleigh Pitot formula. Good agreement with design targets confirmed.</p>
 
 					<h3>Schlieren Visualisation</h3>
-					<p>Z-type schlieren optical setup to visualise density gradients — shock waves, expansion fans, and boundary layers were made visible and photographed.</p>
+					<p>Z-type schlieren setup making shock waves, expansion fans, and boundary layers visible and photographable.</p>
 
 					<h3>Shock Wave Analysis</h3>
-					<p>Experimental oblique shock angles measured from schlieren images and compared with theoretical predictions from oblique shock relations.</p>
+					<p>Experimental oblique shock angles measured from schlieren images and compared to theoretical predictions — strong agreement validated the design.</p>
 
 					<h2>Skills Demonstrated</h2>
-					<p>Compressible flow theory · Method of Characteristics · Optical diagnostics · CAD/manufacturing · Experimental data analysis</p>
+					<ul>
+						<li>Compressible flow theory · Method of Characteristics</li>
+						<li>Optical diagnostics (schlieren)</li>
+						<li>CAD / CNC / 3D printing</li>
+						<li>Experimental data analysis</li>
+					</ul>
 
 					<ul class="actions special">
-						<li><a href="index.html#projects" class="button">← Back to Projects</a></li>
+						<li><a href="projects.html" class="button">← Back to Projects</a></li>
 					</ul>
 				</section>
 			</div>
 
-			<!-- Footer / Contact -->
+			<!-- Footer -->
 			<footer id="footer">
 				<section>
 					<h2>Get in Touch</h2>
-					<form method="post" action="https://formsubmit.co/avonileonardo@gmail.com">
-						<input type="hidden" name="_captcha" value="false">
+					<p>Collaboration, opportunity, or just a chat about aerospace — I'm all ears.</p>
+					<form method="post" action="https://formsubmit.co/508f2442ee8d91ab130219ae9c0e5b1b">
+						<input type="hidden" name="_captcha" value="false" />
 						<div class="fields">
 							<div class="field">
 								<label for="name">Name</label>
@@ -99,6 +122,10 @@
 				</section>
 				<section class="split contact">
 					<section>
+						<h3>Location</h3>
+						<p>Toulouse, France<br />(Open to relocation)</p>
+					</section>
+					<section>
 						<h3>Email</h3>
 						<p><a href="mailto:avonileonardo@gmail.com">avonileonardo@gmail.com</a></p>
 					</section>
@@ -111,16 +138,11 @@
 					</section>
 				</section>
 			</footer>
-
-			<!-- Copyright -->
 			<div id="copyright">
-				<ul>
-					<li>&copy; Leonardo Avoni</li>
-					<li>Design: <a href="https://html5up.net">HTML5 UP</a></li>
-				</ul>
+				<ul><li>&copy; Leonardo Avoni</li><li>Design: <a href="https://html5up.net">HTML5 UP</a></li></ul>
 			</div>
 
-		</div>
+		</div><!-- end #wrapper -->
 
 		<!-- Scripts -->
 		<script src="assets/js/jquery.min.js"></script>
@@ -130,6 +152,5 @@
 		<script src="assets/js/breakpoints.min.js"></script>
 		<script src="assets/js/util.js"></script>
 		<script src="assets/js/main.js"></script>
-
 	</body>
 </html>

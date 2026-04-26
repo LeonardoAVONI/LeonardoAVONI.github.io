@@ -1,18 +1,14 @@
 <!DOCTYPE HTML>
-<!--
-	Massively by HTML5 UP — Leonardo Avoni Portfolio
--->
 <html>
 	<head>
 		<title>3D Printed Projects — Leonardo Avoni</title>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 		<link rel="stylesheet" href="assets/css/main.css" />
+		<link rel="stylesheet" href="assets/css/custom.css" />
 		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
 	</head>
 	<body class="is-preload">
-
-		<!-- Wrapper -->
 		<div id="wrapper">
 
 			<!-- Header -->
@@ -24,8 +20,28 @@
 			<nav id="nav">
 				<ul class="links">
 					<li><a href="index.html">Home</a></li>
-					<li><a href="index.html#projects">Projects</a></li>
-					<li class="active"><a href="project-3d-printing.html">This Project</a></li>
+					<li><a href="skills.html">Skills &amp; Certifications</a></li>
+					<li class="has-dropdown active">
+						<a href="projects.html">Projects</a>
+						<ul class="dropdown">
+							<li class="dropdown-cat">PhD Contributions</li>
+							<li><a href="project-aswing.html">ASWING Extended Manual</a></li>
+							<li><a href="project-wingloop.html">WingLoop Library</a></li>
+							<li><a href="project-stall.html">Stall Implementation</a></li>
+							<li class="dropdown-cat">Master Projects</li>
+							<li><a href="project-dronedetective.html">DroneDetective</a></li>
+							<li><a href="project-wind-tunnel.html">Supersonic Wind Tunnel</a></li>
+							<li class="dropdown-cat">Personal Projects</li>
+							<li><a href="project-drone-theory.html">Drone Dev: Theory</a></li>
+							<li><a href="project-drone-practice.html">Drone Dev: Practice</a></li>
+							<li><a href="project-3d-printing.html">3D Printed Projects</a></li>
+							<li class="dropdown-cat">Internships</li>
+							<li><a href="project-synova-calibration.html">Synova: Calibration</a></li>
+							<li><a href="project-synova-stability.html">Synova: Jet Stability</a></li>
+							<li class="dropdown-cat">Other</li>
+							<li><a href="project-tpe.html">TPE/TM — CERN</a></li>
+						</ul>
+					</li>
 				</ul>
 				<ul class="icons">
 					<li><a href="https://www.linkedin.com/in/leonardo-avoni/" target="_blank" class="icon brands fa-linkedin"><span class="label">LinkedIn</span></a></li>
@@ -33,7 +49,6 @@
 				</ul>
 			</nav>
 
-			<!-- Main -->
 			<div id="main">
 				<section class="post">
 					<header class="major">
@@ -44,42 +59,50 @@
 					<div class="image main"><img src="images/pic04.jpg" alt="3D Printed Projects" /></div>
 
 					<h2>Overview</h2>
-					<p>3D printing has become an essential tool in my engineering workflow — not just for prototyping, but for final-use parts, jigs, and the occasional creative project. Below is a selection of notable prints.</p>
+					<p>3D printing is a core tool in my engineering workflow — for prototypes, final-use parts, jigs, and the occasional creative project. Below is a selection of notable work.</p>
 
 					<h2>Engineering Applications</h2>
+
 					<h3>Drone Frame Components</h3>
-					<p>Custom motor mounts, landing gear, camera gimbal frames, and antenna holders designed in FreeCAD and printed in PETG for the <a href="project-drone-practice.html">quadcopter build</a>. Key design considerations: vibration resistance, weight, and impact toughness.</p>
+					<p>Motor mounts, landing gear, camera gimbal frames, and antenna holders for the <a href="project-drone-practice.html">quadcopter build</a>. Design criteria: vibration resistance, minimum weight, and impact toughness. Printed in PETG.</p>
 
 					<h3>Wind Tunnel Fixtures</h3>
-					<p>Mounting brackets and probe holders for the <a href="project-dronedetective.html">EPFL wind tunnel project</a> — parts that had to be dimensionally accurate to ±0.2 mm and aerodynamically unobtrusive in the flow field.</p>
+					<p>Mounting brackets and probe holders for the <a href="project-dronedetective.html">EPFL wind tunnel project</a> — dimensionally accurate to ±0.2 mm and aerodynamically unobtrusive in the flow field.</p>
 
 					<h3>Lab Tools &amp; Jigs</h3>
-					<p>Cable management clips, sensor holders, alignment jigs, and custom enclosures for electronics projects. When off-the-shelf doesn't exist or is overpriced, printing it takes 20 minutes of CAD and a few hours of print time.</p>
+					<p>Cable management clips, sensor holders, alignment jigs, and custom electronics enclosures. When off-the-shelf doesn't exist, printing it takes 20 minutes of CAD and a few hours of print time.</p>
 
-					<h2>Creative &amp; Artistic Prints</h2>
-					<p>Beyond engineering, 3D printing opens doors to artistic expression. Projects include geometric sculptures, personalised gifts, and musical instrument accessories (guitar picks, capo modifications). Resin printing used for high-detail decorative pieces.</p>
+					<h2>Creative Prints</h2>
+					<p>Beyond engineering: geometric sculptures, personalised gifts, guitar accessories. Resin printing used for high-detail decorative pieces.</p>
 
 					<h2>Process &amp; Equipment</h2>
-					<p><strong>FDM printer</strong> (Ender 3 / Prusa-style): PLA, PETG, TPU · Layer height 0.1–0.3 mm<br />
-					<strong>Resin printer</strong>: Standard and ABS-like resin for high-detail parts<br />
-					<strong>CAD tools</strong>: FreeCAD, SolidWorks, Tinkercad (quick concepts)<br />
-					<strong>Slicers</strong>: Cura, PrusaSlicer</p>
+					<div class="table-wrapper">
+						<table>
+							<thead><tr><th>Technology</th><th>Materials</th><th>Software</th></tr></thead>
+							<tbody>
+								<tr><td>FDM (Ender 3 / Prusa)</td><td>PLA, PETG, TPU</td><td>Cura, PrusaSlicer</td></tr>
+								<tr><td>Resin</td><td>Standard, ABS-like</td><td>Chitubox</td></tr>
+								<tr><td>CAD</td><td>—</td><td>FreeCAD, SolidWorks, Tinkercad</td></tr>
+							</tbody>
+						</table>
+					</div>
 
-					<h2>Lessons Learned</h2>
-					<p>The best designs are not the ones that look good in CAD — they're the ones that account for print orientation, support removal, layer anisotropy, and post-processing from the very first sketch. Iteration is fast and cheap; use it.</p>
+					<h2>Key Lesson</h2>
+					<p>The best designs are not the ones that look good in CAD — they're the ones that account for print orientation, support removal, layer anisotropy, and post-processing from the first sketch. Iteration is fast and cheap; use it.</p>
 
 					<ul class="actions special">
-						<li><a href="index.html#projects" class="button">← Back to Projects</a></li>
+						<li><a href="projects.html" class="button">← Back to Projects</a></li>
 					</ul>
 				</section>
 			</div>
 
-			<!-- Footer / Contact -->
+			<!-- Footer -->
 			<footer id="footer">
 				<section>
 					<h2>Get in Touch</h2>
-					<form method="post" action="https://formsubmit.co/avonileonardo@gmail.com">
-						<input type="hidden" name="_captcha" value="false">
+					<p>Collaboration, opportunity, or just a chat about aerospace — I'm all ears.</p>
+					<form method="post" action="https://formsubmit.co/508f2442ee8d91ab130219ae9c0e5b1b">
+						<input type="hidden" name="_captcha" value="false" />
 						<div class="fields">
 							<div class="field">
 								<label for="name">Name</label>
@@ -101,6 +124,10 @@
 				</section>
 				<section class="split contact">
 					<section>
+						<h3>Location</h3>
+						<p>Toulouse, France<br />(Open to relocation)</p>
+					</section>
+					<section>
 						<h3>Email</h3>
 						<p><a href="mailto:avonileonardo@gmail.com">avonileonardo@gmail.com</a></p>
 					</section>
@@ -113,16 +140,11 @@
 					</section>
 				</section>
 			</footer>
-
-			<!-- Copyright -->
 			<div id="copyright">
-				<ul>
-					<li>&copy; Leonardo Avoni</li>
-					<li>Design: <a href="https://html5up.net">HTML5 UP</a></li>
-				</ul>
+				<ul><li>&copy; Leonardo Avoni</li><li>Design: <a href="https://html5up.net">HTML5 UP</a></li></ul>
 			</div>
 
-		</div>
+		</div><!-- end #wrapper -->
 
 		<!-- Scripts -->
 		<script src="assets/js/jquery.min.js"></script>
@@ -132,6 +154,5 @@
 		<script src="assets/js/breakpoints.min.js"></script>
 		<script src="assets/js/util.js"></script>
 		<script src="assets/js/main.js"></script>
-
 	</body>
 </html>

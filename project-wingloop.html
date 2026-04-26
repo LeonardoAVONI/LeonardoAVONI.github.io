@@ -1,18 +1,14 @@
 <!DOCTYPE HTML>
-<!--
-	Massively by HTML5 UP — Leonardo Avoni Portfolio
--->
 <html>
 	<head>
 		<title>WingLoop — Automation & Control Library — Leonardo Avoni</title>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 		<link rel="stylesheet" href="assets/css/main.css" />
+		<link rel="stylesheet" href="assets/css/custom.css" />
 		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
 	</head>
 	<body class="is-preload">
-
-		<!-- Wrapper -->
 		<div id="wrapper">
 
 			<!-- Header -->
@@ -24,8 +20,28 @@
 			<nav id="nav">
 				<ul class="links">
 					<li><a href="index.html">Home</a></li>
-					<li><a href="index.html#projects">Projects</a></li>
-					<li class="active"><a href="project-wingloop.html">This Project</a></li>
+					<li><a href="skills.html">Skills &amp; Certifications</a></li>
+					<li class="has-dropdown active">
+						<a href="projects.html">Projects</a>
+						<ul class="dropdown">
+							<li class="dropdown-cat">PhD Contributions</li>
+							<li><a href="project-aswing.html">ASWING Extended Manual</a></li>
+							<li><a href="project-wingloop.html">WingLoop Library</a></li>
+							<li><a href="project-stall.html">Stall Implementation</a></li>
+							<li class="dropdown-cat">Master Projects</li>
+							<li><a href="project-dronedetective.html">DroneDetective</a></li>
+							<li><a href="project-wind-tunnel.html">Supersonic Wind Tunnel</a></li>
+							<li class="dropdown-cat">Personal Projects</li>
+							<li><a href="project-drone-theory.html">Drone Dev: Theory</a></li>
+							<li><a href="project-drone-practice.html">Drone Dev: Practice</a></li>
+							<li><a href="project-3d-printing.html">3D Printed Projects</a></li>
+							<li class="dropdown-cat">Internships</li>
+							<li><a href="project-synova-calibration.html">Synova: Calibration</a></li>
+							<li><a href="project-synova-stability.html">Synova: Jet Stability</a></li>
+							<li class="dropdown-cat">Other</li>
+							<li><a href="project-tpe.html">TPE/TM — CERN</a></li>
+						</ul>
+					</li>
 				</ul>
 				<ul class="icons">
 					<li><a href="https://www.linkedin.com/in/leonardo-avoni/" target="_blank" class="icon brands fa-linkedin"><span class="label">LinkedIn</span></a></li>
@@ -33,7 +49,6 @@
 				</ul>
 			</nav>
 
-			<!-- Main -->
 			<div id="main">
 				<section class="post">
 					<header class="major">
@@ -44,39 +59,45 @@
 					<div class="image main"><img src="images/pic05.jpg" alt="WingLoop — Automation & Control Library" /></div>
 
 					<h2>Motivation</h2>
-					<p>Flexible-aircraft simulation workflows typically involve a tangle of manual steps: setting up trim conditions, sweeping parameters, extracting eigenvalues, and collecting results. WingLoop was born out of the need to automate this entire pipeline and expose a clean Python API for control design and parametric studies.</p>
+					<p>Flexible-aircraft simulation workflows traditionally involve a tangle of manual steps: setting up trim conditions, sweeping parameters, extracting eigenvalues, and collecting results. WingLoop automates this entire pipeline and exposes a clean Python API for control design and parametric studies.</p>
 
-					<h2>What WingLoop Does</h2>
+					<h2>Key Features</h2>
+
 					<h3>ASWING Wrapper &amp; Automation</h3>
-					<p>WingLoop wraps the ASWING solver with a Python interface, enabling fully scripted batch runs, automatic input-file generation, and structured output parsing — eliminating the manual interactive session that ASWING traditionally requires.</p>
+					<p>Scripted batch runs, automatic input-file generation, and structured output parsing — eliminating the manual interactive session that ASWING traditionally requires.</p>
 
 					<h3>Parametric Sweeps</h3>
-					<p>Define any parameter sweep (airspeed, altitude, payload mass, structural stiffness…) in a few lines of Python. WingLoop handles the loop, monitors convergence, and stores results in structured pandas DataFrames.</p>
+					<p>Define any sweep (airspeed, altitude, payload, stiffness…) in a few lines. WingLoop handles the loop, monitors convergence, and stores results in pandas DataFrames.</p>
 
 					<h3>Eigenvalue Tracking &amp; Flutter Analysis</h3>
-					<p>Automatic extraction and modal tracking across flight envelope sweeps. Damping and frequency plots generated automatically. Flutter speed and divergence detection built-in.</p>
+					<p>Automatic modal tracking across flight envelope sweeps. Damping / frequency plots generated automatically. Flutter speed and divergence detection built-in.</p>
 
 					<h3>Control Design Interface</h3>
-					<p>Linearised state-space models exported directly from ASWING and interfaced with Python control libraries (python-control, SciPy) for LQR, H∞, and PID design workflows.</p>
+					<p>Linearised state-space models exported directly from ASWING and interfaced with python-control / SciPy for LQR, H∞, and PID workflows.</p>
 
 					<h2>AIAA AVIATION FORUM 2025</h2>
-					<p>WingLoop was presented as a conference paper at <strong>AIAA AVIATION FORUM 2025 in Las Vegas</strong>, where it was received with interest from the flexible-aircraft and HALE UAV research community.</p>
+					<p>WingLoop was presented as a conference paper at <strong>AIAA AVIATION FORUM 2025, Las Vegas</strong>, receiving interest from the HALE UAV and flexible-aircraft research community.</p>
 
 					<h2>Tech Stack</h2>
-					<p>Python · NumPy · SciPy · pandas · Matplotlib · python-control · Git / GitHub</p>
+					<ul>
+						<li>Python · NumPy · SciPy · pandas · Matplotlib</li>
+						<li>python-control</li>
+						<li>Git / GitHub (open source)</li>
+					</ul>
 
 					<ul class="actions special">
-						<li><a href="index.html#projects" class="button">← Back to Projects</a></li>
+						<li><a href="projects.html" class="button">← Back to Projects</a></li>
 					</ul>
 				</section>
 			</div>
 
-			<!-- Footer / Contact -->
+			<!-- Footer -->
 			<footer id="footer">
 				<section>
 					<h2>Get in Touch</h2>
-					<form method="post" action="https://formsubmit.co/avonileonardo@gmail.com">
-						<input type="hidden" name="_captcha" value="false">
+					<p>Collaboration, opportunity, or just a chat about aerospace — I'm all ears.</p>
+					<form method="post" action="https://formsubmit.co/508f2442ee8d91ab130219ae9c0e5b1b">
+						<input type="hidden" name="_captcha" value="false" />
 						<div class="fields">
 							<div class="field">
 								<label for="name">Name</label>
@@ -98,6 +119,10 @@
 				</section>
 				<section class="split contact">
 					<section>
+						<h3>Location</h3>
+						<p>Toulouse, France<br />(Open to relocation)</p>
+					</section>
+					<section>
 						<h3>Email</h3>
 						<p><a href="mailto:avonileonardo@gmail.com">avonileonardo@gmail.com</a></p>
 					</section>
@@ -110,16 +135,11 @@
 					</section>
 				</section>
 			</footer>
-
-			<!-- Copyright -->
 			<div id="copyright">
-				<ul>
-					<li>&copy; Leonardo Avoni</li>
-					<li>Design: <a href="https://html5up.net">HTML5 UP</a></li>
-				</ul>
+				<ul><li>&copy; Leonardo Avoni</li><li>Design: <a href="https://html5up.net">HTML5 UP</a></li></ul>
 			</div>
 
-		</div>
+		</div><!-- end #wrapper -->
 
 		<!-- Scripts -->
 		<script src="assets/js/jquery.min.js"></script>
@@ -129,6 +149,5 @@
 		<script src="assets/js/breakpoints.min.js"></script>
 		<script src="assets/js/util.js"></script>
 		<script src="assets/js/main.js"></script>
-
 	</body>
 </html>
