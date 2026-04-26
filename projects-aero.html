@@ -122,18 +122,10 @@
 						</ul>
 					</article>
 				</section>
-				<footer>
-					<div class="pagination" id="pag-bot">
-						<a href="#" class="previous disabled" data-dir="prev">Prev</a>
-						<a href="#" class="page  active" data-target="0">1</a>
-						<a href="#" class="next" data-dir="next">Next</a>
-					</div>
-				</footer>
 			</div><!-- end #main -->
-			<!-- Footer -->
 			<footer id="footer">
 				<section>
-					<h2>Get in Touch</h2>
+					<h2>Get in Touch!</h2>
 					<p>Collaboration, opportunity, or just a chat about aerospace — I'm all ears.</p>
 					<form method="post" action="https://formsubmit.co/508f2442ee8d91ab130219ae9c0e5b1b">
 						<input type="hidden" name="_captcha" value="false" />
@@ -169,39 +161,5 @@
 		<script src="assets/js/util.js"></script>
 		<script src="assets/js/main.js"></script>
 		<script src="assets/js/nav-dropdown.js"></script>
-		<script>
-		(function(){
-			var total = 1;
-			var cur = 0;
-			function showPage(n) {
-				cur = Math.max(0, Math.min(n, total - 1));
-				document.querySelectorAll('.post-page').forEach(function(s){
-					s.classList.toggle('active', parseInt(s.dataset.page) === cur);
-				});
-				['top','bot'].forEach(function(sfx){
-					var pag = document.getElementById('pag-' + sfx);
-					if (!pag) return;
-					pag.querySelectorAll('.page').forEach(function(b){
-						b.classList.toggle('active', parseInt(b.dataset.target) === cur);
-					});
-					pag.querySelector('[data-dir="prev"]').classList.toggle('disabled', cur === 0);
-					pag.querySelector('[data-dir="next"]').classList.toggle('disabled', cur === total - 1);
-				});
-				var h = document.getElementById('proj-heading');
-				if (h) window.scrollTo({top: h.offsetTop - 90, behavior: 'smooth'});
-			}
-			document.querySelectorAll('.pagination .page').forEach(function(btn){
-				btn.addEventListener('click', function(e){
-					e.preventDefault(); showPage(parseInt(this.dataset.target));
-				});
-			});
-			document.querySelectorAll('.pagination [data-dir="prev"]').forEach(function(btn){
-				btn.addEventListener('click', function(e){ e.preventDefault(); showPage(cur-1); });
-			});
-			document.querySelectorAll('.pagination [data-dir="next"]').forEach(function(btn){
-				btn.addEventListener('click', function(e){ e.preventDefault(); showPage(cur+1); });
-			});
-		})();
-		</script>
 	</body>
 </html>
