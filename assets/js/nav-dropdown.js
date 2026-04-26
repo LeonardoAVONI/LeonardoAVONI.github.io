@@ -1,35 +1,34 @@
-/* nav-dropdown.js — click-toggle for the Projects dropdown */
-(function () {
-    document.addEventListener('DOMContentLoaded', function () {
-        var triggers = document.querySelectorAll('#nav ul.links li.has-dropdown > a');
-        triggers.forEach(function (trigger) {
-            trigger.addEventListener('click', function (e) {
-                // Only intercept if the page IS projects.html (the link target)
-                // On other pages the click should still navigate; so we only
-                // prevent default when we're already on that page OR just toggle.
-                var parent = this.parentElement;
-                var isOpen = parent.classList.contains('open');
+/* nav-dropdown.js — click-toggle for the Projects dropdown
+ * Must load AFTER main.js so jQuery is available.
+ * Uses jQuery + stopImmediatePropagation to prevent the Massively
+ * template's own click handler from swallowing the event on desktop.
+ */
+(function ($) {
+    $(document).ready(function () {
 
-                // Close all dropdowns first
-                document.querySelectorAll('#nav ul.links li.has-dropdown').forEach(function (li) {
-                    li.classList.remove('open');
-                });
+        var $trigger = $('#nav ul.links li.has-dropdown > a');
 
-                if (!isOpen) {
-                    e.preventDefault();          // stop navigation, show menu
-                    parent.classList.add('open');
-                }
-                // if it was open, we closed it and let the click navigate normally
-            });
+        $trigger.on('click', function (e) {
+            var $parent = $(this).parent();
+            var wasOpen = $parent.hasClass('open');
+
+            // Close every dropdown first
+            $('#nav ul.links li.has-dropdown').removeClass('open');
+
+            if (!wasOpen) {
+                // Prevent the template and browser from following the link
+                e.preventDefault();
+                e.stopImmediatePropagation();
+                $parent.addClass('open');
+            }
+            // If it was already open: close it and allow navigation to projects.html
         });
 
-        // Click anywhere outside → close all dropdowns
-        document.addEventListener('click', function (e) {
-            if (!e.target.closest('#nav ul.links li.has-dropdown')) {
-                document.querySelectorAll('#nav ul.links li.has-dropdown').forEach(function (li) {
-                    li.classList.remove('open');
-                });
+        // Click anywhere outside the dropdown → close everything
+        $(document).on('click', function (e) {
+            if (!$(e.target).closest('#nav ul.links li.has-dropdown').length) {
+                $('#nav ul.links li.has-dropdown').removeClass('open');
             }
         });
     });
-})();
+})(jQuery);

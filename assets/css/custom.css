@@ -4,6 +4,25 @@
  */
 
 /* ── Dropdown nav — click-toggled ──────────────────────────────── */
+
+/*
+ * The Massively template sets overflow:hidden on #nav and its inner
+ * containers, which clips absolutely-positioned children before they
+ * can paint on desktop.  Override the whole ancestor chain.
+ */
+#nav,
+#nav > ul,
+#nav ul.links,
+#nav ul.links li.has-dropdown {
+    overflow: visible !important;
+}
+
+/* Lift #nav above page content so the panel renders on top */
+#nav {
+    position: relative;
+    z-index: 1000;
+}
+
 #nav ul.links li.has-dropdown {
     position: relative;
 }
