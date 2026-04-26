@@ -69,7 +69,7 @@
 					delay: 0,
 
 				// Hide panel on link click.
-					hideOnClick: false,
+					hideOnClick: true,
 
 				// Hide panel on escape keypress.
 					hideOnEscape: false,
