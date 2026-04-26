@@ -1,15 +1,13 @@
 /*
- * custom.css — Leonardo Avoni Portfolio additions
- * Link AFTER main.css on every page
+ * custom.css — Leonardo Avoni Portfolio
+ * Load AFTER main.css on every page
  */
 
-/* ── Dropdown nav — click-toggled ──────────────────────────────── */
-
-/*
- * The Massively template sets overflow:hidden on #nav and its inner
- * containers, which clips absolutely-positioned children before they
- * can paint on desktop.  Override the whole ancestor chain.
- */
+/* ══════════════════════════════════════════════════════════════════
+   DESKTOP DROPDOWN  (#nav)
+   The Massively template sets overflow:hidden on the nav bar which
+   clips absolutely-positioned children.  Override the full chain.
+   ══════════════════════════════════════════════════════════════════ */
 #nav,
 #nav > ul,
 #nav ul.links,
@@ -17,7 +15,6 @@
     overflow: visible !important;
 }
 
-/* Lift #nav above page content so the panel renders on top */
 #nav {
     position: relative;
     z-index: 1000;
@@ -27,19 +24,19 @@
     position: relative;
 }
 
-/* Arrow indicator */
+/* Caret */
 #nav ul.links li.has-dropdown > a::after {
     content: ' ▾';
     font-size: 0.7em;
     opacity: 0.7;
-    transition: transform 0.2s;
     display: inline-block;
+    transition: transform 0.2s;
 }
 #nav ul.links li.has-dropdown.open > a::after {
     transform: rotate(180deg);
 }
 
-/* The dropdown panel — hidden by default, shown via .open class (JS) */
+/* Dropdown panel */
 #nav ul.links li.has-dropdown .dropdown {
     display: none;
     position: absolute;
@@ -49,14 +46,13 @@
     background: #1e2227;
     border: 1px solid rgba(255,255,255,0.12);
     border-radius: 4px;
-    min-width: 270px;
+    min-width: 260px;
     z-index: 9999;
     list-style: none;
     margin: 0;
     padding: 0.4em 0;
     box-shadow: 0 8px 28px rgba(0,0,0,0.55);
 }
-
 #nav ul.links li.has-dropdown.open .dropdown {
     display: block;
 }
@@ -66,7 +62,6 @@
     margin: 0;
     border: none;
 }
-
 #nav ul.links li.has-dropdown .dropdown li a {
     display: block;
     padding: 0.45em 1.2em;
@@ -78,15 +73,14 @@
     white-space: nowrap;
     transition: color 0.15s, background 0.15s;
 }
-
 #nav ul.links li.has-dropdown .dropdown li a:hover {
     color: #fff;
     background: rgba(255,255,255,0.08);
 }
 
-/* Category section labels */
+/* Section labels inside dropdown */
 #nav ul.links li.has-dropdown .dropdown li.dropdown-cat {
-    padding: 0.6em 1.2em 0.2em;
+    padding: 0.55em 1.2em 0.2em;
     font-size: 0.62em;
     letter-spacing: 0.15em;
     text-transform: uppercase;
@@ -100,20 +94,86 @@
     margin-top: 0;
 }
 
-/* ── JS Pagination ────────────────────────────────────────────── */
-/* Each page group is a <section class="posts post-page"> */
+
+/* ══════════════════════════════════════════════════════════════════
+   MOBILE DROPDOWN  (#navPanel)
+   Massively's JS clones #nav into a slide-in #navPanel sidebar.
+   We style collapsible sub-menus there rather than using absolute
+   positioning (no room for it in a narrow sidebar).
+   ══════════════════════════════════════════════════════════════════ */
+#navPanel ul.links li.has-dropdown {
+    position: relative;
+}
+
+/* Caret for mobile */
+#navPanel ul.links li.has-dropdown > a::after {
+    content: ' ▾';
+    font-size: 0.7em;
+    opacity: 0.7;
+    display: inline-block;
+    transition: transform 0.2s;
+    float: right;
+    margin-top: 0.1em;
+}
+#navPanel ul.links li.has-dropdown.open > a::after {
+    transform: rotate(180deg);
+}
+
+/* Mobile sub-menu: collapsed by default, expands inline */
+#navPanel ul.links li.has-dropdown .dropdown {
+    display: none;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    background: rgba(255,255,255,0.05);
+    border-left: 2px solid rgba(255,255,255,0.15);
+    margin-left: 1em;
+}
+#navPanel ul.links li.has-dropdown.open .dropdown {
+    display: block;
+}
+
+#navPanel ul.links li.has-dropdown .dropdown li {
+    border: none;
+    padding: 0;
+    margin: 0;
+}
+#navPanel ul.links li.has-dropdown .dropdown li a {
+    display: block;
+    padding: 0.5em 1em;
+    font-size: 0.8em;
+    letter-spacing: 0.05em;
+    color: rgba(255,255,255,0.65);
+    text-transform: uppercase;
+    border: none;
+}
+#navPanel ul.links li.has-dropdown .dropdown li a:hover {
+    color: #fff;
+}
+#navPanel ul.links li.has-dropdown .dropdown li.dropdown-cat {
+    padding: 0.5em 1em 0.1em;
+    font-size: 0.6em;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.3);
+    pointer-events: none;
+}
+
+
+/* ══════════════════════════════════════════════════════════════════
+   PAGINATED PROJECT SECTIONS
+   ══════════════════════════════════════════════════════════════════ */
 .post-page {
     display: none;
 }
 .post-page.active {
-    display: grid;               /* match the template's .posts grid */
+    display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: 3em;
     width: 100%;
 }
 
-/* ── Skills grid tweaks ───────────────────────────────────────── */
-.skills-icon {
-    font-size: 1.4em;
-    margin-right: 0.3em;
+/* Hide entire pagination widget when there's only 1 page */
+.pagination-wrap.single-page {
+    display: none;
 }

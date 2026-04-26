@@ -11,7 +11,6 @@
 	<body class="is-preload">
 		<div id="wrapper">
 
-			<!-- Header -->
 			<header id="header">
 				<a href="index.html" class="logo">Leonardo Avoni</a>
 			</header>
@@ -22,24 +21,29 @@
 					<li><a href="index.html">Home</a></li>
 					<li><a href="skills.html">Skills &amp; Certifications</a></li>
 					<li class="has-dropdown active">
-						<a href="projects.html">Projects</a>
+						<a href="projects-aero.html">Aerodynamics Projects</a>
 						<ul class="dropdown">
-							<li class="dropdown-cat">PhD Contributions</li>
-							<li><a href="project-aswing.html">ASWING Extended Manual</a></li>
-							<li><a href="project-wingloop.html">WingLoop Library</a></li>
-							<li><a href="project-stall.html">Stall Implementation</a></li>
-							<li class="dropdown-cat">Master Projects</li>
-							<li><a href="project-dronedetective.html">DroneDetective</a></li>
-							<li><a href="project-wind-tunnel.html">Supersonic Wind Tunnel</a></li>
-							<li class="dropdown-cat">Personal Projects</li>
-							<li><a href="project-drone-theory.html">Drone Dev: Theory</a></li>
-							<li><a href="project-drone-practice.html">Drone Dev: Practice</a></li>
+							<li><a href="project-aswing.html">ASWING Extended User Manual</a></li>
+							<li><a href="project-wingloop.html">WingLoop — Automation & Control Library</a></li>
+							<li><a href="project-stall.html">Stall Implementation for Flexible Wings</a></li>
+							<li><a href="project-dronedetective.html">DroneDetective — Morphing Drone Wind Tunnel</a></li>
+							<li><a href="project-wind-tunnel.html">Supersonic Wind Tunnel — Design & Testing</a></li>
+						</ul>
+					</li>
+					<li class="has-dropdown">
+						<a href="projects-uav.html">UAV Projects</a>
+						<ul class="dropdown">
+							<li><a href="project-drone-theory.html">First Drone Development — Theory</a></li>
+							<li><a href="project-drone-practice.html">First Drone Development — Practice</a></li>
+						</ul>
+					</li>
+					<li class="has-dropdown">
+						<a href="projects-other.html">Other Projects</a>
+						<ul class="dropdown">
+							<li><a href="project-synova-calibration.html">Synova SA — Laser Jet Calibration</a></li>
+							<li><a href="project-synova-stability.html">Synova SA — Water-Jet Stability</a></li>
 							<li><a href="project-3d-printing.html">3D Printed Projects</a></li>
-							<li class="dropdown-cat">Internships</li>
-							<li><a href="project-synova-calibration.html">Synova: Calibration</a></li>
-							<li><a href="project-synova-stability.html">Synova: Jet Stability</a></li>
-							<li class="dropdown-cat">Other</li>
-							<li><a href="project-tpe.html">TPE/TM — CERN</a></li>
+							<li><a href="project-tpe.html">Mon TPE/TM en 15'! — CERN</a></li>
 						</ul>
 					</li>
 				</ul>
@@ -59,31 +63,19 @@
 					<div class="image main"><img src="images/pic06.jpg" alt="Stall Implementation for Flexible Wings" /></div>
 
 					<h2>The Problem</h2>
-					<p>Tools like ASWING rely on linear aerodynamic models that cannot predict stall — the aerodynamic breakdown beyond the critical angle of attack. For HALE aircraft operating at low airspeeds and high lift coefficients, stall prediction is safety-critical.</p>
-
-					<h2>Approach</h2>
-
+					<p>ASWING uses linear aerodynamic models that cannot predict stall. For HALE aircraft at low airspeeds and high lift coefficients, stall prediction is safety-critical.</p>
 					<h3>Sectional Stall Modelling</h3>
-					<p>Extension of sectional aerodynamic coefficients (Cl, Cd, Cm) beyond the linear range using empirical nonlinear polars from XFOIL and literature. A smooth stall ramp avoids numerical discontinuities in time-domain simulations.</p>
-
+					<p>Extension of Cl, Cd, Cm beyond the linear range using XFOIL polars and literature data. Smooth stall ramp avoids numerical discontinuities in time-domain runs.</p>
 					<h3>Coupling with Structural Deformation</h3>
-					<p>For a flexible wing, local angle of attack varies as the wing bends and twists. The stall model must operate section-by-section on the deformed geometry — creating coupling between structural and aerodynamic nonlinearity.</p>
-
-					<h3>Dynamic Stall Effects</h3>
-					<p>Investigation of Theodorsen / Leishman-Beddoes dynamic stall models for flexible wings undergoing gust-induced oscillations — relevant for gust-load alleviation control design.</p>
-
-					<h2>Current Status</h2>
-					<p>This work is <strong>ongoing</strong> as part of my PhD. Preliminary results show that stall significantly alters the dynamic behaviour of flexible aircraft at high lift coefficients, with direct implications for flight envelope protection.</p>
-
+					<p>For a flexible wing, local angle of attack varies as the wing bends and twists. The stall model operates section-by-section on the deformed geometry.</p>
+					<h3>Dynamic Stall</h3>
+					<p>Investigation of Theodorsen / Leishman-Beddoes models for gust-induced oscillations — relevant to gust-load alleviation control.</p>
+					<h2>Status</h2>
+					<p><strong>Ongoing</strong>. Preliminary results show stall significantly alters flexible-aircraft dynamics at high CL, with direct implications for flight-envelope protection.</p>
 					<h2>Tools</h2>
-					<ul>
-						<li>ASWING · XFOIL</li>
-						<li>Python (NumPy, Matplotlib)</li>
-						<li>MATLAB</li>
-					</ul>
-
+					<ul><li>ASWING · XFOIL · Python · MATLAB</li></ul>
 					<ul class="actions special">
-						<li><a href="projects.html" class="button">← Back to Projects</a></li>
+						<li><a href="projects-aero.html" class="button">← Back to Aerodynamics Projects</a></li>
 					</ul>
 				</section>
 			</div>
@@ -96,33 +88,16 @@
 					<form method="post" action="https://formsubmit.co/508f2442ee8d91ab130219ae9c0e5b1b">
 						<input type="hidden" name="_captcha" value="false" />
 						<div class="fields">
-							<div class="field">
-								<label for="name">Name</label>
-								<input type="text" name="name" id="name" required />
-							</div>
-							<div class="field">
-								<label for="email">Email</label>
-								<input type="email" name="email" id="email" required />
-							</div>
-							<div class="field">
-								<label for="message">Message</label>
-								<textarea name="message" id="message" rows="3" required></textarea>
-							</div>
+							<div class="field"><label for="name">Name</label><input type="text" name="name" id="name" required /></div>
+							<div class="field"><label for="email">Email</label><input type="email" name="email" id="email" required /></div>
+							<div class="field"><label for="message">Message</label><textarea name="message" id="message" rows="3" required></textarea></div>
 						</div>
-						<ul class="actions">
-							<li><input type="submit" value="Send Message" /></li>
-						</ul>
+						<ul class="actions"><li><input type="submit" value="Send Message" /></li></ul>
 					</form>
 				</section>
 				<section class="split contact">
-					<section>
-						<h3>Location</h3>
-						<p>Toulouse, France<br />(Open to relocation)</p>
-					</section>
-					<section>
-						<h3>Email</h3>
-						<p><a href="mailto:avonileonardo@gmail.com">avonileonardo@gmail.com</a></p>
-					</section>
+					<section><h3>Location</h3><p>Toulouse, France<br />(Open to relocation)</p></section>
+					<section><h3>Email</h3><p><a href="mailto:avonileonardo@gmail.com">avonileonardo@gmail.com</a></p></section>
 					<section>
 						<h3>Social</h3>
 						<ul class="icons alt">
@@ -138,7 +113,6 @@
 
 		</div><!-- end #wrapper -->
 
-		<!-- Scripts -->
 		<script src="assets/js/jquery.min.js"></script>
 		<script src="assets/js/jquery.scrollex.min.js"></script>
 		<script src="assets/js/jquery.scrolly.min.js"></script>

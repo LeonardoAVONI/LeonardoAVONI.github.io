@@ -11,7 +11,6 @@
 	<body class="is-preload">
 		<div id="wrapper">
 
-			<!-- Header -->
 			<header id="header">
 				<a href="index.html" class="logo">Leonardo Avoni</a>
 			</header>
@@ -21,25 +20,30 @@
 				<ul class="links">
 					<li><a href="index.html">Home</a></li>
 					<li><a href="skills.html">Skills &amp; Certifications</a></li>
-					<li class="has-dropdown active">
-						<a href="projects.html">Projects</a>
+					<li class="has-dropdown">
+						<a href="projects-aero.html">Aerodynamics Projects</a>
 						<ul class="dropdown">
-							<li class="dropdown-cat">PhD Contributions</li>
-							<li><a href="project-aswing.html">ASWING Extended Manual</a></li>
-							<li><a href="project-wingloop.html">WingLoop Library</a></li>
-							<li><a href="project-stall.html">Stall Implementation</a></li>
-							<li class="dropdown-cat">Master Projects</li>
-							<li><a href="project-dronedetective.html">DroneDetective</a></li>
-							<li><a href="project-wind-tunnel.html">Supersonic Wind Tunnel</a></li>
-							<li class="dropdown-cat">Personal Projects</li>
-							<li><a href="project-drone-theory.html">Drone Dev: Theory</a></li>
-							<li><a href="project-drone-practice.html">Drone Dev: Practice</a></li>
+							<li><a href="project-aswing.html">ASWING Extended User Manual</a></li>
+							<li><a href="project-wingloop.html">WingLoop — Automation & Control Library</a></li>
+							<li><a href="project-stall.html">Stall Implementation for Flexible Wings</a></li>
+							<li><a href="project-dronedetective.html">DroneDetective — Morphing Drone Wind Tunnel</a></li>
+							<li><a href="project-wind-tunnel.html">Supersonic Wind Tunnel — Design & Testing</a></li>
+						</ul>
+					</li>
+					<li class="has-dropdown active">
+						<a href="projects-uav.html">UAV Projects</a>
+						<ul class="dropdown">
+							<li><a href="project-drone-theory.html">First Drone Development — Theory</a></li>
+							<li><a href="project-drone-practice.html">First Drone Development — Practice</a></li>
+						</ul>
+					</li>
+					<li class="has-dropdown">
+						<a href="projects-other.html">Other Projects</a>
+						<ul class="dropdown">
+							<li><a href="project-synova-calibration.html">Synova SA — Laser Jet Calibration</a></li>
+							<li><a href="project-synova-stability.html">Synova SA — Water-Jet Stability</a></li>
 							<li><a href="project-3d-printing.html">3D Printed Projects</a></li>
-							<li class="dropdown-cat">Internships</li>
-							<li><a href="project-synova-calibration.html">Synova: Calibration</a></li>
-							<li><a href="project-synova-stability.html">Synova: Jet Stability</a></li>
-							<li class="dropdown-cat">Other</li>
-							<li><a href="project-tpe.html">TPE/TM — CERN</a></li>
+							<li><a href="project-tpe.html">Mon TPE/TM en 15'! — CERN</a></li>
 						</ul>
 					</li>
 				</ul>
@@ -59,37 +63,23 @@
 					<div class="image main"><img src="images/pic02.jpg" alt="First Drone Development: Theory" /></div>
 
 					<h2>Overview</h2>
-					<p>Before touching a single component, I committed to fully understanding the physics behind a quadcopter. This project documents the theoretical groundwork: rigid-body dynamics, rotor aerodynamics, motor-propeller matching, and linear control design.</p>
-
-					<h2>Key Topics</h2>
-
+					<p>Before touching a single component, I committed to fully understanding the physics behind a quadcopter: rigid-body dynamics, rotor aerodynamics, motor-propeller matching, and linear control design.</p>
 					<h3>1 · Rigid-Body Dynamics</h3>
-					<p>Derivation of the 6-DOF equations of motion for a quadrotor using Newton-Euler formalism. Translational and rotational dynamics are coupled through the inertia tensor and gyroscopic effects of spinning rotors.</p>
-
+					<p>6-DOF Newton-Euler equations of motion. Translational and rotational dynamics coupled through the inertia tensor and gyroscopic effects of spinning rotors.</p>
 					<h3>2 · Rotor Aerodynamics</h3>
-					<p>Application of Blade Element Momentum Theory (BEMT) to size propellers for a target thrust-to-weight ratio. Key parameters: blade pitch, chord distribution, tip speed, and the efficiency vs. responsiveness trade-off.</p>
-
+					<p>Blade Element Momentum Theory (BEMT) to size propellers for a target thrust-to-weight ratio: blade pitch, chord distribution, tip speed, efficiency vs. responsiveness.</p>
 					<h3>3 · Motor &amp; ESC Selection</h3>
-					<p>Matching brushless DC motors to the propeller load curve using KV ratings, torque constants, and efficiency maps. ESC selection based on current draw at hover and full-throttle burst.</p>
-
+					<p>Matching BLDC motors to propeller load curves via KV ratings, torque constants, and efficiency maps. ESC sizing based on hover and full-throttle current draw.</p>
 					<h3>4 · Control Architecture</h3>
-					<p>Cascaded PID design: outer position/altitude loop, inner attitude loop. Linearisation around hover enabling frequency-domain analysis and gain tuning.</p>
-
-					<h3>5 · Battery &amp; Power Budget</h3>
-					<p>LiPo cell selection based on C-rating, capacity, and target flight time. Full power breakdown across motors, FC, and peripherals.</p>
-
+					<p>Cascaded PID design: outer position/altitude loop, inner attitude loop. Linearisation around hover for frequency-domain analysis.</p>
+					<h3>5 · Power Budget</h3>
+					<p>LiPo cell selection by C-rating, capacity, and target flight time. Full consumption breakdown across motors, FC, and peripherals.</p>
 					<h2>Tools</h2>
-					<ul>
-						<li>Python (NumPy, SciPy, Matplotlib)</li>
-						<li>MATLAB / Simulink</li>
-						<li>Pen &amp; paper — still the best simulation tool</li>
-					</ul>
-
+					<ul><li>Python (NumPy, SciPy, Matplotlib)</li><li>MATLAB / Simulink</li></ul>
 					<h2>Outcome</h2>
-					<p>A fully documented design specification (frame size, motor KV, propeller geometry, battery config, estimated hover time) that fed directly into the <a href="project-drone-practice.html">practical build</a>.</p>
-
+					<p>A complete design specification feeding directly into the <a href="project-drone-practice.html">practical build</a>.</p>
 					<ul class="actions special">
-						<li><a href="projects.html" class="button">← Back to Projects</a></li>
+						<li><a href="projects-uav.html" class="button">← Back to UAV Projects</a></li>
 					</ul>
 				</section>
 			</div>
@@ -102,33 +92,16 @@
 					<form method="post" action="https://formsubmit.co/508f2442ee8d91ab130219ae9c0e5b1b">
 						<input type="hidden" name="_captcha" value="false" />
 						<div class="fields">
-							<div class="field">
-								<label for="name">Name</label>
-								<input type="text" name="name" id="name" required />
-							</div>
-							<div class="field">
-								<label for="email">Email</label>
-								<input type="email" name="email" id="email" required />
-							</div>
-							<div class="field">
-								<label for="message">Message</label>
-								<textarea name="message" id="message" rows="3" required></textarea>
-							</div>
+							<div class="field"><label for="name">Name</label><input type="text" name="name" id="name" required /></div>
+							<div class="field"><label for="email">Email</label><input type="email" name="email" id="email" required /></div>
+							<div class="field"><label for="message">Message</label><textarea name="message" id="message" rows="3" required></textarea></div>
 						</div>
-						<ul class="actions">
-							<li><input type="submit" value="Send Message" /></li>
-						</ul>
+						<ul class="actions"><li><input type="submit" value="Send Message" /></li></ul>
 					</form>
 				</section>
 				<section class="split contact">
-					<section>
-						<h3>Location</h3>
-						<p>Toulouse, France<br />(Open to relocation)</p>
-					</section>
-					<section>
-						<h3>Email</h3>
-						<p><a href="mailto:avonileonardo@gmail.com">avonileonardo@gmail.com</a></p>
-					</section>
+					<section><h3>Location</h3><p>Toulouse, France<br />(Open to relocation)</p></section>
+					<section><h3>Email</h3><p><a href="mailto:avonileonardo@gmail.com">avonileonardo@gmail.com</a></p></section>
 					<section>
 						<h3>Social</h3>
 						<ul class="icons alt">
@@ -144,7 +117,6 @@
 
 		</div><!-- end #wrapper -->
 
-		<!-- Scripts -->
 		<script src="assets/js/jquery.min.js"></script>
 		<script src="assets/js/jquery.scrollex.min.js"></script>
 		<script src="assets/js/jquery.scrolly.min.js"></script>

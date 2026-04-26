@@ -11,7 +11,6 @@
 	<body class="is-preload">
 		<div id="wrapper">
 
-			<!-- Header -->
 			<header id="header">
 				<a href="index.html" class="logo">Leonardo Avoni</a>
 			</header>
@@ -21,25 +20,30 @@
 				<ul class="links">
 					<li><a href="index.html">Home</a></li>
 					<li><a href="skills.html">Skills &amp; Certifications</a></li>
-					<li class="has-dropdown active">
-						<a href="projects.html">Projects</a>
+					<li class="has-dropdown">
+						<a href="projects-aero.html">Aerodynamics Projects</a>
 						<ul class="dropdown">
-							<li class="dropdown-cat">PhD Contributions</li>
-							<li><a href="project-aswing.html">ASWING Extended Manual</a></li>
-							<li><a href="project-wingloop.html">WingLoop Library</a></li>
-							<li><a href="project-stall.html">Stall Implementation</a></li>
-							<li class="dropdown-cat">Master Projects</li>
-							<li><a href="project-dronedetective.html">DroneDetective</a></li>
-							<li><a href="project-wind-tunnel.html">Supersonic Wind Tunnel</a></li>
-							<li class="dropdown-cat">Personal Projects</li>
-							<li><a href="project-drone-theory.html">Drone Dev: Theory</a></li>
-							<li><a href="project-drone-practice.html">Drone Dev: Practice</a></li>
+							<li><a href="project-aswing.html">ASWING Extended User Manual</a></li>
+							<li><a href="project-wingloop.html">WingLoop — Automation & Control Library</a></li>
+							<li><a href="project-stall.html">Stall Implementation for Flexible Wings</a></li>
+							<li><a href="project-dronedetective.html">DroneDetective — Morphing Drone Wind Tunnel</a></li>
+							<li><a href="project-wind-tunnel.html">Supersonic Wind Tunnel — Design & Testing</a></li>
+						</ul>
+					</li>
+					<li class="has-dropdown">
+						<a href="projects-uav.html">UAV Projects</a>
+						<ul class="dropdown">
+							<li><a href="project-drone-theory.html">First Drone Development — Theory</a></li>
+							<li><a href="project-drone-practice.html">First Drone Development — Practice</a></li>
+						</ul>
+					</li>
+					<li class="has-dropdown active">
+						<a href="projects-other.html">Other Projects</a>
+						<ul class="dropdown">
+							<li><a href="project-synova-calibration.html">Synova SA — Laser Jet Calibration</a></li>
+							<li><a href="project-synova-stability.html">Synova SA — Water-Jet Stability</a></li>
 							<li><a href="project-3d-printing.html">3D Printed Projects</a></li>
-							<li class="dropdown-cat">Internships</li>
-							<li><a href="project-synova-calibration.html">Synova: Calibration</a></li>
-							<li><a href="project-synova-stability.html">Synova: Jet Stability</a></li>
-							<li class="dropdown-cat">Other</li>
-							<li><a href="project-tpe.html">TPE/TM — CERN</a></li>
+							<li><a href="project-tpe.html">Mon TPE/TM en 15'! — CERN</a></li>
 						</ul>
 					</li>
 				</ul>
@@ -59,30 +63,17 @@
 					<div class="image main"><img src="images/pic02.jpg" alt="Synova SA Internship — Laser Calibration" /></div>
 
 					<h2>About Synova</h2>
-					<p><a href="https://www.synova.ch" target="_blank">Synova SA</a> pioneers <strong>Laser MicroJet (LMJ)</strong> technology — guiding a laser beam inside a hair-thin water jet. Applications: aerospace turbine blades, semiconductor wafers, and medical devices.</p>
-
-					<h2>Calibration Project</h2>
-					<p>My internship focused on <strong>calibration and alignment procedures</strong> for the optical and fluidic sub-systems. Precise co-alignment of laser beam with water-jet channel is critical: even micrometre-level misalignment degrades cut quality dramatically.</p>
-
+					<p><a href="https://www.synova.ch" target="_blank">Synova SA</a> pioneers <strong>Laser MicroJet (LMJ)</strong> technology — guiding a laser inside a hair-thin water jet. Applications: aerospace turbine blades, semiconductor wafers, medical devices.</p>
 					<h3>Optical Alignment</h3>
-					<p>Calibration protocol for beam-steering mirrors, focusing optics, and the coupling chamber. Beam quality measurement (M², waist diameter, divergence) using a beam profiler camera.</p>
-
+					<p>Calibration protocol for beam-steering mirrors, focusing optics, and the coupling chamber. Beam quality (M², waist, divergence) measured with a beam profiler camera.</p>
 					<h3>Fluidic Sub-System</h3>
-					<p>Nozzle pressure–flow-rate calibration. Nozzle orifice geometry (50–150 µm diameter) measured via optical microscopy to detect wear and enforce replacement thresholds.</p>
-
+					<p>Nozzle pressure–flow-rate calibration. Orifice geometry (50–150 µm) measured by optical microscopy to detect wear and enforce replacement thresholds.</p>
 					<h3>Metrology &amp; Documentation</h3>
-					<p>All procedures documented in a calibration manual used by the service team. SPC charts established to monitor machine-to-machine variability.</p>
-
-					<h2>Skills Gained</h2>
-					<ul>
-						<li>Laser optics &amp; precision metrology</li>
-						<li>Technical documentation</li>
-						<li>Fluid system calibration</li>
-						<li>Industrial environment</li>
-					</ul>
-
+					<p>All procedures documented in a service-team calibration manual. SPC charts established for machine-to-machine variability monitoring.</p>
+					<h2>Skills</h2>
+					<ul><li>Laser optics · Precision metrology</li><li>Technical documentation · Industrial environment</li></ul>
 					<ul class="actions special">
-						<li><a href="projects.html" class="button">← Back to Projects</a></li>
+						<li><a href="projects-other.html" class="button">← Back to Other Projects</a></li>
 					</ul>
 				</section>
 			</div>
@@ -95,33 +86,16 @@
 					<form method="post" action="https://formsubmit.co/508f2442ee8d91ab130219ae9c0e5b1b">
 						<input type="hidden" name="_captcha" value="false" />
 						<div class="fields">
-							<div class="field">
-								<label for="name">Name</label>
-								<input type="text" name="name" id="name" required />
-							</div>
-							<div class="field">
-								<label for="email">Email</label>
-								<input type="email" name="email" id="email" required />
-							</div>
-							<div class="field">
-								<label for="message">Message</label>
-								<textarea name="message" id="message" rows="3" required></textarea>
-							</div>
+							<div class="field"><label for="name">Name</label><input type="text" name="name" id="name" required /></div>
+							<div class="field"><label for="email">Email</label><input type="email" name="email" id="email" required /></div>
+							<div class="field"><label for="message">Message</label><textarea name="message" id="message" rows="3" required></textarea></div>
 						</div>
-						<ul class="actions">
-							<li><input type="submit" value="Send Message" /></li>
-						</ul>
+						<ul class="actions"><li><input type="submit" value="Send Message" /></li></ul>
 					</form>
 				</section>
 				<section class="split contact">
-					<section>
-						<h3>Location</h3>
-						<p>Toulouse, France<br />(Open to relocation)</p>
-					</section>
-					<section>
-						<h3>Email</h3>
-						<p><a href="mailto:avonileonardo@gmail.com">avonileonardo@gmail.com</a></p>
-					</section>
+					<section><h3>Location</h3><p>Toulouse, France<br />(Open to relocation)</p></section>
+					<section><h3>Email</h3><p><a href="mailto:avonileonardo@gmail.com">avonileonardo@gmail.com</a></p></section>
 					<section>
 						<h3>Social</h3>
 						<ul class="icons alt">
@@ -137,7 +111,6 @@
 
 		</div><!-- end #wrapper -->
 
-		<!-- Scripts -->
 		<script src="assets/js/jquery.min.js"></script>
 		<script src="assets/js/jquery.scrollex.min.js"></script>
 		<script src="assets/js/jquery.scrolly.min.js"></script>

@@ -11,7 +11,6 @@
 	<body class="is-preload">
 		<div id="wrapper">
 
-			<!-- Header -->
 			<header id="header">
 				<a href="index.html" class="logo">Leonardo Avoni</a>
 			</header>
@@ -21,25 +20,30 @@
 				<ul class="links">
 					<li><a href="index.html">Home</a></li>
 					<li><a href="skills.html">Skills &amp; Certifications</a></li>
-					<li class="has-dropdown active">
-						<a href="projects.html">Projects</a>
+					<li class="has-dropdown">
+						<a href="projects-aero.html">Aerodynamics Projects</a>
 						<ul class="dropdown">
-							<li class="dropdown-cat">PhD Contributions</li>
-							<li><a href="project-aswing.html">ASWING Extended Manual</a></li>
-							<li><a href="project-wingloop.html">WingLoop Library</a></li>
-							<li><a href="project-stall.html">Stall Implementation</a></li>
-							<li class="dropdown-cat">Master Projects</li>
-							<li><a href="project-dronedetective.html">DroneDetective</a></li>
-							<li><a href="project-wind-tunnel.html">Supersonic Wind Tunnel</a></li>
-							<li class="dropdown-cat">Personal Projects</li>
-							<li><a href="project-drone-theory.html">Drone Dev: Theory</a></li>
-							<li><a href="project-drone-practice.html">Drone Dev: Practice</a></li>
+							<li><a href="project-aswing.html">ASWING Extended User Manual</a></li>
+							<li><a href="project-wingloop.html">WingLoop — Automation & Control Library</a></li>
+							<li><a href="project-stall.html">Stall Implementation for Flexible Wings</a></li>
+							<li><a href="project-dronedetective.html">DroneDetective — Morphing Drone Wind Tunnel</a></li>
+							<li><a href="project-wind-tunnel.html">Supersonic Wind Tunnel — Design & Testing</a></li>
+						</ul>
+					</li>
+					<li class="has-dropdown">
+						<a href="projects-uav.html">UAV Projects</a>
+						<ul class="dropdown">
+							<li><a href="project-drone-theory.html">First Drone Development — Theory</a></li>
+							<li><a href="project-drone-practice.html">First Drone Development — Practice</a></li>
+						</ul>
+					</li>
+					<li class="has-dropdown active">
+						<a href="projects-other.html">Other Projects</a>
+						<ul class="dropdown">
+							<li><a href="project-synova-calibration.html">Synova SA — Laser Jet Calibration</a></li>
+							<li><a href="project-synova-stability.html">Synova SA — Water-Jet Stability</a></li>
 							<li><a href="project-3d-printing.html">3D Printed Projects</a></li>
-							<li class="dropdown-cat">Internships</li>
-							<li><a href="project-synova-calibration.html">Synova: Calibration</a></li>
-							<li><a href="project-synova-stability.html">Synova: Jet Stability</a></li>
-							<li class="dropdown-cat">Other</li>
-							<li><a href="project-tpe.html">TPE/TM — CERN</a></li>
+							<li><a href="project-tpe.html">Mon TPE/TM en 15'! — CERN</a></li>
 						</ul>
 					</li>
 				</ul>
@@ -59,32 +63,19 @@
 					<div class="image main"><img src="images/pic03.jpg" alt="Synova SA Internship — Jet Stability" /></div>
 
 					<h2>The Stability Problem</h2>
-					<p>The performance of the Laser MicroJet process depends critically on the <strong>jet coherence length</strong> — the distance the jet remains a stable laminar cylinder before breaking into droplets (Rayleigh-Plateau instability). Maximising this is essential for deep-cut applications.</p>
-
-					<h2>Theoretical Framework</h2>
-
+					<p>The LMJ process depends on the jet's <strong>coherence length</strong> — the distance before Rayleigh-Plateau instability breaks it into droplets. Maximising this is critical for deep-cut applications.</p>
 					<h3>Rayleigh-Plateau Instability</h3>
-					<p>Linear stability analysis of a cylindrical jet subject to surface-tension-driven perturbations. Derivation of the dispersion relation and growth rate as a function of wavenumber, jet velocity, and fluid properties. Identification of the most amplified wavelength.</p>
-
-					<h3>Influence of Nozzle Geometry</h3>
-					<p>Study of how nozzle exit velocity profile (plug vs. parabolic) affects the initial disturbance spectrum. CFD simulations (ANSYS Fluent) of internal nozzle flow to characterise exit conditions.</p>
-
+					<p>Linear stability analysis: dispersion relation and growth rate as a function of wavenumber, jet velocity, surface tension, viscosity. Identification of the most-amplified wavelength.</p>
+					<h3>Nozzle Geometry Effects</h3>
+					<p>CFD (ANSYS Fluent) of internal nozzle flow to characterise exit velocity profiles and their effect on the initial disturbance spectrum.</p>
 					<h2>Experimental Work</h2>
-					<p>High-speed camera imaging (up to 50,000 fps) of jets at various pressures and nozzle diameters. Measured coherence lengths compared against theoretical predictions — good agreement confirmed the linear stability model's validity across the operational range.</p>
-
+					<p>High-speed imaging (50,000 fps) at various pressures and diameters. Measured coherence lengths agreed well with the linear stability model.</p>
 					<h2>Outcome</h2>
-					<p>Nozzle geometry and operating-pressure recommendations to maximise jet coherence for different workpiece thicknesses. Results fed directly into Synova's nozzle design guidelines.</p>
-
+					<p>Nozzle geometry and pressure recommendations for maximum coherence per workpiece thickness — feeding directly into Synova's nozzle design guidelines.</p>
 					<h2>Skills</h2>
-					<ul>
-						<li>Fluid stability theory</li>
-						<li>CFD (ANSYS Fluent)</li>
-						<li>High-speed imaging</li>
-						<li>Python data analysis</li>
-					</ul>
-
+					<ul><li>Fluid stability theory · CFD (ANSYS Fluent)</li><li>High-speed imaging · Python data analysis</li></ul>
 					<ul class="actions special">
-						<li><a href="projects.html" class="button">← Back to Projects</a></li>
+						<li><a href="projects-other.html" class="button">← Back to Other Projects</a></li>
 					</ul>
 				</section>
 			</div>
@@ -97,33 +88,16 @@
 					<form method="post" action="https://formsubmit.co/508f2442ee8d91ab130219ae9c0e5b1b">
 						<input type="hidden" name="_captcha" value="false" />
 						<div class="fields">
-							<div class="field">
-								<label for="name">Name</label>
-								<input type="text" name="name" id="name" required />
-							</div>
-							<div class="field">
-								<label for="email">Email</label>
-								<input type="email" name="email" id="email" required />
-							</div>
-							<div class="field">
-								<label for="message">Message</label>
-								<textarea name="message" id="message" rows="3" required></textarea>
-							</div>
+							<div class="field"><label for="name">Name</label><input type="text" name="name" id="name" required /></div>
+							<div class="field"><label for="email">Email</label><input type="email" name="email" id="email" required /></div>
+							<div class="field"><label for="message">Message</label><textarea name="message" id="message" rows="3" required></textarea></div>
 						</div>
-						<ul class="actions">
-							<li><input type="submit" value="Send Message" /></li>
-						</ul>
+						<ul class="actions"><li><input type="submit" value="Send Message" /></li></ul>
 					</form>
 				</section>
 				<section class="split contact">
-					<section>
-						<h3>Location</h3>
-						<p>Toulouse, France<br />(Open to relocation)</p>
-					</section>
-					<section>
-						<h3>Email</h3>
-						<p><a href="mailto:avonileonardo@gmail.com">avonileonardo@gmail.com</a></p>
-					</section>
+					<section><h3>Location</h3><p>Toulouse, France<br />(Open to relocation)</p></section>
+					<section><h3>Email</h3><p><a href="mailto:avonileonardo@gmail.com">avonileonardo@gmail.com</a></p></section>
 					<section>
 						<h3>Social</h3>
 						<ul class="icons alt">
@@ -139,7 +113,6 @@
 
 		</div><!-- end #wrapper -->
 
-		<!-- Scripts -->
 		<script src="assets/js/jquery.min.js"></script>
 		<script src="assets/js/jquery.scrollex.min.js"></script>
 		<script src="assets/js/jquery.scrolly.min.js"></script>

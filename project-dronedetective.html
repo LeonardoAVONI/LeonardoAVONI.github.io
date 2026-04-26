@@ -11,7 +11,6 @@
 	<body class="is-preload">
 		<div id="wrapper">
 
-			<!-- Header -->
 			<header id="header">
 				<a href="index.html" class="logo">Leonardo Avoni</a>
 			</header>
@@ -22,24 +21,29 @@
 					<li><a href="index.html">Home</a></li>
 					<li><a href="skills.html">Skills &amp; Certifications</a></li>
 					<li class="has-dropdown active">
-						<a href="projects.html">Projects</a>
+						<a href="projects-aero.html">Aerodynamics Projects</a>
 						<ul class="dropdown">
-							<li class="dropdown-cat">PhD Contributions</li>
-							<li><a href="project-aswing.html">ASWING Extended Manual</a></li>
-							<li><a href="project-wingloop.html">WingLoop Library</a></li>
-							<li><a href="project-stall.html">Stall Implementation</a></li>
-							<li class="dropdown-cat">Master Projects</li>
-							<li><a href="project-dronedetective.html">DroneDetective</a></li>
-							<li><a href="project-wind-tunnel.html">Supersonic Wind Tunnel</a></li>
-							<li class="dropdown-cat">Personal Projects</li>
-							<li><a href="project-drone-theory.html">Drone Dev: Theory</a></li>
-							<li><a href="project-drone-practice.html">Drone Dev: Practice</a></li>
+							<li><a href="project-aswing.html">ASWING Extended User Manual</a></li>
+							<li><a href="project-wingloop.html">WingLoop — Automation & Control Library</a></li>
+							<li><a href="project-stall.html">Stall Implementation for Flexible Wings</a></li>
+							<li><a href="project-dronedetective.html">DroneDetective — Morphing Drone Wind Tunnel</a></li>
+							<li><a href="project-wind-tunnel.html">Supersonic Wind Tunnel — Design & Testing</a></li>
+						</ul>
+					</li>
+					<li class="has-dropdown">
+						<a href="projects-uav.html">UAV Projects</a>
+						<ul class="dropdown">
+							<li><a href="project-drone-theory.html">First Drone Development — Theory</a></li>
+							<li><a href="project-drone-practice.html">First Drone Development — Practice</a></li>
+						</ul>
+					</li>
+					<li class="has-dropdown">
+						<a href="projects-other.html">Other Projects</a>
+						<ul class="dropdown">
+							<li><a href="project-synova-calibration.html">Synova SA — Laser Jet Calibration</a></li>
+							<li><a href="project-synova-stability.html">Synova SA — Water-Jet Stability</a></li>
 							<li><a href="project-3d-printing.html">3D Printed Projects</a></li>
-							<li class="dropdown-cat">Internships</li>
-							<li><a href="project-synova-calibration.html">Synova: Calibration</a></li>
-							<li><a href="project-synova-stability.html">Synova: Jet Stability</a></li>
-							<li class="dropdown-cat">Other</li>
-							<li><a href="project-tpe.html">TPE/TM — CERN</a></li>
+							<li><a href="project-tpe.html">Mon TPE/TM en 15'! — CERN</a></li>
 						</ul>
 					</li>
 				</ul>
@@ -59,34 +63,21 @@
 					<div class="image main"><img src="images/pic07.jpg" alt="DroneDetective — Morphing Drone Wind Tunnel" /></div>
 
 					<h2>Context</h2>
-					<p>EPFL's Laboratory of Intelligent Systems (LIS) develops bio-inspired robots, including a morphing drone capable of changing wing shape mid-flight. Understanding its aerodynamic envelope requires sweeping a vast parameter space: airspeed, angle of attack, morphing configuration, and yaw angle.</p>
-
+					<p>EPFL's LIS lab develops a morphing drone that changes wing shape mid-flight. Characterising its aerodynamic envelope requires sweeping a vast parameter space: airspeed, angle of attack, morphing configuration, yaw.</p>
 					<h2>My Role</h2>
-					<p>Design and implementation of <strong>DroneDetective</strong> — a fully automated wind-tunnel characterisation system that explores this parameter space without manual intervention.</p>
-
-					<h2>System Architecture</h2>
-
+					<p>Design and implementation of <strong>DroneDetective</strong> — a fully automated wind-tunnel characterisation system.</p>
 					<h3>Mechanical Setup</h3>
-					<p>Force-balance mount holding the drone rigidly in the test section, measuring 6-DOF loads via a calibrated ATI force-torque sensor. A motorised mechanism enables automated angle-of-attack sweeps.</p>
-
+					<p>Force-balance mount with ATI 6-DOF force-torque sensor. Motorised angle-of-attack mechanism for automated incidence sweeps.</p>
 					<h3>Automation Software</h3>
-					<p>Python scripts orchestrate the full test sequence: set wind speed → command morphing configuration → sweep incidence → acquire data → log results. Runs overnight unsupervised.</p>
-
+					<p>Python scripts orchestrating: set wind speed → command morphing → sweep incidence → acquire data → log. Runs overnight unsupervised.</p>
 					<h3>Data Pipeline</h3>
-					<p>Raw loads corrected for tare, inertial effects, and support-structure interference. CL, CD, CM computed and plotted in polar form for each configuration tested.</p>
-
+					<p>Loads corrected for tare, inertia, and support interference. CL, CD, CM computed in polar form per configuration.</p>
 					<h2>Results</h2>
-					<p>A complete aerodynamic database across the morphing drone's full configuration space — validated data for control design and performance optimisation at the LIS lab.</p>
-
+					<p>Complete validated aero database across the full morphing configuration space — used by LIS for control design and performance optimisation.</p>
 					<h2>Tech Stack</h2>
-					<ul>
-						<li>Python · ATI F/T sensor API</li>
-						<li>EPFL wind tunnel instrumentation</li>
-						<li>SolidWorks · NumPy · Matplotlib</li>
-					</ul>
-
+					<ul><li>Python · ATI F/T sensor API · EPFL wind tunnel</li><li>SolidWorks · NumPy · Matplotlib</li></ul>
 					<ul class="actions special">
-						<li><a href="projects.html" class="button">← Back to Projects</a></li>
+						<li><a href="projects-aero.html" class="button">← Back to Aerodynamics Projects</a></li>
 					</ul>
 				</section>
 			</div>
@@ -99,33 +90,16 @@
 					<form method="post" action="https://formsubmit.co/508f2442ee8d91ab130219ae9c0e5b1b">
 						<input type="hidden" name="_captcha" value="false" />
 						<div class="fields">
-							<div class="field">
-								<label for="name">Name</label>
-								<input type="text" name="name" id="name" required />
-							</div>
-							<div class="field">
-								<label for="email">Email</label>
-								<input type="email" name="email" id="email" required />
-							</div>
-							<div class="field">
-								<label for="message">Message</label>
-								<textarea name="message" id="message" rows="3" required></textarea>
-							</div>
+							<div class="field"><label for="name">Name</label><input type="text" name="name" id="name" required /></div>
+							<div class="field"><label for="email">Email</label><input type="email" name="email" id="email" required /></div>
+							<div class="field"><label for="message">Message</label><textarea name="message" id="message" rows="3" required></textarea></div>
 						</div>
-						<ul class="actions">
-							<li><input type="submit" value="Send Message" /></li>
-						</ul>
+						<ul class="actions"><li><input type="submit" value="Send Message" /></li></ul>
 					</form>
 				</section>
 				<section class="split contact">
-					<section>
-						<h3>Location</h3>
-						<p>Toulouse, France<br />(Open to relocation)</p>
-					</section>
-					<section>
-						<h3>Email</h3>
-						<p><a href="mailto:avonileonardo@gmail.com">avonileonardo@gmail.com</a></p>
-					</section>
+					<section><h3>Location</h3><p>Toulouse, France<br />(Open to relocation)</p></section>
+					<section><h3>Email</h3><p><a href="mailto:avonileonardo@gmail.com">avonileonardo@gmail.com</a></p></section>
 					<section>
 						<h3>Social</h3>
 						<ul class="icons alt">
@@ -141,7 +115,6 @@
 
 		</div><!-- end #wrapper -->
 
-		<!-- Scripts -->
 		<script src="assets/js/jquery.min.js"></script>
 		<script src="assets/js/jquery.scrollex.min.js"></script>
 		<script src="assets/js/jquery.scrolly.min.js"></script>

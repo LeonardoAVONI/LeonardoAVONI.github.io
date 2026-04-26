@@ -11,7 +11,6 @@
 	<body class="is-preload">
 		<div id="wrapper">
 
-			<!-- Header -->
 			<header id="header">
 				<a href="index.html" class="logo">Leonardo Avoni</a>
 			</header>
@@ -21,25 +20,30 @@
 				<ul class="links">
 					<li><a href="index.html">Home</a></li>
 					<li><a href="skills.html">Skills &amp; Certifications</a></li>
-					<li class="has-dropdown active">
-						<a href="projects.html">Projects</a>
+					<li class="has-dropdown">
+						<a href="projects-aero.html">Aerodynamics Projects</a>
 						<ul class="dropdown">
-							<li class="dropdown-cat">PhD Contributions</li>
-							<li><a href="project-aswing.html">ASWING Extended Manual</a></li>
-							<li><a href="project-wingloop.html">WingLoop Library</a></li>
-							<li><a href="project-stall.html">Stall Implementation</a></li>
-							<li class="dropdown-cat">Master Projects</li>
-							<li><a href="project-dronedetective.html">DroneDetective</a></li>
-							<li><a href="project-wind-tunnel.html">Supersonic Wind Tunnel</a></li>
-							<li class="dropdown-cat">Personal Projects</li>
-							<li><a href="project-drone-theory.html">Drone Dev: Theory</a></li>
-							<li><a href="project-drone-practice.html">Drone Dev: Practice</a></li>
+							<li><a href="project-aswing.html">ASWING Extended User Manual</a></li>
+							<li><a href="project-wingloop.html">WingLoop — Automation & Control Library</a></li>
+							<li><a href="project-stall.html">Stall Implementation for Flexible Wings</a></li>
+							<li><a href="project-dronedetective.html">DroneDetective — Morphing Drone Wind Tunnel</a></li>
+							<li><a href="project-wind-tunnel.html">Supersonic Wind Tunnel — Design & Testing</a></li>
+						</ul>
+					</li>
+					<li class="has-dropdown active">
+						<a href="projects-uav.html">UAV Projects</a>
+						<ul class="dropdown">
+							<li><a href="project-drone-theory.html">First Drone Development — Theory</a></li>
+							<li><a href="project-drone-practice.html">First Drone Development — Practice</a></li>
+						</ul>
+					</li>
+					<li class="has-dropdown">
+						<a href="projects-other.html">Other Projects</a>
+						<ul class="dropdown">
+							<li><a href="project-synova-calibration.html">Synova SA — Laser Jet Calibration</a></li>
+							<li><a href="project-synova-stability.html">Synova SA — Water-Jet Stability</a></li>
 							<li><a href="project-3d-printing.html">3D Printed Projects</a></li>
-							<li class="dropdown-cat">Internships</li>
-							<li><a href="project-synova-calibration.html">Synova: Calibration</a></li>
-							<li><a href="project-synova-stability.html">Synova: Jet Stability</a></li>
-							<li class="dropdown-cat">Other</li>
-							<li><a href="project-tpe.html">TPE/TM — CERN</a></li>
+							<li><a href="project-tpe.html">Mon TPE/TM en 15'! — CERN</a></li>
 						</ul>
 					</li>
 				</ul>
@@ -59,36 +63,21 @@
 					<div class="image main"><img src="images/pic03.jpg" alt="First Drone Development: Practice" /></div>
 
 					<h2>Overview</h2>
-					<p>With the <a href="project-drone-theory.html">theoretical design</a> in hand, this phase turned equations into hardware. Every component was selected, assembled, wired, and programmed by hand.</p>
-
-					<h2>Build Phases</h2>
-
+					<p>With the <a href="project-drone-theory.html">theoretical design</a> in hand, this phase turned equations into hardware — every component selected, assembled, wired, and programmed by hand.</p>
 					<h3>1 · Frame Design &amp; Manufacturing</h3>
-					<p>250 mm motor-to-motor configuration designed in FreeCAD / SolidWorks. Arms and body printed in PETG on an FDM printer for the first iteration; carbon fibre arms considered for v2. Weight target: &lt;250 g dry.</p>
-
+					<p>250 mm configuration in FreeCAD / SolidWorks. Arms and body printed in PETG; carbon fibre arms planned for v2. Target: &lt;250 g dry.</p>
 					<h3>2 · Electronics Assembly</h3>
-					<p>Component stack: FC · 4-in-1 ESC · BLDC motors · LiPo · RC receiver · GPS. Soldering, wire routing, and FC vibration isolation via damping mounts.</p>
-
+					<p>FC · 4-in-1 ESC · BLDC motors · LiPo · RC receiver · GPS. Soldering, wire routing, FC vibration isolation via damping mounts.</p>
 					<h3>3 · Firmware &amp; Configuration</h3>
-					<p>ArduPilot / Betaflight flashing, sensor calibration, motor spin verification, RC channel mapping, failsafe setup. PID gains tuned progressively via Blackbox log analysis.</p>
-
+					<p>ArduPilot / Betaflight flashing, sensor calibration, motor direction check, RC mapping, failsafe setup. PID tuning via Blackbox log analysis.</p>
 					<h3>4 · SITL Simulation</h3>
-					<p>Software-In-The-Loop testing in Gazebo to validate control gains and autonomous modes before risking the hardware.</p>
-
+					<p>Software-In-The-Loop testing in Gazebo to validate control gains before risking hardware.</p>
 					<h3>5 · Field Testing &amp; Iteration</h3>
-					<p>First hover tests, stability assessment, iterative PID tuning. Documented crashes and lessons learned — a rite of passage for every drone builder.</p>
-
-					<h2>Tools &amp; Technologies</h2>
-					<ul>
-						<li>FreeCAD / SolidWorks · FDM 3D Printing (PETG)</li>
-						<li>ArduPilot / Betaflight</li>
-						<li>Gazebo SITL</li>
-						<li>Python (log analysis)</li>
-						<li>Soldering iron</li>
-					</ul>
-
+					<p>First hover tests, stability assessment, iterative tuning. Documented crashes — a rite of passage.</p>
+					<h2>Tools</h2>
+					<ul><li>FreeCAD / SolidWorks · FDM 3D Printing (PETG)</li><li>ArduPilot / Betaflight · Gazebo SITL</li><li>Python (log analysis)</li></ul>
 					<ul class="actions special">
-						<li><a href="projects.html" class="button">← Back to Projects</a></li>
+						<li><a href="projects-uav.html" class="button">← Back to UAV Projects</a></li>
 					</ul>
 				</section>
 			</div>
@@ -101,33 +90,16 @@
 					<form method="post" action="https://formsubmit.co/508f2442ee8d91ab130219ae9c0e5b1b">
 						<input type="hidden" name="_captcha" value="false" />
 						<div class="fields">
-							<div class="field">
-								<label for="name">Name</label>
-								<input type="text" name="name" id="name" required />
-							</div>
-							<div class="field">
-								<label for="email">Email</label>
-								<input type="email" name="email" id="email" required />
-							</div>
-							<div class="field">
-								<label for="message">Message</label>
-								<textarea name="message" id="message" rows="3" required></textarea>
-							</div>
+							<div class="field"><label for="name">Name</label><input type="text" name="name" id="name" required /></div>
+							<div class="field"><label for="email">Email</label><input type="email" name="email" id="email" required /></div>
+							<div class="field"><label for="message">Message</label><textarea name="message" id="message" rows="3" required></textarea></div>
 						</div>
-						<ul class="actions">
-							<li><input type="submit" value="Send Message" /></li>
-						</ul>
+						<ul class="actions"><li><input type="submit" value="Send Message" /></li></ul>
 					</form>
 				</section>
 				<section class="split contact">
-					<section>
-						<h3>Location</h3>
-						<p>Toulouse, France<br />(Open to relocation)</p>
-					</section>
-					<section>
-						<h3>Email</h3>
-						<p><a href="mailto:avonileonardo@gmail.com">avonileonardo@gmail.com</a></p>
-					</section>
+					<section><h3>Location</h3><p>Toulouse, France<br />(Open to relocation)</p></section>
+					<section><h3>Email</h3><p><a href="mailto:avonileonardo@gmail.com">avonileonardo@gmail.com</a></p></section>
 					<section>
 						<h3>Social</h3>
 						<ul class="icons alt">
@@ -143,7 +115,6 @@
 
 		</div><!-- end #wrapper -->
 
-		<!-- Scripts -->
 		<script src="assets/js/jquery.min.js"></script>
 		<script src="assets/js/jquery.scrollex.min.js"></script>
 		<script src="assets/js/jquery.scrolly.min.js"></script>
