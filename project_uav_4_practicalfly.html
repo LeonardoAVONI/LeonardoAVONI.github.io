@@ -1,7 +1,7 @@
 <!DOCTYPE HTML>
 <html>
 	<head>
-		<title>Synova SA Internship — Laser Calibration — Leonardo Avoni</title>
+		<title>First Drone Development: Practice — Leonardo Avoni</title>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 		<link rel="stylesheet" href="assets/css/main.css" />
@@ -30,7 +30,7 @@
 							<li><a href="project-wind-tunnel.html">Supersonic Wind Tunnel — Design & Testing</a></li>
 						</ul>
 					</li>
-					<li class="has-dropdown">
+					<li class="has-dropdown active">
 						<a href="projects-uav.html">UAV Projects</a>
 						<ul class="dropdown">
 							<li><a href="project_uav_1_components.html">First UAV: Component Selection</a></li>
@@ -39,7 +39,7 @@
 							<li><a href="project_uav_4_practicalfly.html">First UAV: Real Software, and Flight</a></li>
 						</ul>
 					</li>
-					<li class="has-dropdown active">
+					<li class="has-dropdown">
 						<a href="projects-other.html">Other Projects</a>
 						<ul class="dropdown">
 							<li><a href="project-synova-calibration.html">Synova SA — Laser Jet Calibration</a></li>
@@ -58,24 +58,28 @@
 			<div id="main">
 				<section class="post">
 					<header class="major">
-						<span class="date">Industry Internship · Synova SA, Geneva · 2021</span>
-						<h1>Synova SA Internship<br />Laser Jet Calibration</h1>
-						<p>Precision calibration of laser microjet cutting systems at Synova SA — where optics meets fluid mechanics.</p>
+						<span class="date">Personal Project · 2023–2024</span>
+						<h1>First Drone Development<br />Practice</h1>
+						<p>From CAD to firmware to first flight — building a quadcopter entirely from scratch.</p>
 					</header>
-					<div class="image main"><img src="images/pic02.jpg" alt="Synova SA Internship — Laser Calibration" /></div>
+					<div class="image main"><img src="images/pic03.jpg" alt="First Drone Development: Practice" /></div>
 
-					<h2>About Synova</h2>
-					<p><a href="https://www.synova.ch" target="_blank">Synova SA</a> pioneers <strong>Laser MicroJet (LMJ)</strong> technology — guiding a laser inside a hair-thin water jet. Applications: aerospace turbine blades, semiconductor wafers, medical devices.</p>
-					<h3>Optical Alignment</h3>
-					<p>Calibration protocol for beam-steering mirrors, focusing optics, and the coupling chamber. Beam quality (M², waist, divergence) measured with a beam profiler camera.</p>
-					<h3>Fluidic Sub-System</h3>
-					<p>Nozzle pressure–flow-rate calibration. Orifice geometry (50–150 µm) measured by optical microscopy to detect wear and enforce replacement thresholds.</p>
-					<h3>Metrology &amp; Documentation</h3>
-					<p>All procedures documented in a service-team calibration manual. SPC charts established for machine-to-machine variability monitoring.</p>
-					<h2>Skills</h2>
-					<ul><li>Laser optics · Precision metrology</li><li>Technical documentation · Industrial environment</li></ul>
+					<h2>Overview</h2>
+					<p>With the <a href="project_uav_1_components.html">theoretical design</a> in hand, this phase turned equations into hardware — every component selected, assembled, wired, and programmed by hand.</p>
+					<h3>1 · Frame Design &amp; Manufacturing</h3>
+					<p>250 mm configuration in FreeCAD / SolidWorks. Arms and body printed in PETG; carbon fibre arms planned for v2. Target: &lt;250 g dry.</p>
+					<h3>2 · Electronics Assembly</h3>
+					<p>FC · 4-in-1 ESC · BLDC motors · LiPo · RC receiver · GPS. Soldering, wire routing, FC vibration isolation via damping mounts.</p>
+					<h3>3 · Firmware &amp; Configuration</h3>
+					<p>ArduPilot / Betaflight flashing, sensor calibration, motor direction check, RC mapping, failsafe setup. PID tuning via Blackbox log analysis.</p>
+					<h3>4 · SITL Simulation</h3>
+					<p>Software-In-The-Loop testing in Gazebo to validate control gains before risking hardware.</p>
+					<h3>5 · Field Testing &amp; Iteration</h3>
+					<p>First hover tests, stability assessment, iterative tuning. Documented crashes — a rite of passage.</p>
+					<h2>Tools</h2>
+					<ul><li>FreeCAD / SolidWorks · FDM 3D Printing (PETG)</li><li>ArduPilot / Betaflight · Gazebo SITL</li><li>Python (log analysis)</li></ul>
 					<ul class="actions special">
-						<li><a href="projects-other.html" class="button">← Back to Other Projects</a></li>
+						<li><a href="projects-uav.html" class="button">← Back to UAV Projects</a></li>
 					</ul>
 				</section>
 			</div>

@@ -1,7 +1,7 @@
 <!DOCTYPE HTML>
 <html>
 	<head>
-		<title>First Drone Development: Practice — Leonardo Avoni</title>
+		<title>First Drone Development: Theory — Leonardo Avoni</title>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 		<link rel="stylesheet" href="assets/css/main.css" />
@@ -33,8 +33,10 @@
 					<li class="has-dropdown active">
 						<a href="projects-uav.html">UAV Projects</a>
 						<ul class="dropdown">
-							<li><a href="project-drone-theory.html">First Drone Development — Theory</a></li>
-							<li><a href="project-drone-practice.html">First Drone Development — Practice</a></li>
+							<li><a href="project_uav_1_components.html">First UAV: Component Selection</a></li>
+							<li><a href="project_uav_2_software.html">First UAV: SITL Software</a></li>
+							<li><a href="project_uav_3_practicalbuild.html">First UAV: Hardware Assembly</a></li>
+							<li><a href="project_uav_4_practicalfly.html">First UAV: Real Software, and Flight</a></li>
 						</ul>
 					</li>
 					<li class="has-dropdown">
@@ -57,25 +59,27 @@
 				<section class="post">
 					<header class="major">
 						<span class="date">Personal Project · 2023–2024</span>
-						<h1>First Drone Development<br />Practice</h1>
-						<p>From CAD to firmware to first flight — building a quadcopter entirely from scratch.</p>
+						<h1>First Drone Development<br />Theory</h1>
+						<p>From Newton's laws to motor equations — building the mathematical foundations of a quadcopter from scratch.</p>
 					</header>
-					<div class="image main"><img src="images/pic03.jpg" alt="First Drone Development: Practice" /></div>
+					<div class="image main"><img src="images/pic02.jpg" alt="First Drone Development: Theory" /></div>
 
 					<h2>Overview</h2>
-					<p>With the <a href="project-drone-theory.html">theoretical design</a> in hand, this phase turned equations into hardware — every component selected, assembled, wired, and programmed by hand.</p>
-					<h3>1 · Frame Design &amp; Manufacturing</h3>
-					<p>250 mm configuration in FreeCAD / SolidWorks. Arms and body printed in PETG; carbon fibre arms planned for v2. Target: &lt;250 g dry.</p>
-					<h3>2 · Electronics Assembly</h3>
-					<p>FC · 4-in-1 ESC · BLDC motors · LiPo · RC receiver · GPS. Soldering, wire routing, FC vibration isolation via damping mounts.</p>
-					<h3>3 · Firmware &amp; Configuration</h3>
-					<p>ArduPilot / Betaflight flashing, sensor calibration, motor direction check, RC mapping, failsafe setup. PID tuning via Blackbox log analysis.</p>
-					<h3>4 · SITL Simulation</h3>
-					<p>Software-In-The-Loop testing in Gazebo to validate control gains before risking hardware.</p>
-					<h3>5 · Field Testing &amp; Iteration</h3>
-					<p>First hover tests, stability assessment, iterative tuning. Documented crashes — a rite of passage.</p>
+					<p>Before touching a single component, I committed to fully understanding the physics behind a quadcopter: rigid-body dynamics, rotor aerodynamics, motor-propeller matching, and linear control design.</p>
+					<h3>1 · Rigid-Body Dynamics</h3>
+					<p>6-DOF Newton-Euler equations of motion. Translational and rotational dynamics coupled through the inertia tensor and gyroscopic effects of spinning rotors.</p>
+					<h3>2 · Rotor Aerodynamics</h3>
+					<p>Blade Element Momentum Theory (BEMT) to size propellers for a target thrust-to-weight ratio: blade pitch, chord distribution, tip speed, efficiency vs. responsiveness.</p>
+					<h3>3 · Motor &amp; ESC Selection</h3>
+					<p>Matching BLDC motors to propeller load curves via KV ratings, torque constants, and efficiency maps. ESC sizing based on hover and full-throttle current draw.</p>
+					<h3>4 · Control Architecture</h3>
+					<p>Cascaded PID design: outer position/altitude loop, inner attitude loop. Linearisation around hover for frequency-domain analysis.</p>
+					<h3>5 · Power Budget</h3>
+					<p>LiPo cell selection by C-rating, capacity, and target flight time. Full consumption breakdown across motors, FC, and peripherals.</p>
 					<h2>Tools</h2>
-					<ul><li>FreeCAD / SolidWorks · FDM 3D Printing (PETG)</li><li>ArduPilot / Betaflight · Gazebo SITL</li><li>Python (log analysis)</li></ul>
+					<ul><li>Python (NumPy, SciPy, Matplotlib)</li><li>MATLAB / Simulink</li></ul>
+					<h2>Outcome</h2>
+					<p>A complete design specification feeding directly into the <a href="project_uav_3_practicalbuild.html">practical build</a>.</p>
 					<ul class="actions special">
 						<li><a href="projects-uav.html" class="button">← Back to UAV Projects</a></li>
 					</ul>
