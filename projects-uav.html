@@ -10,24 +10,29 @@
 	</head>
 	<body class="is-preload">
 		<div id="wrapper">
-
+			<div id="intro">
+				<h1>UAV Projects</h1>
+				<p>Building a quadcopter from scratch — from Newtonian mechanics to first real flight.</p>
+				<ul class="actions">
+					<li><a href="#header" class="button icon solid solo fa-arrow-down scrolly">Continue</a></li>
+				</ul>
+			</div>
 			<header id="header">
 				<a href="index.html" class="logo">Leonardo Avoni</a>
 			</header>
 
-			<!-- Nav -->
 			<nav id="nav">
 				<ul class="links">
-					<li><a href="index.html">Bio</a></li>
-					<li><a href="skills.html">Skills &amp; Certifications</a></li>
-					<li class="has-dropdown">
+					<li ><a href="index.html">Bio</a></li>
+					<li ><a href="skills.html">Skills &amp; Certifications</a></li>
+					<li class="has-dropdown ">
 						<a href="projects-aero.html">Aerodynamics Projects</a>
 						<ul class="dropdown">
 							<li><a href="project-aswing.html">ASWING Extended User Manual</a></li>
-							<li><a href="project-wingloop.html">WingLoop — Automation & Control Library</a></li>
+							<li><a href="project-wingloop.html">WingLoop — Automation &amp; Control Library</a></li>
 							<li><a href="project-stall.html">Stall Implementation for Flexible Wings</a></li>
 							<li><a href="project-dronedetective.html">DroneDetective — Morphing Drone Wind Tunnel</a></li>
-							<li><a href="project-wind-tunnel.html">Supersonic Wind Tunnel — Design & Testing</a></li>
+							<li><a href="project-wind-tunnel.html">Supersonic Wind Tunnel — Design &amp; Testing</a></li>
 						</ul>
 					</li>
 					<li class="has-dropdown active">
@@ -37,7 +42,7 @@
 							<li><a href="project-drone-practice.html">First Drone Development — Practice</a></li>
 						</ul>
 					</li>
-					<li class="has-dropdown">
+					<li class="has-dropdown ">
 						<a href="projects-other.html">Other Projects</a>
 						<ul class="dropdown">
 							<li><a href="project-synova-calibration.html">Synova SA — Laser Jet Calibration</a></li>
@@ -55,49 +60,37 @@
 
 			<div id="main">
 
-				<section class="post">
+				<article class="post featured">
 					<header class="major">
-						<span class="date">Projects</span>
-						<h1 id="proj-heading">UAV Projects</h1>
-						<p>Building a quadcopter from scratch — from Newtonian mechanics to first flight.</p>
+						<span class="date">Personal Project · 2023–2024</span>
+						<h2><a href="project-drone-theory.html">First Drone Development — Theory</a></h2>
+						<p>From Newton's laws to motor equations — the complete mathematical foundation of a quadcopter: 6-DOF rigid-body dynamics, BEMT rotor aerodynamics, motor-propeller matching, and cascaded PID control design.</p>
 					</header>
+					<a href="project-drone-theory.html" class="image main"><img src="images/pic01.jpg" alt="First Drone Development — Theory" /></a>
+					<ul class="actions special">
+						<li><a href="project-drone-theory.html" class="button large">Read More</a></li>
+					</ul>
+				</article>
+
+				<section class="posts">
+
+					<article>
+						<header>
+							<span class="date">Personal Project · 2023–2024</span>
+							<h2><a href="project-drone-practice.html">First Drone Development — Practice</a></h2>
+						</header>
+						<a href="project-drone-practice.html" class="image fit"><img src="images/pic03.jpg" alt="First Drone Development — Practice" /></a>
+						<p>From CAD to firmware to first flight — frame design, electronics assembly, ArduPilot configuration, SITL testing in Gazebo, and iterative PID tuning in the field.</p>
+						<ul class="actions special">
+							<li><a href="project-drone-practice.html" class="button">Read More</a></li>
+						</ul>
+					</article>
 				</section>
-
-
-
-				<section class="posts post-page active" data-page="0">
-						<article>
-							<header>
-								<span class="date">Personal Project · 2023–2024</span>
-								<h2><a href="project-drone-theory.html">First Drone Development — Theory</a></h2>
-							</header>
-							<a href="project-drone-theory.html" class="image fit"><img src="images/pic02.jpg" alt="First Drone Development — Theory" /></a>
-							<p>From Newton's laws to motor equations — the full mathematical foundations of a quadcopter.</p>
-							<ul class="actions special">
-								<li><a href="project-drone-theory.html" class="button">Read More</a></li>
-							</ul>
-						</article>
-						<article>
-							<header>
-								<span class="date">Personal Project · 2023–2024</span>
-								<h2><a href="project-drone-practice.html">First Drone Development — Practice</a></h2>
-							</header>
-							<a href="project-drone-practice.html" class="image fit"><img src="images/pic03.jpg" alt="First Drone Development — Practice" /></a>
-							<p>From CAD to firmware to first flight — designing and building a quadcopter entirely by hand.</p>
-							<ul class="actions special">
-								<li><a href="project-drone-practice.html" class="button">Read More</a></li>
-							</ul>
-						</article>
-				</section>
-
-
-
 			</div><!-- end #main -->
 
-			<!-- Footer -->
 			<footer id="footer">
 				<section>
-					<h2>Get in Touch</h2>
+					<h2>Get in Touch!</h2>
 					<p>Collaboration, opportunity, or just a chat about aerospace — I'm all ears.</p>
 					<form method="post" action="https://formsubmit.co/508f2442ee8d91ab130219ae9c0e5b1b">
 						<input type="hidden" name="_captcha" value="false" />
@@ -124,6 +117,7 @@
 			<div id="copyright">
 				<ul><li>&copy; Leonardo Avoni</li><li>Design: <a href="https://html5up.net">HTML5 UP</a></li></ul>
 			</div>
+
 		</div><!-- end #wrapper -->
 
 		<script src="assets/js/jquery.min.js"></script>
@@ -134,6 +128,5 @@
 		<script src="assets/js/util.js"></script>
 		<script src="assets/js/main.js"></script>
 		<script src="assets/js/nav-dropdown.js"></script>
-
 	</body>
 </html>
