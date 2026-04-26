@@ -3,32 +3,43 @@
  * Link AFTER main.css on every page
  */
 
-/* ── Dropdown nav ─────────────────────────────────────────────── */
+/* ── Dropdown nav — click-toggled ──────────────────────────────── */
 #nav ul.links li.has-dropdown {
     position: relative;
 }
 
+/* Arrow indicator */
 #nav ul.links li.has-dropdown > a::after {
     content: ' ▾';
     font-size: 0.7em;
     opacity: 0.7;
+    transition: transform 0.2s;
+    display: inline-block;
+}
+#nav ul.links li.has-dropdown.open > a::after {
+    transform: rotate(180deg);
 }
 
+/* The dropdown panel — hidden by default, shown via .open class (JS) */
 #nav ul.links li.has-dropdown .dropdown {
     display: none;
     position: absolute;
-    top: 100%;
+    top: calc(100% + 4px);
     left: 50%;
     transform: translateX(-50%);
     background: #1e2227;
-    border: 1px solid rgba(255,255,255,0.1);
+    border: 1px solid rgba(255,255,255,0.12);
     border-radius: 4px;
-    min-width: 260px;
+    min-width: 270px;
     z-index: 9999;
     list-style: none;
     margin: 0;
     padding: 0.4em 0;
-    box-shadow: 0 8px 24px rgba(0,0,0,0.5);
+    box-shadow: 0 8px 28px rgba(0,0,0,0.55);
+}
+
+#nav ul.links li.has-dropdown.open .dropdown {
+    display: block;
 }
 
 #nav ul.links li.has-dropdown .dropdown li {
@@ -39,49 +50,47 @@
 
 #nav ul.links li.has-dropdown .dropdown li a {
     display: block;
-    padding: 0.5em 1.2em;
-    font-size: 0.8em;
+    padding: 0.45em 1.2em;
+    font-size: 0.78em;
     letter-spacing: 0.05em;
-    color: rgba(255,255,255,0.7);
+    color: rgba(255,255,255,0.72);
     text-transform: uppercase;
     border: none;
     white-space: nowrap;
-    transition: color 0.2s, background 0.2s;
+    transition: color 0.15s, background 0.15s;
 }
 
 #nav ul.links li.has-dropdown .dropdown li a:hover {
     color: #fff;
-    background: rgba(255,255,255,0.07);
+    background: rgba(255,255,255,0.08);
 }
 
-#nav ul.links li.has-dropdown:hover .dropdown,
-#nav ul.links li.has-dropdown:focus-within .dropdown {
-    display: block;
-}
-
-/* Category dividers inside dropdown */
+/* Category section labels */
 #nav ul.links li.has-dropdown .dropdown li.dropdown-cat {
     padding: 0.6em 1.2em 0.2em;
-    font-size: 0.65em;
+    font-size: 0.62em;
     letter-spacing: 0.15em;
     text-transform: uppercase;
-    color: rgba(255,255,255,0.35);
+    color: rgba(255,255,255,0.32);
     pointer-events: none;
-    border-top: 1px solid rgba(255,255,255,0.06);
+    border-top: 1px solid rgba(255,255,255,0.07);
     margin-top: 0.3em;
 }
-
 #nav ul.links li.has-dropdown .dropdown li.dropdown-cat:first-child {
     border-top: none;
     margin-top: 0;
 }
 
 /* ── JS Pagination ────────────────────────────────────────────── */
+/* Each page group is a <section class="posts post-page"> */
 .post-page {
     display: none;
 }
 .post-page.active {
-    display: contents;
+    display: grid;               /* match the template's .posts grid */
+    grid-template-columns: repeat(2, 1fr);
+    gap: 3em;
+    width: 100%;
 }
 
 /* ── Skills grid tweaks ───────────────────────────────────────── */

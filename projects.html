@@ -11,12 +11,10 @@
 	<body class="is-preload">
 		<div id="wrapper">
 
-			<!-- Header -->
 			<header id="header">
 				<a href="index.html" class="logo">Leonardo Avoni</a>
 			</header>
 
-			<!-- Nav -->
 			<nav id="nav">
 				<ul class="links">
 					<li><a href="index.html">Home</a></li>
@@ -24,6 +22,7 @@
 					<li class="has-dropdown active">
 						<a href="projects.html">Projects</a>
 						<ul class="dropdown">
+
 							<li class="dropdown-cat">PhD Contributions</li>
 							<li><a href="project-aswing.html">ASWING Extended Manual</a></li>
 							<li><a href="project-wingloop.html">WingLoop Library</a></li>
@@ -50,17 +49,33 @@
 			</nav>
 
 			<div id="main">
+
+				<!-- Page heading -->
 				<section class="post">
 					<header class="major">
 						<span class="date">Portfolio</span>
 						<h1 id="projects-heading">Projects</h1>
-						<p>Research, engineering, and hands-on builds — from AIAA-published software to<br />quadcopters built from scratch and supersonic wind tunnels.</p>
+						<p>Research, engineering, and hands-on builds — from AIAA-published software to<br />
+						quadcopters built from scratch and supersonic wind tunnels.</p>
 					</header>
 				</section>
 
-				<section class="posts">
-					<div class="post-page active" data-page="0">
+				<!-- Pagination TOP -->
+				<footer>
+					<div class="pagination" id="pag-top">
+						<a href="#" class="previous disabled" data-dir="prev">Prev</a>
+						<a href="#" class="page  active" data-target="0">1</a>
+						<a href="#" class="page" data-target="1">2</a>
+						<a href="#" class="page" data-target="2">3</a>
+						<a href="#" class="page" data-target="3">4</a>
+						<a href="#" class="page" data-target="4">5</a>
+						<a href="#" class="page" data-target="5">6</a>
+						<a href="#" class="next" data-dir="next">Next</a>
+					</div>
+				</footer>
 
+				<!-- Project cards — 2 per page -->
+				<section class="posts post-page active" data-page="0">
 						<article>
 							<header>
 								<span class="date">Personal Project</span>
@@ -83,6 +98,8 @@
 								<li><a href="project-drone-practice.html" class="button">Read More</a></li>
 							</ul>
 						</article>
+				</section>
+				<section class="posts post-page" data-page="1">
 						<article>
 							<header>
 								<span class="date">PhD Contribution · ISAE-Supaero</span>
@@ -105,6 +122,8 @@
 								<li><a href="project-wingloop.html" class="button">Read More</a></li>
 							</ul>
 						</article>
+				</section>
+				<section class="posts post-page" data-page="2">
 						<article>
 							<header>
 								<span class="date">PhD Contribution · ISAE-Supaero</span>
@@ -127,9 +146,8 @@
 								<li><a href="project-dronedetective.html" class="button">Read More</a></li>
 							</ul>
 						</article>
-					</div>
-					<div class="post-page" data-page="1">
-
+				</section>
+				<section class="posts post-page" data-page="3">
 						<article>
 							<header>
 								<span class="date">Master Project · EPFL</span>
@@ -152,6 +170,8 @@
 								<li><a href="project-tpe.html" class="button">Read More</a></li>
 							</ul>
 						</article>
+				</section>
+				<section class="posts post-page" data-page="4">
 						<article>
 							<header>
 								<span class="date">Industry Internship · Synova SA</span>
@@ -174,6 +194,8 @@
 								<li><a href="project-synova-stability.html" class="button">Read More</a></li>
 							</ul>
 						</article>
+				</section>
+				<section class="posts post-page" data-page="5">
 						<article>
 							<header>
 								<span class="date">Personal Projects · 2020–Present</span>
@@ -185,21 +207,24 @@
 								<li><a href="project-3d-printing.html" class="button">Read More</a></li>
 							</ul>
 						</article>
-					</div>
 				</section>
 
+				<!-- Pagination BOTTOM -->
 				<footer>
-					<div class="pagination">
-						<a href="#" class="previous disabled" id="pag-prev">Prev</a>
-						<a href="#" class="page active" data-target="0">1</a>
+					<div class="pagination" id="pag-bot">
+						<a href="#" class="previous disabled" data-dir="prev">Prev</a>
+						<a href="#" class="page  active" data-target="0">1</a>
 						<a href="#" class="page" data-target="1">2</a>
-						<a href="#" class="next" id="pag-next">Next</a>
+						<a href="#" class="page" data-target="2">3</a>
+						<a href="#" class="page" data-target="3">4</a>
+						<a href="#" class="page" data-target="4">5</a>
+						<a href="#" class="page" data-target="5">6</a>
+						<a href="#" class="next" data-dir="next">Next</a>
 					</div>
 				</footer>
 
 			</div><!-- end #main -->
 
-			<!-- Footer -->
 			<footer id="footer">
 				<section>
 					<h2>Get in Touch</h2>
@@ -207,33 +232,16 @@
 					<form method="post" action="https://formsubmit.co/508f2442ee8d91ab130219ae9c0e5b1b">
 						<input type="hidden" name="_captcha" value="false" />
 						<div class="fields">
-							<div class="field">
-								<label for="name">Name</label>
-								<input type="text" name="name" id="name" required />
-							</div>
-							<div class="field">
-								<label for="email">Email</label>
-								<input type="email" name="email" id="email" required />
-							</div>
-							<div class="field">
-								<label for="message">Message</label>
-								<textarea name="message" id="message" rows="3" required></textarea>
-							</div>
+							<div class="field"><label for="name">Name</label><input type="text" name="name" id="name" required /></div>
+							<div class="field"><label for="email">Email</label><input type="email" name="email" id="email" required /></div>
+							<div class="field"><label for="message">Message</label><textarea name="message" id="message" rows="3" required></textarea></div>
 						</div>
-						<ul class="actions">
-							<li><input type="submit" value="Send Message" /></li>
-						</ul>
+						<ul class="actions"><li><input type="submit" value="Send Message" /></li></ul>
 					</form>
 				</section>
 				<section class="split contact">
-					<section>
-						<h3>Location</h3>
-						<p>Toulouse, France<br />(Open to relocation)</p>
-					</section>
-					<section>
-						<h3>Email</h3>
-						<p><a href="mailto:avonileonardo@gmail.com">avonileonardo@gmail.com</a></p>
-					</section>
+					<section><h3>Location</h3><p>Toulouse, France<br />(Open to relocation)</p></section>
+					<section><h3>Email</h3><p><a href="mailto:avonileonardo@gmail.com">avonileonardo@gmail.com</a></p></section>
 					<section>
 						<h3>Social</h3>
 						<ul class="icons alt">
@@ -248,7 +256,6 @@
 			</div>
 		</div><!-- end #wrapper -->
 
-		<!-- Scripts -->
 		<script src="assets/js/jquery.min.js"></script>
 		<script src="assets/js/jquery.scrollex.min.js"></script>
 		<script src="assets/js/jquery.scrolly.min.js"></script>
@@ -256,26 +263,32 @@
 		<script src="assets/js/breakpoints.min.js"></script>
 		<script src="assets/js/util.js"></script>
 		<script src="assets/js/main.js"></script>
+		<script src="assets/js/nav-dropdown.js"></script>
 
 		<script>
 		(function(){
-			var totalPages = 2;
-			var current = 0;
+			var total = 6;
+			var cur = 0;
 
 			function showPage(n) {
-				document.querySelectorAll('.post-page').forEach(function(el){
-					el.classList.remove('active');
+				cur = Math.max(0, Math.min(n, total - 1));
+				// toggle sections
+				document.querySelectorAll('.post-page').forEach(function(s){
+					s.classList.toggle('active', parseInt(s.dataset.page) === cur);
 				});
-				document.querySelector('.post-page[data-page="'+n+'"]').classList.add('active');
-				document.querySelectorAll('.pagination .page').forEach(function(btn){
-					btn.classList.toggle('active', parseInt(btn.dataset.target)===n);
+				// sync both paginations
+				['top','bot'].forEach(function(sfx){
+					var pag = document.getElementById('pag-' + sfx);
+					if (!pag) return;
+					pag.querySelectorAll('.page').forEach(function(btn){
+						btn.classList.toggle('active', parseInt(btn.dataset.target) === cur);
+					});
+					pag.querySelector('[data-dir="prev"]').classList.toggle('disabled', cur === 0);
+					pag.querySelector('[data-dir="next"]').classList.toggle('disabled', cur === total - 1);
 				});
-				var prev = document.getElementById('pag-prev');
-				var next = document.getElementById('pag-next');
-				prev.classList.toggle('disabled', n === 0);
-				next.classList.toggle('disabled', n === totalPages - 1);
-				current = n;
-				window.scrollTo({top: document.getElementById('projects-heading').offsetTop - 80, behavior:'smooth'});
+				// scroll to heading
+				var h = document.getElementById('projects-heading');
+				if (h) window.scrollTo({top: h.offsetTop - 90, behavior: 'smooth'});
 			}
 
 			document.querySelectorAll('.pagination .page').forEach(function(btn){
@@ -284,13 +297,11 @@
 					showPage(parseInt(this.dataset.target));
 				});
 			});
-			document.getElementById('pag-prev').addEventListener('click', function(e){
-				e.preventDefault();
-				if(current > 0) showPage(current - 1);
+			document.querySelectorAll('.pagination [data-dir="prev"]').forEach(function(btn){
+				btn.addEventListener('click', function(e){ e.preventDefault(); showPage(cur - 1); });
 			});
-			document.getElementById('pag-next').addEventListener('click', function(e){
-				e.preventDefault();
-				if(current < totalPages - 1) showPage(current + 1);
+			document.querySelectorAll('.pagination [data-dir="next"]').forEach(function(btn){
+				btn.addEventListener('click', function(e){ e.preventDefault(); showPage(cur + 1); });
 			});
 		})();
 		</script>
