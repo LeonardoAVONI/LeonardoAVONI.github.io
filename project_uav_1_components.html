@@ -1,7 +1,7 @@
 <!DOCTYPE HTML>
 <html>
 	<head>
-		<title>First Drone Development: Theory — Leonardo Avoni</title>
+		<title>First UAV — Component Selection — Leonardo Avoni</title>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 		<link rel="stylesheet" href="assets/css/main.css" />
@@ -15,7 +15,6 @@
 				<a href="index.html" class="logo">Leonardo Avoni</a>
 			</header>
 
-			<!-- Nav -->
 			<nav id="nav">
 				<ul class="links">
 					<li><a href="index.html">Bio</a></li>
@@ -24,10 +23,10 @@
 						<a href="projects-aero.html">Aerodynamics Projects</a>
 						<ul class="dropdown">
 							<li><a href="project-aswing.html">ASWING Extended User Manual</a></li>
-							<li><a href="project-wingloop.html">WingLoop — Automation & Control Library</a></li>
+							<li><a href="project-wingloop.html">WingLoop — Automation &amp; Control Library</a></li>
 							<li><a href="project-stall.html">Stall Implementation for Flexible Wings</a></li>
 							<li><a href="project-dronedetective.html">DroneDetective — Morphing Drone Wind Tunnel</a></li>
-							<li><a href="project-wind-tunnel.html">Supersonic Wind Tunnel — Design & Testing</a></li>
+							<li><a href="project-wind-tunnel.html">Supersonic Wind Tunnel — Design &amp; Testing</a></li>
 						</ul>
 					</li>
 					<li class="has-dropdown active">
@@ -58,35 +57,133 @@
 			<div id="main">
 				<section class="post">
 					<header class="major">
-						<span class="date">Personal Project · 2023–2024</span>
-						<h1>First Drone Development<br />Theory</h1>
-						<p>From Newton's laws to motor equations — building the mathematical foundations of a quadcopter from scratch.</p>
+						<span class="date">Personal Project · 2025–2026</span>
+						<h1>First UAV Build — Goals &amp; Component Selection</h1>
+						<p>Defining the platform, choosing the hardware stack, and planning a full quadrotor build from scratch — with zero prior experience in drone electronics.</p>
 					</header>
-					<div class="image main"><img src="images/pic02.jpg" alt="First Drone Development: Theory" /></div>
 
-					<h2>Overview</h2>
-					<p>Before touching a single component, I committed to fully understanding the physics behind a quadcopter: rigid-body dynamics, rotor aerodynamics, motor-propeller matching, and linear control design.</p>
-					<h3>1 · Rigid-Body Dynamics</h3>
-					<p>6-DOF Newton-Euler equations of motion. Translational and rotational dynamics coupled through the inertia tensor and gyroscopic effects of spinning rotors.</p>
-					<h3>2 · Rotor Aerodynamics</h3>
-					<p>Blade Element Momentum Theory (BEMT) to size propellers for a target thrust-to-weight ratio: blade pitch, chord distribution, tip speed, efficiency vs. responsiveness.</p>
-					<h3>3 · Motor &amp; ESC Selection</h3>
-					<p>Matching BLDC motors to propeller load curves via KV ratings, torque constants, and efficiency maps. ESC sizing based on hover and full-throttle current draw.</p>
-					<h3>4 · Control Architecture</h3>
-					<p>Cascaded PID design: outer position/altitude loop, inner attitude loop. Linearisation around hover for frequency-domain analysis.</p>
-					<h3>5 · Power Budget</h3>
-					<p>LiPo cell selection by C-rating, capacity, and target flight time. Full consumption breakdown across motors, FC, and peripherals.</p>
-					<h2>Tools</h2>
-					<ul><li>Python (NumPy, SciPy, Matplotlib)</li><li>MATLAB / Simulink</li></ul>
-					<h2>Outcome</h2>
-					<p>A complete design specification feeding directly into the <a href="project_uav_3_practicalbuild.html">practical build</a>.</p>
+					<div class="image-container">
+						<span class="image fit"><img src="images/UAV/UAV1_Cover.png" alt="QAV250 quadcopter kit from HolyBro" /></span>
+						<p style="text-align: center; font-style: italic; font-size: 0.8em; margin-top: -1.5rem">The QAV250 kit from HolyBro — the target build platform for this project. Credits: <a href="https://holybro.com/collections/multicopter-kit/products/qav250-kit" target="_blank">HolyBro</a>.</p>
+					</div>
+
+					<h2>Why Build a Drone at All?</h2>
+					<p>My background is purely mechanical and aerospace — fluid mechanics, structures, aerodynamics. That means I had zero hands-on experience with drone electronics, flight controllers, or ESC calibration when I started this. This project is my way of fixing that: getting my hands dirty with real UAV hardware and software, on a reasonable budget, with proper documentation along the way.</p>
+
+					<p>The idea was to go through the whole pipeline — figuring out what kind of quadcopter I wanted to build, selecting the components, assembling the thing, setting up the software, running SITL simulation, and eventually getting it flying for real. The goal was never to end up with the fastest or most efficient drone on the market. It was to understand how all the pieces fit together.</p>
+
+					<p>
+					<strong><em>⚠️ A serious note before anything else:</em></strong>
+					always check and comply with your local drone regulations before flying. Rules vary significantly by country, area, and aircraft weight — it is entirely your responsibility to know and follow them. I take no responsibility for your build, your flights, or any consequences arising from either.
+					</p>
+
+
+					<hr />
+
+					<h2>Project Objectives</h2>
+					<p>The project was broken into the following stages, each covered by its own page:</p>
+					<ol>
+						<li>Define goals and select components for a flyable quadcopter build</li>
+						<li>Assemble the hardware without burning anything down</li>
+						<li>Set up a ground station (QGroundControl) and run SITL simulation (PX4 + Gazebo)</li>
+						<li>Fly safely in manual mode (Stabilized / Acro) on real hardware</li>
+						<li>Achieve basic autonomous missions using PX4 + QGroundControl</li>
+						<li>Understand the overall drone design pipeline end-to-end</li>
+					</ol>
+
+					<hr />
+
+					<h2>Platform Choice: Why the QAV250?</h2>
+					<p>The QAV250 is a 250 mm motor-to-motor diagonal quadrotor — compact, well-documented, and widely used in the hobbyist and educational community. The choice was driven by a few practical constraints:</p>
+					<ul>
+						<li><strong>Safety:</strong> Smaller props mean less stored kinetic energy. Easier to test indoors and in constrained environments.</li>
+						<li><strong>Cost:</strong> Components are cheaper and easier to replace when something inevitably goes wrong.</li>
+						<li><strong>Learning focus:</strong> The goal is to understand the full stack — from component selection to autonomous flight. A 250 mm frame is plenty for that. There is no point over-engineering this.</li>
+					</ul>
+					<p>To be explicit: this project is <strong>not</strong> chasing maximum flight time, racing performance, or any particular design optimization. It is about reliably flying something and understanding how it all works.</p>
+
+					<hr />
+
+					<h2>Flight Controller &amp; Autopilot: PX4 + Pixhawk 6C Mini</h2>
+					<p>The flight controller chosen is the <strong>Pixhawk 6C Mini</strong>, running <strong>PX4</strong> autopilot firmware. The reasons for this combination are laid out in detail in the component selection report below, but the short version is: PX4 is open-source, extensively documented, well supported by QGroundControl and Gazebo for simulation, and the Pixhawk 6C Mini is a capable, compact board that fits the QAV250 frame. ArduPilot would have been an equally valid choice — the firmware can be swapped later if needed.</p>
+
+					<hr />
+
+					<h2>Component Selection Overview</h2>
+					<p>All component choices — frame, motors, ESCs, flight controller, radio system, battery, charger, and ground station hardware — are documented in the PDF report below. This includes the rationale behind each choice, compatibility checks, and the wiring scheme tying everything together. A few things worth noting:</p>
+					<ul>
+						<li>The RC link uses <strong>ELRS (ExpressLRS)</strong>, an open-source long-range RC protocol with very low latency. Getting it to play nicely with PX4 required some extra attention — covered in the <a href="project_uav_4_practicalfly.html">Real Software &amp; Flight</a> page.</li>
+						<li>The component list includes both drone-specific hardware and ground station gear (battery charger, etc.), since those are equally necessary to actually operate the thing.</li>
+						<li>If you are doing a similar build today, some components — especially video transmission systems — evolve quickly. Keep an eye on current recommendations rather than blindly copying this list.</li>
+					</ul>
+
+					<div class="box alt">
+						<div class="row gtr-50 gtr-uniform">
+							<div class="col-6">
+								<span class="image fit"><img src="images/UAV/UAV1_GPSexample.png" alt="GPS module wiring diagram" /></span>
+								<p style="text-align: center; font-style: italic; font-size: 0.8em; margin-top: -1.5rem">Component selection and wiring analysis for the GPS module — understanding connector pinouts and interface compatibility before committing to a purchase.</p>
+							</div>
+							<div class="col-6">
+								<span class="image fit"><img src="images/UAV/UAV0_wiringscheme_example.png" alt="Example wiring scheme excerpt" /></span>
+								<p style="text-align: center; font-style: italic; font-size: 0.8em; margin-top: -1.5rem">A portion of the wiring scheme produced alongside the component selection, mapping all electrical connections across the drone stack.</p>
+							</div>
+						</div>
+					</div>
+
+					<hr />
+
+					<h2>Cost Summary</h2>
+					<p>The table below tracks cumulative spending, including shipping and taxes to Toulouse, France. This reflects a real-world budget build — no sponsorships, no bulk discounts.</p>
+
+					<div class="table-wrapper">
+						<table>
+							<thead>
+								<tr>
+									<th>Date</th>
+									<th>Items</th>
+									<th>Cumulative Total (€)</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td>11/2025</td>
+									<td>Primary components — drone hardware (e.g. ESCs, motors, FC) and support gear (e.g. battery charger)</td>
+									<td>540</td>
+								</tr>
+								<tr>
+									<td>01/2026</td>
+									<td>Additional GH1.25 10P pre-crimped cables (needed for wiring adjustments during assembly)</td>
+									<td>548</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+
+					<hr />
+
+					<h2>While Waiting: Getting Simulator Time on the Controller</h2>
+					<p>The RC transmitter was one of the first items to arrive. Rather than let it sit idle while the rest of the components shipped, I installed <strong>Liftoff</strong> — a drone racing simulator — to start building muscle memory with the sticks. This turned out to be genuinely useful: the sensitivity of a drone RC is quite different from anything I had flown before, and crashing in a simulator costs nothing.</p>
+
+					<div class="image-container">
+						<span class="image fit"><img src="images/UAV/UAV1_Liftoff_Equivalent.png" alt="QAV250-equivalent drone in Liftoff simulator" /></span>
+						<p style="text-align: center; font-style: italic; font-size: 0.8em; margin-top: -1.5rem">A QAV250-equivalent model in the Liftoff simulator — used to get initial controller feel and practice manual flight before the real build was complete.</p>
+					</div>
+
+					<hr />
+
+					<h2>Documentation</h2>
+					<p>The full component selection rationale, specifications, and wiring scheme are available below.</p>
+					<ul class="actions special">
+						<li><a href="images/UAV/01_QAV250_GoalAndSelection.pdf" target="_blank" class="button primary">View Component Selection Report (PDF)</a></li>
+						<li><a href="images/UAV/02_First_Drone_Build_Wiring_Scheme.pdf" target="_blank" class="button primary">View Wiring Scheme (PDF)</a></li>
+					</ul>
+
 					<ul class="actions special">
 						<li><a href="projects-uav.html" class="button">← Back to UAV Projects</a></li>
 					</ul>
 				</section>
 			</div>
 
-			<!-- Footer -->
 			<footer id="footer">
 				<section>
 					<h2>Get in Touch</h2>
@@ -117,7 +214,7 @@
 				<ul><li>&copy; Leonardo Avoni</li><li>Design: <a href="https://html5up.net">HTML5 UP</a></li></ul>
 			</div>
 
-		</div><!-- end #wrapper -->
+		</div>
 
 		<script src="assets/js/jquery.min.js"></script>
 		<script src="assets/js/jquery.scrollex.min.js"></script>

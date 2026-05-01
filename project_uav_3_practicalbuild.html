@@ -1,7 +1,7 @@
 <!DOCTYPE HTML>
 <html>
 	<head>
-		<title>First Drone Development: Practice — Leonardo Avoni</title>
+		<title>First UAV — Hardware Assembly — Leonardo Avoni</title>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 		<link rel="stylesheet" href="assets/css/main.css" />
@@ -15,7 +15,6 @@
 				<a href="index.html" class="logo">Leonardo Avoni</a>
 			</header>
 
-			<!-- Nav -->
 			<nav id="nav">
 				<ul class="links">
 					<li><a href="index.html">Bio</a></li>
@@ -24,10 +23,10 @@
 						<a href="projects-aero.html">Aerodynamics Projects</a>
 						<ul class="dropdown">
 							<li><a href="project-aswing.html">ASWING Extended User Manual</a></li>
-							<li><a href="project-wingloop.html">WingLoop — Automation & Control Library</a></li>
+							<li><a href="project-wingloop.html">WingLoop — Automation &amp; Control Library</a></li>
 							<li><a href="project-stall.html">Stall Implementation for Flexible Wings</a></li>
 							<li><a href="project-dronedetective.html">DroneDetective — Morphing Drone Wind Tunnel</a></li>
-							<li><a href="project-wind-tunnel.html">Supersonic Wind Tunnel — Design & Testing</a></li>
+							<li><a href="project-wind-tunnel.html">Supersonic Wind Tunnel — Design &amp; Testing</a></li>
 						</ul>
 					</li>
 					<li class="has-dropdown active">
@@ -58,33 +57,88 @@
 			<div id="main">
 				<section class="post">
 					<header class="major">
-						<span class="date">Personal Project · 2023–2024</span>
-						<h1>First Drone Development<br />Practice</h1>
-						<p>From CAD to firmware to first flight — building a quadcopter entirely from scratch.</p>
+						<span class="date">Personal Project · 2025–2026</span>
+						<h1>First UAV Build — Hardware Assembly</h1>
+						<p>Putting the QAV250 together — frame, motors, ESCs, flight controller, wiring — with an emphasis on doing it right the first time rather than fast.</p>
 					</header>
-					<div class="image main"><img src="images/pic03.jpg" alt="First Drone Development: Practice" /></div>
 
-					<h2>Overview</h2>
-					<p>With the <a href="project_uav_1_components.html">theoretical design</a> in hand, this phase turned equations into hardware — every component selected, assembled, wired, and programmed by hand.</p>
-					<h3>1 · Frame Design &amp; Manufacturing</h3>
-					<p>250 mm configuration in FreeCAD / SolidWorks. Arms and body printed in PETG; carbon fibre arms planned for v2. Target: &lt;250 g dry.</p>
-					<h3>2 · Electronics Assembly</h3>
-					<p>FC · 4-in-1 ESC · BLDC motors · LiPo · RC receiver · GPS. Soldering, wire routing, FC vibration isolation via damping mounts.</p>
-					<h3>3 · Firmware &amp; Configuration</h3>
-					<p>ArduPilot / Betaflight flashing, sensor calibration, motor direction check, RC mapping, failsafe setup. PID tuning via Blackbox log analysis.</p>
-					<h3>4 · SITL Simulation</h3>
-					<p>Software-In-The-Loop testing in Gazebo to validate control gains before risking hardware.</p>
-					<h3>5 · Field Testing &amp; Iteration</h3>
-					<p>First hover tests, stability assessment, iterative tuning. Documented crashes — a rite of passage.</p>
-					<h2>Tools</h2>
-					<ul><li>FreeCAD / SolidWorks · FDM 3D Printing (PETG)</li><li>ArduPilot / Betaflight · Gazebo SITL</li><li>Python (log analysis)</li></ul>
+					<div class="image-container">
+						<span class="image fit"><img src="images/UAV/UAV2_Cover.jpg" alt="Finished QAV250 drone" /></span>
+						<p style="text-align: center; font-style: italic; font-size: 0.8em; margin-top: -1.5rem">The finished QAV250 build — result of the assembly process described on this page.</p>
+					</div>
+
+					<h2>Starting Point</h2>
+					<p>With all components received and verified against the <a href="project_uav_1_components.html">component selection plan</a>, the next step was to actually assemble the drone. Before touching a soldering iron, every spec and connection was cross-checked: connector types, pin assignments, voltage compatibility, current ratings. The Pixhawk 6C Mini costs around 120 euros — not the kind of thing you want to destroy because you plugged something in backwards.</p>
+
+					<p>The assembly process is documented in detail in the build report linked at the bottom of this page.</p>
+
+					<hr />
+
+					<h2>Assembly Planning: Layout &amp; Clearances</h2>
+					<p>Before physically mounting anything, a component placement scheme was worked out — deciding where each element sits on the frame, taking into account several competing constraints:</p>
+					<ul>
+						<li><strong>Mass distribution:</strong> keeping the centre of gravity close to the geometric centre of the frame for balanced flight dynamics.</li>
+						<li><strong>Electromagnetic compatibility:</strong> separating RF-sensitive components (GPS, RC receiver) from high-current switching elements (ESCs, battery leads) to reduce interference.</li>
+						<li><strong>Physical clearances:</strong> making sure nothing conflicts with prop wash, prop arcs, or the structural elements of the frame.</li>
+						<li><strong>Maintenance access:</strong> keeping connectors accessible without needing to disassemble half the drone.</li>
+					</ul>
+
+					<div class="image-container">
+						<span class="image fit"><img src="images/UAV/UAV2_Assembly_decisions.png" alt="Component placement diagram for QAV250" /></span>
+						<p style="text-align: center; font-style: italic; font-size: 0.8em; margin-top: -1.5rem">Component placement analysis for the QAV250 — mapping out mass distribution, electromagnetic separation, and physical clearances before committing to the build.</p>
+					</div>
+
+					<hr />
+
+					<h2>Wiring &amp; Cable Management</h2>
+					<p>Wiring on a small quadrotor is more involved than it first appears. A few things that required particular care:</p>
+					<ul>
+						<li><strong>Cable twisting:</strong> signal cable groups (Serial, I2C, PWM) were twisted appropriately to reduce crosstalk and electromagnetic noise — especially important near the flight controller.</li>
+						<li><strong>Connector identification:</strong> the GH1.25 connectors used throughout the Pixhawk ecosystem are small and easy to mix up. Every connector was verified against pinout documentation before mating.</li>
+						<li><strong>Short-circuit prevention:</strong> power distribution was checked thoroughly before any power was applied — a short on the main battery bus can damage ESCs, the FC, or worse.</li>
+						<li><strong>Strain relief:</strong> cables were routed and secured to avoid flex fatigue at solder joints during flight vibration.</li>
+					</ul>
+
+					<hr />
+
+					<h2>3D Printed Parts</h2>
+					<p>Not everything fit perfectly out of the box. A few custom parts had to be designed and 3D printed to properly mount certain components on the QAV250 frame — mostly small brackets and spacers. Nothing exotic, but it was a good reminder that real builds rarely go exactly as planned. The exact parts are described in the build report.</p>
+
+					<hr />
+
+					<h2>Assembly in Progress</h2>
+
+					<div class="image-container">
+						<span class="image fit"><img src="images/UAV/UAV2_assembly.png" alt="QAV250 during assembly" /></span>
+						<p style="text-align: center; font-style: italic; font-size: 0.8em; margin-top: -1.5rem">Mid-assembly view of the QAV250 build — components being installed and wired before the final integration check.</p>
+					</div>
+
+					<hr />
+
+					<h2>Pre-Power Checks</h2>
+					<p>Before applying any power to the assembled drone, a systematic pre-flight checklist was run:</p>
+					<ul>
+						<li>Continuity and short-circuit checks on all power rails with a multimeter.</li>
+						<li>Visual inspection of all solder joints for bridges, cold joints, or exposed copper near adjacent pads.</li>
+						<li>Verification that all ESC signal wires were correctly assigned to the right FC output channels (motor order matters for PX4).</li>
+						<li>Confirmation that the FC orientation was set correctly and that the GPS/compass module was correctly positioned and oriented.</li>
+					</ul>
+					<p>The extra time spent here was deliberate. Rushing this step is how you end up ordering replacement parts.</p>
+
+					<hr />
+
+					<h2>Documentation</h2>
+					<p>The full hardware build process, including the 3D-printed parts, wiring decisions, and pre-power checks, is documented in the report below.</p>
+					<ul class="actions special">
+						<li><a href="images/UAV/03_QAV250_HardwareBuild.pdf" target="_blank" class="button primary">View Hardware Build Report (PDF)</a></li>
+					</ul>
+
 					<ul class="actions special">
 						<li><a href="projects-uav.html" class="button">← Back to UAV Projects</a></li>
 					</ul>
 				</section>
 			</div>
 
-			<!-- Footer -->
 			<footer id="footer">
 				<section>
 					<h2>Get in Touch</h2>
@@ -115,7 +169,7 @@
 				<ul><li>&copy; Leonardo Avoni</li><li>Design: <a href="https://html5up.net">HTML5 UP</a></li></ul>
 			</div>
 
-		</div><!-- end #wrapper -->
+		</div>
 
 		<script src="assets/js/jquery.min.js"></script>
 		<script src="assets/js/jquery.scrollex.min.js"></script>

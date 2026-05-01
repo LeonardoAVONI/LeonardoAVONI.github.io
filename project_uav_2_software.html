@@ -1,7 +1,7 @@
 <!DOCTYPE HTML>
 <html>
 	<head>
-		<title>First Drone Development: Theory — Leonardo Avoni</title>
+		<title>First UAV — SITL Software — Leonardo Avoni</title>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 		<link rel="stylesheet" href="assets/css/main.css" />
@@ -15,7 +15,6 @@
 				<a href="index.html" class="logo">Leonardo Avoni</a>
 			</header>
 
-			<!-- Nav -->
 			<nav id="nav">
 				<ul class="links">
 					<li><a href="index.html">Bio</a></li>
@@ -24,10 +23,10 @@
 						<a href="projects-aero.html">Aerodynamics Projects</a>
 						<ul class="dropdown">
 							<li><a href="project-aswing.html">ASWING Extended User Manual</a></li>
-							<li><a href="project-wingloop.html">WingLoop — Automation & Control Library</a></li>
+							<li><a href="project-wingloop.html">WingLoop — Automation &amp; Control Library</a></li>
 							<li><a href="project-stall.html">Stall Implementation for Flexible Wings</a></li>
 							<li><a href="project-dronedetective.html">DroneDetective — Morphing Drone Wind Tunnel</a></li>
-							<li><a href="project-wind-tunnel.html">Supersonic Wind Tunnel — Design & Testing</a></li>
+							<li><a href="project-wind-tunnel.html">Supersonic Wind Tunnel — Design &amp; Testing</a></li>
 						</ul>
 					</li>
 					<li class="has-dropdown active">
@@ -58,35 +57,93 @@
 			<div id="main">
 				<section class="post">
 					<header class="major">
-						<span class="date">Personal Project · 2023–2024</span>
-						<h1>First Drone Development<br />Theory</h1>
-						<p>From Newton's laws to motor equations — building the mathematical foundations of a quadcopter from scratch.</p>
+						<span class="date">Personal Project · 2025–2026</span>
+						<h1>First UAV Build — SITL Simulation</h1>
+						<p>Setting up PX4 Software-In-The-Loop with Gazebo and QGroundControl — including a custom campus world and a QAV250-matched drone model.</p>
 					</header>
-					<div class="image main"><img src="images/pic02.jpg" alt="First Drone Development: Theory" /></div>
 
-					<h2>Overview</h2>
-					<p>Before touching a single component, I committed to fully understanding the physics behind a quadcopter: rigid-body dynamics, rotor aerodynamics, motor-propeller matching, and linear control design.</p>
-					<h3>1 · Rigid-Body Dynamics</h3>
-					<p>6-DOF Newton-Euler equations of motion. Translational and rotational dynamics coupled through the inertia tensor and gyroscopic effects of spinning rotors.</p>
-					<h3>2 · Rotor Aerodynamics</h3>
-					<p>Blade Element Momentum Theory (BEMT) to size propellers for a target thrust-to-weight ratio: blade pitch, chord distribution, tip speed, efficiency vs. responsiveness.</p>
-					<h3>3 · Motor &amp; ESC Selection</h3>
-					<p>Matching BLDC motors to propeller load curves via KV ratings, torque constants, and efficiency maps. ESC sizing based on hover and full-throttle current draw.</p>
-					<h3>4 · Control Architecture</h3>
-					<p>Cascaded PID design: outer position/altitude loop, inner attitude loop. Linearisation around hover for frequency-domain analysis.</p>
-					<h3>5 · Power Budget</h3>
-					<p>LiPo cell selection by C-rating, capacity, and target flight time. Full consumption breakdown across motors, FC, and peripherals.</p>
-					<h2>Tools</h2>
-					<ul><li>Python (NumPy, SciPy, Matplotlib)</li><li>MATLAB / Simulink</li></ul>
-					<h2>Outcome</h2>
-					<p>A complete design specification feeding directly into the <a href="project_uav_3_practicalbuild.html">practical build</a>.</p>
+					<div class="image-container">
+						<span class="image fit"><img src="images/UAV/UAV3_Cover.png" alt="SITL view showing Gazebo and QGC over ISAE-Supaero campus simulation" /></span>
+						<p style="text-align: center; font-style: italic; font-size: 0.8em; margin-top: -1.5rem">The SITL simulation environment in action — Gazebo (right) rendering the drone flying over a simulated ISAE-Supaero / ENAC campus, with QGroundControl (left) acting as the ground station. The custom world and drone model were both built specifically for this project.</p>
+					</div>
+
+					<h2>Why Start with Simulation?</h2>
+					<p>With the hardware build complete, the temptation is to plug everything in and fly. The smarter move is to first understand how the autopilot software works before trusting it with real hardware. PX4 supports a full Software-In-The-Loop (SITL) mode: the autopilot stack runs natively on your computer, connected to a physics simulator (Gazebo), while QGroundControl acts as the ground station exactly as it would in a real flight. No risk to the hardware, and a much faster iteration cycle for learning the software.</p>
+
+					<hr />
+
+					<h2>The Software Stack</h2>
+					<p>The simulation environment is built around three tools that interact with each other:</p>
+					<ul>
+						<li><strong>PX4 SITL:</strong> the autopilot firmware compiled to run on the host computer. It handles all flight control logic, state estimation, and mission execution.</li>
+						<li><strong>Gazebo:</strong> the physics and rendering simulator. It models drone dynamics, applies sensor noise, and provides visual feedback of the flight.</li>
+						<li><strong>QGroundControl (QGC):</strong> the ground control station. Used for parameter tuning, mission planning, telemetry monitoring, and flight mode management — identical workflow to real operations.</li>
+					</ul>
+
+					<hr />
+
+					<h2>Customizations: Making It Feel Real</h2>
+					<p>Rather than just running the default Gazebo world with a generic quadrotor model, the simulation was customised in two significant ways. The goal was to go deeper into how the software works internally — not just run it as a black box.</p>
+
+					<h3>Custom Simulation World: ISAE-Supaero / ENAC Campus</h3>
+					<p>The default Gazebo worlds are generic and disconnected from reality. To give the simulation concrete spatial meaning, a 3D model of the ISAE-Supaero / ENAC area in Toulouse was generated from <strong>OpenStreetMap</strong> data using OSM2World, then imported into Gazebo as a custom world. Flying over a place I know makes distance and scale immediately interpretable — it converts simulation results into something that translates to real life.</p>
+
+					<div class="box alt">
+						<div class="row gtr-50 gtr-uniform">
+							<div class="col-6">
+								<span class="image fit"><img src="images/UAV/UAV3_RealvsOSM2World.png" alt="ISAE-Supaero campus: Google Maps vs OSM2World comparison" /></span>
+								<p style="text-align: center; font-style: italic; font-size: 0.8em; margin-top: -1.5rem">Side-by-side comparison of the ISAE-Supaero campus — Google Maps satellite view versus the OSM2World-generated 3D model used in the Gazebo simulation world.</p>
+							</div>
+							<div class="col-6">
+								<span class="image fit"><img src="images/UAV/UAV3_CADmodel.png" alt="Custom QAV250 CAD model in Gazebo" /></span>
+								<p style="text-align: center; font-style: italic; font-size: 0.8em; margin-top: -1.5rem">The custom QAV250 drone model imported into Gazebo — inertial properties and geometry tuned to match the real build, so simulated dynamics are representative.</p>
+							</div>
+						</div>
+					</div>
+
+					<h3>Custom Drone Model: QAV250 in Gazebo</h3>
+					<p>The second customisation was replacing the default quadrotor model with one that matches the actual QAV250 build — correct geometry, mass properties, and motor layout. This required editing the SDF model definition and understanding where PX4 and Gazebo exchange vehicle parameters. It also served as a useful exercise in understanding how simulation fidelity is controlled and where the key configuration files live in the PX4 and Gazebo source trees.</p>
+
+					<h3>RC Controller as Joystick Input</h3>
+					<p>The real RC transmitter was also configured as a joystick input for SITL — meaning manual flight modes in simulation were flown with the same hardware that would be used in real life. This is a better setup than a keyboard for two reasons: it keeps hand-eye coordination training directly transferable, and it validated the RC–QGC communication chain before the real drone was involved.</p>
+
+					<hr />
+
+					<h2>What Was Tested</h2>
+					<p>With the environment set up, several aspects of PX4 were explored:</p>
+					<ul>
+						<li><strong>Pre-planned autonomous missions:</strong> missions were defined in QGroundControl, uploaded to the simulated drone, and executed — including takeoff, waypoint navigation, and landing. Watching the drone fly the planned route over the virtual campus was a satisfying moment.</li>
+						<li><strong>Flight modes:</strong> the various PX4 flight modes (Manual, Stabilized, Altitude, Position, Mission) were tested and compared to understand what the autopilot is actually doing in each case.</li>
+						<li><strong>Simulated onboard camera:</strong> a camera plugin was added to the Gazebo model and the video feed was streamed to QGroundControl — a first look at the onboard camera workflow that would be relevant for future autonomous tasks.</li>
+						<li><strong>MAVSDK:</strong> some time was spent experimenting with MAVSDK (the PX4 SDK for offboard control via Python/C++) to understand how programmatic control of the vehicle works beyond what QGC provides natively.</li>
+					</ul>
+
+					<hr />
+
+					<h2>Issues Encountered</h2>
+					<p>Setting up the SITL stack from scratch is not entirely smooth. A non-exhaustive list of things that required debugging:</p>
+					<ul>
+						<li>Library dependencies and missing packages on the host system.</li>
+						<li>Version incompatibilities between PX4, Gazebo, and ROS/the plugin ecosystem — the versions of these tools need to be matched carefully.</li>
+						<li>RC transmitter / QGroundControl joystick compatibility — not all joystick mappings are automatically recognised correctly.</li>
+						<li>General compatibility issues between PX4 SITL and the custom Gazebo world (coordinate systems, spawn positions, physics parameters).</li>
+						<li>Working with the PX4 Git repository — managing forks, branches, and upstream merges when customising the source.</li>
+						<li>Finding a reliable, generalizable workflow for Gazebo world creation from OSM data — several approaches were tried before landing on one that worked consistently.</li>
+					</ul>
+					<p>None of these were insurmountable, but they each took time. The lesson is to pin your dependency versions early and be conservative about updates.</p>
+
+					<hr />
+
+					<h2>Documentation</h2>
+					<p>A full report covering the SITL setup, customisations, and experiments is in preparation.</p>
+					<p><em>Report: incoming.</em></p>
+
 					<ul class="actions special">
 						<li><a href="projects-uav.html" class="button">← Back to UAV Projects</a></li>
 					</ul>
 				</section>
 			</div>
 
-			<!-- Footer -->
 			<footer id="footer">
 				<section>
 					<h2>Get in Touch</h2>
@@ -117,7 +174,7 @@
 				<ul><li>&copy; Leonardo Avoni</li><li>Design: <a href="https://html5up.net">HTML5 UP</a></li></ul>
 			</div>
 
-		</div><!-- end #wrapper -->
+		</div>
 
 		<script src="assets/js/jquery.min.js"></script>
 		<script src="assets/js/jquery.scrollex.min.js"></script>

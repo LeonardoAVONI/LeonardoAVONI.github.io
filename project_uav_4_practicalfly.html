@@ -1,7 +1,7 @@
 <!DOCTYPE HTML>
 <html>
 	<head>
-		<title>First Drone Development: Practice — Leonardo Avoni</title>
+		<title>First UAV — Real Software &amp; Flight — Leonardo Avoni</title>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 		<link rel="stylesheet" href="assets/css/main.css" />
@@ -15,7 +15,6 @@
 				<a href="index.html" class="logo">Leonardo Avoni</a>
 			</header>
 
-			<!-- Nav -->
 			<nav id="nav">
 				<ul class="links">
 					<li><a href="index.html">Bio</a></li>
@@ -24,10 +23,10 @@
 						<a href="projects-aero.html">Aerodynamics Projects</a>
 						<ul class="dropdown">
 							<li><a href="project-aswing.html">ASWING Extended User Manual</a></li>
-							<li><a href="project-wingloop.html">WingLoop — Automation & Control Library</a></li>
+							<li><a href="project-wingloop.html">WingLoop — Automation &amp; Control Library</a></li>
 							<li><a href="project-stall.html">Stall Implementation for Flexible Wings</a></li>
 							<li><a href="project-dronedetective.html">DroneDetective — Morphing Drone Wind Tunnel</a></li>
-							<li><a href="project-wind-tunnel.html">Supersonic Wind Tunnel — Design & Testing</a></li>
+							<li><a href="project-wind-tunnel.html">Supersonic Wind Tunnel — Design &amp; Testing</a></li>
 						</ul>
 					</li>
 					<li class="has-dropdown active">
@@ -58,33 +57,78 @@
 			<div id="main">
 				<section class="post">
 					<header class="major">
-						<span class="date">Personal Project · 2023–2024</span>
-						<h1>First Drone Development<br />Practice</h1>
-						<p>From CAD to firmware to first flight — building a quadcopter entirely from scratch.</p>
+						<span class="date">Personal Project · 2025–2026</span>
+						<h1>First UAV Build — Real Software &amp; Flight</h1>
+						<p>Transitioning from simulation to reality: flashing the hardware, troubleshooting communication protocols, and the first indoor manual flights.</p>
 					</header>
-					<div class="image main"><img src="images/pic03.jpg" alt="First Drone Development: Practice" /></div>
 
-					<h2>Overview</h2>
-					<p>With the <a href="project_uav_1_components.html">theoretical design</a> in hand, this phase turned equations into hardware — every component selected, assembled, wired, and programmed by hand.</p>
-					<h3>1 · Frame Design &amp; Manufacturing</h3>
-					<p>250 mm configuration in FreeCAD / SolidWorks. Arms and body printed in PETG; carbon fibre arms planned for v2. Target: &lt;250 g dry.</p>
-					<h3>2 · Electronics Assembly</h3>
-					<p>FC · 4-in-1 ESC · BLDC motors · LiPo · RC receiver · GPS. Soldering, wire routing, FC vibration isolation via damping mounts.</p>
-					<h3>3 · Firmware &amp; Configuration</h3>
-					<p>ArduPilot / Betaflight flashing, sensor calibration, motor direction check, RC mapping, failsafe setup. PID tuning via Blackbox log analysis.</p>
-					<h3>4 · SITL Simulation</h3>
-					<p>Software-In-The-Loop testing in Gazebo to validate control gains before risking hardware.</p>
-					<h3>5 · Field Testing &amp; Iteration</h3>
-					<p>First hover tests, stability assessment, iterative tuning. Documented crashes — a rite of passage.</p>
-					<h2>Tools</h2>
-					<ul><li>FreeCAD / SolidWorks · FDM 3D Printing (PETG)</li><li>ArduPilot / Betaflight · Gazebo SITL</li><li>Python (log analysis)</li></ul>
+					<div class="image-container">
+						<span class="image fit"><img src="images/UAV/UAV4_Flying.png" alt="QAV250 flying indoor at ENAC Voliere" /></span>
+						<p style="text-align: center; font-style: italic; font-size: 0.8em; margin-top: -1.5rem">The QAV250 in its element: flying indoors at the <a href="https://www.enac.fr/fr/voliere-drones-toulouse-occitanie" target="_blank">ENAC Voliere</a> in Toulouse.</p>
+					</div>
+
+					<h2>From Virtual to Vertical</h2>
+					<p>After getting comfortable with the PX4 stack in <a href="project_uav_2_software.html">SITL simulation</a>, it was time to move to the real thing. While the logic remains the same, hardware introduces a layer of complexity—communication protocols, firmware compilation for specific targets, and the unpredictable nature of real-world electronics.</p>
+
+					<hr />
+
+					<h2>Configuration Hurdles: RC and ELRS</h2>
+					<p>Getting the radio link operational was the first major software-on-hardware milestone. I chose <strong>ExpressLRS (ELRS)</strong> for its reliability, but integrating it with PX4 required precise parameter tuning. Specifically, attention was paid to:</p>
+					<ul>
+						<li><strong>RC Setup:</strong> Mapping channels correctly within QGroundControl to match the transmitter's stick movements.</li>
+						<li><strong>PX4 Compilation:</strong> Ensuring the firmware was compiled with the correct CRSF (Crossfire) protocol support, which ELRS uses to communicate with the Pixhawk 6C Mini.</li>
+						<li><strong>Failsafes:</strong> Testing the connection loss behavior to ensure the drone would disarm or return safely rather than drifting away.</li>
+					</ul>
+
+					<div class="image-container">
+						<span class="image fit"><img src="images/UAV/UAV4_smallprops.jpg" alt="QAV250 with 4 inch propellers" /></span>
+						<p style="text-align: center; font-style: italic; font-size: 0.8em; margin-top: -1.5rem">Pre-flight testing: The QAV250 fitted with 4’’ propellers instead of the standard 5’’. This reduced the "punch" and total energy, making initial indoor spin-ups and hover checks much safer.</p>
+					</div>
+
+					<hr />
+
+					<h2>Ground Control Quirks</h2>
+					<p>One unexpected challenge was the stability of the ground station software. Operating on <strong>Ubuntu</strong>, QGroundControl (QGC) proved to be somewhat "glitchy" during initial setup. Issues ranged from UI rendering lag to occasional connection drops when flashing firmware. Solving this required a mix of driver updates and sticking to stable AppImage releases to ensure a reliable link before the drone ever left the ground.</p>
+
+					<hr />
+
+					<h2>Flight Testing: Stabilized and Acro</h2>
+					<p>The first "real" flights took place indoors at the ENAC Voliere. This provided a controlled, GPS-denied environment where I could focus purely on the drone's response to manual inputs. </p>
+					<ul>
+						<li><strong>Stabilized Mode:</strong> Used for the maiden hover. The autopilot successfully used the IMU to keep the drone level, validating the sensor calibration and motor mixing.</li>
+						<li><strong>Acro Mode:</strong> Once the hover was stable, I tested manual rate control. Having practiced in the <em>Liftoff</em> simulator during the <a href="project_uav_1_components.html">selection phase</a>, the transition felt surprisingly natural.</li>
+					</ul>
+
+					<div class="image-container">
+						<video width="100%" controls>
+						  <source src="images/UAV/UAV4_realflight.mp4" type="video/webm">
+						  Your browser does not support the video tag.
+						</video>
+						<p style="text-align: center; font-style: italic; font-size: 0.8em; margin-top: 0.5rem">Raw footage of the QAV250 indoor manual flight in Stabilized mode. You can see the drone maintaining its attitude while I test small corrections.</p>
+					</div>
+
+					<hr />
+
+					<h2>Future Goals</h2>
+					<p>With manual flight verified, the foundation is laid for more complex operations. The next objectives for this platform include:</p>
+					<ul>
+						<li>Transitioning from indoor manual flight to <strong>outdoor autonomous missions</strong>.</li>
+						<li>Implementing GPS-based waypoints and return-to-land (RTL) sequences.</li>
+						<li>Fine-tuning the PID loops to optimize the 250mm frame's agility.</li>
+					</ul>
+
+					<hr />
+
+					<h2>Documentation</h2>
+					<p>The detailed flight logs and software configuration report are currently being finalized.</p>
+					<p><em>Report: incoming.</em></p>
+
 					<ul class="actions special">
 						<li><a href="projects-uav.html" class="button">← Back to UAV Projects</a></li>
 					</ul>
 				</section>
 			</div>
 
-			<!-- Footer -->
 			<footer id="footer">
 				<section>
 					<h2>Get in Touch</h2>
@@ -115,7 +159,7 @@
 				<ul><li>&copy; Leonardo Avoni</li><li>Design: <a href="https://html5up.net">HTML5 UP</a></li></ul>
 			</div>
 
-		</div><!-- end #wrapper -->
+		</div>
 
 		<script src="assets/js/jquery.min.js"></script>
 		<script src="assets/js/jquery.scrollex.min.js"></script>
