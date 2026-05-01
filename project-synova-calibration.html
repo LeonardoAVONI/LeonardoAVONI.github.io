@@ -1,7 +1,7 @@
 <!DOCTYPE HTML>
 <html>
 	<head>
-		<title>Synova SA Internship — Laser Calibration — Leonardo Avoni</title>
+		<title>Synova SA — Calibration Method Development — Leonardo Avoni</title>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 		<link rel="stylesheet" href="assets/css/main.css" />
@@ -24,10 +24,10 @@
 						<a href="projects-aero.html">Aerodynamics Projects</a>
 						<ul class="dropdown">
 							<li><a href="project-aswing.html">ASWING Extended User Manual</a></li>
-							<li><a href="project-wingloop.html">WingLoop — Automation & Control Library</a></li>
+							<li><a href="project-wingloop.html">WingLoop — Automation &amp; Control Library</a></li>
 							<li><a href="project-stall.html">Stall Implementation for Flexible Wings</a></li>
 							<li><a href="project-dronedetective.html">DroneDetective — Morphing Drone Wind Tunnel</a></li>
-							<li><a href="project-wind-tunnel.html">Supersonic Wind Tunnel — Design & Testing</a></li>
+							<li><a href="project-wind-tunnel.html">Supersonic Wind Tunnel — Design &amp; Testing</a></li>
 						</ul>
 					</li>
 					<li class="has-dropdown">
@@ -59,21 +59,84 @@
 				<section class="post">
 					<header class="major">
 						<span class="date">Industry Internship · Synova SA, Geneva · 2021</span>
-						<h1>Synova SA Internship<br />Laser Jet Calibration</h1>
-						<p>Precision calibration of laser microjet cutting systems at Synova SA — where optics meets fluid mechanics.</p>
+						<h1>5-Axis CNC Calibration Method Development</h1>
+						<p>Establishing a rigorous, norm-compliant calibration procedure to correct rotational and translational axis misalignments on Synova's Laser MicroJet® CNC machines.</p>
 					</header>
-					<div class="image main"><img src="images/pic02.jpg" alt="Synova SA Internship — Laser Calibration" /></div>
 
-					<h2>About Synova</h2>
-					<p><a href="https://www.synova.ch" target="_blank">Synova SA</a> pioneers <strong>Laser MicroJet (LMJ)</strong> technology — guiding a laser inside a hair-thin water jet. Applications: aerospace turbine blades, semiconductor wafers, medical devices.</p>
-					<h3>Optical Alignment</h3>
-					<p>Calibration protocol for beam-steering mirrors, focusing optics, and the coupling chamber. Beam quality (M², waist, divergence) measured with a beam profiler camera.</p>
-					<h3>Fluidic Sub-System</h3>
-					<p>Nozzle pressure–flow-rate calibration. Orifice geometry (50–150 µm) measured by optical microscopy to detect wear and enforce replacement thresholds.</p>
-					<h3>Metrology &amp; Documentation</h3>
-					<p>All procedures documented in a service-team calibration manual. SPC charts established for machine-to-machine variability monitoring.</p>
-					<h2>Skills</h2>
-					<ul><li>Laser optics · Precision metrology</li><li>Technical documentation · Industrial environment</li></ul>
+					<div class="image-container">
+						<span class="image fit"><img src="images/other_projects/Synova/cover1.png" alt="Synova LCS305 5-axis CNC machine" /></span>
+						<p style="text-align: center; font-style: italic; font-size: 0.8em; margin-top: -1.5rem">Illustration of a generic 5-axis CNC machine layout (left), showing the X, Y, Z translational and A, C rotational axes, alongside the Synova LCS305 Laser MicroJet® machine (right), used as the primary test platform during this internship. 
+        Credits: <a href="https://www.researchgate.net/figure/Solid-model-of-a-five-axis-CNC-machine-tool_fig1_345264361" target="_blank">ResearchGate</a> (left), 
+        <a href="https://www.synova.ch/" target="_blank">Synova SA</a> (right).</p>
+					</div>
+
+
+					<h2>Context: Synova SA &amp; the Laser MicroJet® Technology</h2>
+					<p><a href="https://www.synova.ch/" target="_blank">Synova SA</a> is a Swiss company specializing in the design and manufacture of 3- and 5-axis CNC machines built around their patented <strong>Laser MicroJet® (LMJ)</strong> technology. The principle is elegant: a water microjet — roughly 50 microns in diameter — acts as a waveguide for a laser beam, delivering it precisely to the workpiece surface. Unlike conventional laser cutting, where the beam must be focused at a specific focal depth (leading to bevelled edges and limited cut depth), LMJ enables deep, straight cuts with excellent edge quality.</p>
+
+					<p>The water jet simultaneously cools the cut zone, drastically reducing thermal deformation — a critical advantage when machining temperature-sensitive materials. The narrow jet also minimizes material loss, which is especially significant for high-value materials such as diamonds. Applications span <a href="https://www.synova.ch/main-application-areas/" target="_blank">medical devices, semiconductor wafers, watchmaking, aerospace components, and diamond processing</a>.</p>
+
+					<div class="box alt">
+						<div class="row gtr-50 gtr-uniform">
+							<div class="col-6">
+								<span class="image fit"><img src="images/other_projects/Synova/synova_LMJ.jpg" alt="Laser MicroJet technology schematic" /></span>
+								<p style="text-align: center; font-style: italic; font-size: 0.8em; margin-top: -1.5rem">Schematic of the Laser MicroJet® principle — the laser is guided within the water column. Credits: <a href="https://www.synova.ch/" target="_blank">Synova SA</a>.</p>
+							</div>
+							<div class="col-6">
+								<span class="image fit"><img src="images/other_projects/Synova/chess_synova.jpg" alt="Chess piece machined with LMJ technology" /></span>
+								<p style="text-align: center; font-style: italic; font-size: 0.8em; margin-top: -1.5rem">A chess piece machined using the LMJ process, showcasing the technology's geometric precision. Credits: Synova SA / <a href="https://www.youtube.com/watch?v=R667UbdBQ4k" target="_blank">YouTube</a>.</p>
+							</div>
+						</div>
+					</div>
+
+					<hr />
+
+					<h2>The Calibration Challenge</h2>
+					<p>Synova's 5-axis machines achieve positioning repeatabilities on the order of <strong>±5 µm</strong> — a demanding specification that requires the five motion axes (three translational, two rotational) to be exceptionally well aligned. While 3-axis calibration is relatively mature, adding two rotational axes introduces additional sources of geometric error: angular misalignments that, if left uncorrected, propagate into part inaccuracies that are difficult to diagnose post-machining.</p>
+
+
+					<p>The industry-standard approach to machine calibration relies on <strong>artefacts</strong> — physical objects of precisely known geometry — measured using the machine itself. Deviations between the machine's readings and the known reference dimensions reveal the nature and magnitude of the geometric errors present. International standards such as the <strong>ISO 230 series</strong> codify these procedures, covering everything from linear positioning accuracy to rotary axis error motion.</p>
+
+					<div class="box alt">
+						<div class="row gtr-50 gtr-uniform">
+							<div class="col-6">
+								<span class="image fit"><img src="images/other_projects/Synova/zeiss_artefact_1.png" alt="Zeiss calibration artefact" /></span>
+								<p style="text-align: center; font-style: italic; font-size: 0.8em; margin-top: -1.5rem">A precision calibration artefact by Zeiss Metrology — used as a dimensional reference during machine qualification. Source: <a href="https://shop.metrology.zeiss.de/" target="_blank">Zeiss Metrology</a>.</p>
+							</div>
+							<div class="col-6">
+								<span class="image fit"><img src="images/other_projects/Synova/hole_artefact.jpg" alt="Hole-plate calibration artefact" /></span>
+								<p style="text-align: center; font-style: italic; font-size: 0.8em; margin-top: -1.5rem">A hole-plate artefact: an array of precisely positioned bores used to characterize translational axis positioning errors. Source: <a href="https://dfm.dk/en/services/calibration/geometry/holeplate/" target="_blank">DFM</a>.</p>
+							</div>
+						</div>
+					</div>
+
+					<hr />
+
+					<h2>Work Conducted</h2>
+					<p>My internship was focused entirely on designing and validating a new calibration workflow suited to Synova's machines and production environment. The work unfolded across the following phases:</p>
+					<ul>
+						<li><strong>Internal &amp; External Literature Review:</strong> Survey of calibration methods used in the academic literature and at Synova internally, identifying gaps and limitations in the existing approach.</li>
+						<li><strong>Weakness Analysis:</strong> Systematic identification of the shortcomings in Synova's calibration procedures at the time — specifically regarding rotational axis error characterization.</li>
+						<li><strong>CNC Controller Capabilities Assessment:</strong> Evaluation of the correction mechanisms natively available within the Bosch CNC controller platform used by Synova, to determine what could be compensated in software.</li>
+						<li><strong>Calibration Method Development:</strong> Design of a step-by-step procedure to correct both rotational and translational axis misalignments, leveraging artefact-based measurements and norm-compliant protocols.</li>
+						<li><strong>Experimental Validation:</strong> Full application and validation of the developed method on a production LCS-305 machine.</li>
+					</ul>
+
+					<!-- <div class="image-container">
+						<span class="image fit"><img src="images/other_projects/Synova/calibration_1.jpg" alt="CNC calibration tooling" /></span>
+						<p style="text-align: center; font-style: italic; font-size: 0.8em; margin-top: -1.5rem">Typical metrology tooling used in CNC calibration workflows. Source: <a href="https://pqicalibration.com/machine-tool-calibration/" target="_blank">PQI Calibration</a>.</p>
+					</div> -->
+
+					<p>The detailed results, correction values, and procedural documentation remain <strong>confidential</strong> as proprietary Synova IP. The work certificate below confirms the scope and successful completion of the internship.</p>
+
+					<hr />
+
+					<h2>Work Certificate</h2>
+					<p>The following document was issued by Synova SA upon completion of the internship, attesting to the work performed.</p>
+					<ul class="actions special">
+						<li><a href="documents/2021 09 21 Certificat Leonardo Avoni.pdf" target="_blank" class="button primary">View Work Certificate (PDF)</a></li>
+					</ul>
+
 					<ul class="actions special">
 						<li><a href="projects-other.html" class="button">← Back to Other Projects</a></li>
 					</ul>

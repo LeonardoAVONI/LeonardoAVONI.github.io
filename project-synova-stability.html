@@ -1,7 +1,7 @@
 <!DOCTYPE HTML>
 <html>
 	<head>
-		<title>Synova SA Internship — Jet Stability — Leonardo Avoni</title>
+		<title>Synova SA — Water-Jet Stability — Leonardo Avoni</title>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 		<link rel="stylesheet" href="assets/css/main.css" />
@@ -24,10 +24,10 @@
 						<a href="projects-aero.html">Aerodynamics Projects</a>
 						<ul class="dropdown">
 							<li><a href="project-aswing.html">ASWING Extended User Manual</a></li>
-							<li><a href="project-wingloop.html">WingLoop — Automation & Control Library</a></li>
+							<li><a href="project-wingloop.html">WingLoop — Automation &amp; Control Library</a></li>
 							<li><a href="project-stall.html">Stall Implementation for Flexible Wings</a></li>
 							<li><a href="project-dronedetective.html">DroneDetective — Morphing Drone Wind Tunnel</a></li>
-							<li><a href="project-wind-tunnel.html">Supersonic Wind Tunnel — Design & Testing</a></li>
+							<li><a href="project-wind-tunnel.html">Supersonic Wind Tunnel — Design &amp; Testing</a></li>
 						</ul>
 					</li>
 					<li class="has-dropdown">
@@ -58,24 +58,74 @@
 			<div id="main">
 				<section class="post">
 					<header class="major">
-						<span class="date">Industry Internship · Synova SA, Geneva · 2021</span>
-						<h1>Synova SA Internship<br />Water-Jet Stability</h1>
-						<p>Analytical and experimental study of water-jet stability — the fluid mechanics heart of Synova's laser microjet technology.</p>
+						<span class="date">Industry Internship · Synova SA, Geneva · Master's Period</span>
+						<h1>Assist Gas Influence on Laser MicroJet® Water-Jet Stability</h1>
+						<p>Applying fluid mechanics fundamentals to extend the usable working length of the Laser MicroJet® — and validate findings experimentally across industrial-grade cutting scenarios.</p>
 					</header>
-					<div class="image main"><img src="images/pic03.jpg" alt="Synova SA Internship — Jet Stability" /></div>
 
-					<h2>The Stability Problem</h2>
-					<p>The LMJ process depends on the jet's <strong>coherence length</strong> — the distance before Rayleigh-Plateau instability breaks it into droplets. Maximising this is critical for deep-cut applications.</p>
-					<h3>Rayleigh-Plateau Instability</h3>
-					<p>Linear stability analysis: dispersion relation and growth rate as a function of wavenumber, jet velocity, surface tension, viscosity. Identification of the most-amplified wavelength.</p>
-					<h3>Nozzle Geometry Effects</h3>
-					<p>CFD (ANSYS Fluent) of internal nozzle flow to characterise exit velocity profiles and their effect on the initial disturbance spectrum.</p>
-					<h2>Experimental Work</h2>
-					<p>High-speed imaging (50,000 fps) at various pressures and diameters. Measured coherence lengths agreed well with the linear stability model.</p>
-					<h2>Outcome</h2>
-					<p>Nozzle geometry and pressure recommendations for maximum coherence per workpiece thickness — feeding directly into Synova's nozzle design guidelines.</p>
-					<h2>Skills</h2>
-					<ul><li>Fluid stability theory · CFD (ANSYS Fluent)</li><li>High-speed imaging · Python data analysis</li></ul>
+
+					<div class="image-container">
+						<div style="display: flex; gap: 1rem; align-items: center; justify-content: center;">
+							<span class="image fit" style="flex: 1;">
+								<img src="images/other_projects/Synova/cover2.png" alt="Laser MicroJet technology" />
+							</span>
+						</div>
+
+						<p style="text-align: center; font-style: italic; font-size: 0.8em; margin-top: -1.5rem">
+							Illustration of a typical Rayleigh–Plateau jet instability (left) and the Laser MicroJet® (LMJ) technology (right), where a laser is guided inside a ~50 µm water column. 
+							Credits: 
+							<a href="https://www.researchgate.net/figure/Different-types-of-unstable-jets-as-the-Weber-number-increases-from-dripping-to_fig2_361221597" target="_blank">ResearchGate</a> (left), 
+							<a href="https://www.synova.ch/" target="_blank">Synova SA</a> (right).
+						</p>
+					</div>
+
+					<h2>Context: Synova SA &amp; the Laser MicroJet® Technology</h2>
+					<p><a href="https://www.synova.ch/" target="_blank">Synova SA</a> is a Swiss company specializing in the design and manufacture of 3- and 5-axis CNC machines built around their patented <strong>Laser MicroJet® (LMJ)</strong> technology. A water microjet (~50 µm diameter) acts as an optical waveguide for the laser, delivering it to the workpiece with no defocusing over depth. The result is deep, parallel-sided cuts that conventional laser systems simply cannot achieve, combined with in-process water cooling that limits thermal damage to the part.</p>
+
+					<p>This makes LMJ particularly well-suited for high-value or thermally sensitive applications — semiconductor dicing, aerospace-grade alloys, medical implants, and diamond processing — where surface integrity and dimensional accuracy are non-negotiable. The full range of <a href="https://www.synova.ch/main-application-areas/" target="_blank">application areas</a> spans from microelectronics to luxury goods manufacturing.</p>
+
+					<div class="box alt">
+						<div class="row gtr-50 gtr-uniform">
+							<div class="col-6">
+								<span class="image fit"><img src="images/other_projects/Synova/synova_LMJ.jpg" alt="LMJ schematic" /></span>
+								<p style="text-align: center; font-style: italic; font-size: 0.8em; margin-top: -1.5rem">Principle of the Laser MicroJet®: the laser propagates inside the water column by total internal reflection. Credits: <a href="https://www.synova.ch/" target="_blank">Synova SA</a>.</p>
+							</div>
+							<div class="col-6">
+								<span class="image fit"><img src="images/other_projects/Synova/chess_synova.jpg" alt="Chess piece machined with LMJ" /></span>
+								<p style="text-align: center; font-style: italic; font-size: 0.8em; margin-top: -1.5rem">A chess piece cut using the LMJ process — illustrating the geometric complexity achievable. Credits: Synova SA / <a href="https://www.youtube.com/watch?v=R667UbdBQ4k" target="_blank">YouTube</a>.</p>
+							</div>
+						</div>
+					</div>
+
+					<hr />
+
+					<h2>The Problem: Jet Instability</h2>
+					<p>The entire LMJ process depends on one thing: a coherent, stable water jet. If the jet breaks up into droplets before reaching the workpiece, the laser guidance is lost — along with cut quality and process repeatability. The fundamental physics working against this is the <strong>Rayleigh–Plateau instability</strong>: a free liquid jet is inherently unstable, with surface tension driving it to decompose into a series of droplets in order to minimize surface energy. This is the same mechanism responsible for a water stream from a tap breaking up at a certain distance.</p>
+
+					<p>For Synova, this sets a practical limit on how deep a workpiece can be cut before the jet loses coherence. One known mitigation strategy is to surround the jet with an <strong>assist gas</strong> of lower density than air — reducing the aerodynamic disturbances acting on the jet surface and delaying the onset of instability. The question is: how much does the choice of gas actually matter in practice, and is it properly accounted for in current machining parameters across different machines and materials?</p>
+
+					<hr />
+
+					<h2>Work Conducted</h2>
+					<p>This internship ran alongside my Master's studies at EPFL, where coursework in fluid mechanics gave me a strong theoretical foundation to approach the problem rigorously. My work covered both the analytical and experimental sides:</p>
+					<ul>
+						<li><strong>Literature Review on Jet Stability:</strong> Survey of the theoretical and experimental literature on free-jet instability, Rayleigh–Plateau mechanisms, and the influence of surrounding fluid properties on breakup length.</li>
+						<li><strong>Impact Assessment of Assist Gas:</strong> Systematic evaluation of how different assist gas choices affect jet coherence length under Synova's operating conditions, building on both theory and existing internal data.</li>
+						<li><strong>Test Bench Preparation:</strong> Design and setup of an experimental bench for jet stability characterization — allowing controlled, repeatable measurements of breakup length under varying gas environments.</li>
+						<li><strong>Experimental Validation:</strong> Validation of the analytical findings through cutting trials on both 3-axis and 5-axis LMJ machines, using semiconductor materials and aeronautic-grade alloys.</li>
+						<li><strong>Deep-Cut Project:</strong> Participation in a series of deep-cut experiments for an aerospace industry client, applying the stability findings directly to an operational machining challenge.</li>
+					</ul>
+
+					<p>The quantitative results, gas selection guidelines, and experimental data remain <strong>confidential</strong> as Synova proprietary information. The work certificate below confirms the scope and successful delivery of the internship.</p>
+
+					<hr />
+
+					<h2>Work Certificate</h2>
+					<p>The following document was issued by Synova SA upon completion of the internship.</p>
+					<ul class="actions special">
+						<li><a href="documents/Certificat de travail Synova2.pdf" target="_blank" class="button primary">View Work Certificate (PDF)</a></li>
+					</ul>
+
 					<ul class="actions special">
 						<li><a href="projects-other.html" class="button">← Back to Other Projects</a></li>
 					</ul>
