@@ -15,7 +15,6 @@
 				<a href="index.html" class="logo">Leonardo Avoni</a>
 			</header>
 
-			<!-- Nav -->
 			<nav id="nav">
 				<ul class="links">
 					<li><a href="index.html">Bio</a></li>
@@ -24,10 +23,10 @@
 						<a href="projects-aero.html">Aerodynamics Projects</a>
 						<ul class="dropdown">
 							<li><a href="project-aswing.html">ASWING Extended User Manual</a></li>
-							<li><a href="project-wingloop.html">WingLoop — Automation & Control Library</a></li>
+							<li><a href="project-wingloop.html">WingLoop — Automation &amp; Control Library</a></li>
 							<li><a href="project-stall.html">Stall Implementation for Flexible Wings</a></li>
 							<li><a href="project-dronedetective.html">DroneDetective — Morphing Drone Wind Tunnel</a></li>
-							<li><a href="project-wind-tunnel.html">Supersonic Wind Tunnel — Design & Testing</a></li>
+							<li><a href="project-wind-tunnel.html">Supersonic Wind Tunnel — Design &amp; Testing</a></li>
 						</ul>
 					</li>
 					<li class="has-dropdown">
@@ -58,31 +57,86 @@
 			<div id="main">
 				<section class="post">
 					<header class="major">
-						<span class="date">PhD Contribution · ISAE-Supaero · Ongoing</span>
-						<h1>Stall Implementation<br />for Flexible Wings</h1>
-						<p>Bridging the gap between linear potential-flow models and the nonlinear stall regime for high-aspect-ratio aircraft.</p>
+						<span class="date">PhD Research · ISAE-Supaero, Toulouse · 2023–Present</span>
+						<h1>Stall Implementation for Flexible Wings</h1>
+						<p>Extending simplified stall modeling within ASWING — toward understanding and recovering from stall on high-altitude flexible aircraft operating autonomously.</p>
 					</header>
-					<div class="image main"><img src="images/pic06.jpg" alt="Stall Implementation for Flexible Wings" /></div>
 
-					<h2>The Problem</h2>
-					<p>ASWING uses linear aerodynamic models that cannot predict stall. For HALE aircraft at low airspeeds and high lift coefficients, stall prediction is safety-critical.</p>
-					<h3>Sectional Stall Modelling</h3>
-					<p>Extension of Cl, Cd, Cm beyond the linear range using XFOIL polars and literature data. Smooth stall ramp avoids numerical discontinuities in time-domain runs.</p>
-					<h3>Coupling with Structural Deformation</h3>
-					<p>For a flexible wing, local angle of attack varies as the wing bends and twists. The stall model operates section-by-section on the deformed geometry.</p>
-					<h3>Dynamic Stall</h3>
-					<p>Investigation of Theodorsen / Leishman-Beddoes models for gust-induced oscillations — relevant to gust-load alleviation control.</p>
-					<h2>Status</h2>
-					<p><strong>Ongoing</strong>. Preliminary results show stall significantly alters flexible-aircraft dynamics at high CL, with direct implications for flight-envelope protection.</p>
-					<h2>Tools</h2>
-					<ul><li>ASWING · XFOIL · Python · MATLAB</li></ul>
+					<div class="box alt">
+						<div class="row gtr-50 gtr-uniform">
+							<div class="col-6">
+								<span class="image fit"><img src="images/aero/Stall_Implementation/HALE_Example.jpg" alt="HALE aircraft example" /></span>
+								<p style="text-align: center; font-style: italic; font-size: 0.8em; margin-top: -1.5rem">A High Altitude Long Endurance (HALE) aircraft — the class of flexible, autonomous vehicle this research targets. Source: <a href="https://unitingaviation.com/news/safety/high-fliers-high-altitude-long-endurance-aircraft-are-seeking-new-operational-flight-levels/" target="_blank">Uniting Aviation</a>.</p>
+							</div>
+							<div class="col-6">
+								<span class="image fit"><img src="images/aero/Stall_Implementation/SolarImpulse2.avif" alt="Solar Impulse 2 flexible aircraft" /></span>
+								<p style="text-align: center; font-style: italic; font-size: 0.8em; margin-top: -1.5rem">Solar Impulse 2 — an example of a highly flexible, lightweight aircraft where aeroelastic effects are significant. Source: <a href="https://www.pocket-lint.com/gadgets/news/133149-what-is-the-solar-impulse-2-and-how-will-it-fly-the-globe-with-no-fuel/" target="_blank">Pocket-lint</a>.</p>
+							</div>
+						</div>
+					</div>
+
+					<h2>Motivation: Stall on Flexible Aircraft</h2>
+					<p>Most aerodynamic analysis — and most aircraft design — focuses on attached flow. Aircraft are typically optimized for cruise conditions, well within the linear lift regime. Stall is something to be avoided, not studied in depth. Yet it remains a leading cause of aircraft mishaps, and for a specific class of vehicle it poses a particularly interesting and underexplored problem: <strong>flexible, high-altitude, long-endurance (HALE) aircraft operating autonomously</strong>.</p>
+
+					<p>Why does flexibility change things? A rigid aircraft, when perturbed, sees essentially the same airspeed along the entire span. A flexible aircraft, by contrast, undergoes structural vibrations that introduce local airspeed variations across the wing — different sections of the aircraft can see meaningfully different effective angles of attack at the same instant. This means stall onset, propagation, and recovery dynamics on a flexible airframe are genuinely different from the rigid case, and the existing literature on rigid aircraft stall cannot simply be transferred across.</p>
+
+					<p>The motivating scenario is straightforward and practically relevant: <em>what happens if a HALE vehicle in autonomous cruise stalls?</em> These aircraft operate at altitudes and in conditions where human intervention is limited or impossible. Understanding how stall develops on a flexible airframe — and how an autonomous control system might recover from it — requires a model. Building that model is what this project is about.</p>
+
+					<hr />
+
+					<h2>The Deep Stall Problem</h2>
+					<p>Not all stall is created equal. A standard stall on a conventional aircraft is recoverable by pushing the nose down to reduce angle of attack and restore attached flow. <strong>Deep stall</strong>, however, is a qualitatively different phenomenon: at very high angles of attack, certain aircraft configurations — particularly those with T-tail arrangements — can enter a stable equilibrium in the fully separated flow regime. The lift curve develops a second stable zone at high alpha, and the aircraft can become trapped there, with standard recovery inputs proving ineffective.</p>
+
+					<div class="box alt">
+						<div class="row gtr-50 gtr-uniform">
+							<div class="col-6">
+								<span class="image fit"><img src="images/aero/Stall_Implementation/Lowemberg_Stall_1.png" alt="T-tail deep stall dynamics" /></span>
+								<p style="text-align: center; font-style: italic; font-size: 0.8em; margin-top: -1.5rem">Stall dynamics for a T-tail aircraft configuration — illustrating the flight states and pitch behavior leading into deep stall. Source: Lowemberg et al., <a href="https://www.researchgate.net/publication/358404658_Analysing_Dynamic_Deep_Stall_Recovery_Using_a_Nonlinear_Frequency_Approach" target="_blank">ResearchGate</a>.</p>
+							</div>
+							<div class="col-6">
+								<span class="image fit"><img src="images/aero/Stall_Implementation/Stall_Lowemberg_2.png" alt="Deep stall Cl-alpha curve with stable deep stall zone" /></span>
+								<p style="text-align: center; font-style: italic; font-size: 0.8em; margin-top: -1.5rem">C<sub>L</sub>(α) curve highlighting the stable deep stall equilibrium zone at high angle of attack — the region where conventional recovery inputs lose authority. Source: Lowemberg et al., <a href="https://www.researchgate.net/publication/358404658_Analysing_Dynamic_Deep_Stall_Recovery_Using_a_Nonlinear_Frequency_Approach" target="_blank">ResearchGate</a>.</p>
+							</div>
+						</div>
+					</div>
+
+					<hr />
+
+					<h2>Aerodynamic Data: Post-Stall Airfoil Behavior</h2>
+					<p>Implementing stall within a flight mechanics simulator requires accurate post-stall aerodynamic data — specifically, how the lift, drag, and moment coefficients of an airfoil behave well beyond the linear regime. Classical wind tunnel datasets remain among the most reliable references for this. The data from <strong>Ostowari &amp; Naik (1984)</strong> on NACA 4415 sections across varying aspect ratios provides a well-documented post-stall characterization used as a reference for this work.</p>
+
+					<div class="box alt">
+						<div class="row gtr-50 gtr-uniform">
+							<div class="col-4">
+								<span class="image fit"><img src="images/aero/Stall_Implementation/ON_1.png" alt="Ostowari Naik post-stall data 1" /></span>
+							</div>
+							<div class="col-4">
+								<span class="image fit"><img src="images/aero/Stall_Implementation/ON_2.png" alt="Ostowari Naik post-stall data 2" /></span>
+							</div>
+							<div class="col-4">
+								<span class="image fit"><img src="images/aero/Stall_Implementation/ON_3.png" alt="Ostowari Naik post-stall data 3" /></span>
+							</div>
+						</div>
+					</div>
+					<p style="text-align: center; font-style: italic; font-size: 0.8em; margin-top: -0.5rem">Post-stall aerodynamic coefficient data from Ostowari &amp; Naik (1984) for NACA 4415 sections — a key reference for populating the extended aerodynamic model. Source: Ostowari, C. and Naik, D., <em>Post stall studies of untwisted varying aspect ratio blades with an NACA 4415 airfoil section</em>, 1984. <a href="https://www.osti.gov/etdeweb/biblio/5733231" target="_blank">OSTI</a>.</p>
+
+					<hr />
+
+					<h2>Approach: Extending ASWING</h2>
+					<p><a href="https://web.mit.edu/drela/Public/web/aswing/" target="_blank"><strong>ASWING</strong></a> — the nonlinear aeroelastic solver used throughout my PhD — operates natively in the attached flow regime. Extending it to capture stall behavior requires modifying the aerodynamic model to handle the nonlinear, hysteretic lift curve characteristics that appear at high angles of attack, while keeping the overall framework fast enough to remain useful for control law development and simulation studies.</p>
+
+					<p>This is ongoing PhD research. Details beyond what is described here are not yet publishable, but the ASWING public repository at <a href="https://github.com/LeonardoAVONI/91_ASWING_Public/tree/main" target="_blank">github.com/LeonardoAVONI/91_ASWING_Public</a> collects related ASWING studies and utilities as they become available.</p>
+
+					<ul class="actions special">
+						<li><a href="https://github.com/LeonardoAVONI/91_ASWING_Public/tree/main" target="_blank" class="button primary">ASWING Studies Repository</a></li>
+					</ul>
+
 					<ul class="actions special">
 						<li><a href="projects-aero.html" class="button">← Back to Aerodynamics Projects</a></li>
 					</ul>
 				</section>
 			</div>
 
-			<!-- Footer -->
 			<footer id="footer">
 				<section>
 					<h2>Get in Touch</h2>
@@ -113,7 +167,7 @@
 				<ul><li>&copy; Leonardo Avoni</li><li>Design: <a href="https://html5up.net">HTML5 UP</a></li></ul>
 			</div>
 
-		</div><!-- end #wrapper -->
+		</div>
 
 		<script src="assets/js/jquery.min.js"></script>
 		<script src="assets/js/jquery.scrollex.min.js"></script>

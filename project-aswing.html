@@ -15,7 +15,6 @@
 				<a href="index.html" class="logo">Leonardo Avoni</a>
 			</header>
 
-			<!-- Nav -->
 			<nav id="nav">
 				<ul class="links">
 					<li><a href="index.html">Bio</a></li>
@@ -24,10 +23,10 @@
 						<a href="projects-aero.html">Aerodynamics Projects</a>
 						<ul class="dropdown">
 							<li><a href="project-aswing.html">ASWING Extended User Manual</a></li>
-							<li><a href="project-wingloop.html">WingLoop — Automation & Control Library</a></li>
+							<li><a href="project-wingloop.html">WingLoop — Automation &amp; Control Library</a></li>
 							<li><a href="project-stall.html">Stall Implementation for Flexible Wings</a></li>
 							<li><a href="project-dronedetective.html">DroneDetective — Morphing Drone Wind Tunnel</a></li>
-							<li><a href="project-wind-tunnel.html">Supersonic Wind Tunnel — Design & Testing</a></li>
+							<li><a href="project-wind-tunnel.html">Supersonic Wind Tunnel — Design &amp; Testing</a></li>
 						</ul>
 					</li>
 					<li class="has-dropdown">
@@ -58,31 +57,70 @@
 			<div id="main">
 				<section class="post">
 					<header class="major">
-						<span class="date">PhD Contribution · ISAE-Supaero · 2024</span>
-						<h1>ASWING Extended<br />User Manual</h1>
-						<p>A comprehensive reference for the MIT ASWING aeroelastic solver — now live on the official website.</p>
+						<span class="date">PhD Research · ISAE-Supaero, Toulouse · 2023–Present</span>
+						<h1>ASWING Extended User Manual</h1>
+						<p>A comprehensive, screenshot-driven guide to ASWING — the nonlinear aeroelastic analysis tool for flexible aircraft — now featured on the official MIT ASWING website.</p>
 					</header>
-					<div class="image main"><img src="images/pic04.jpg" alt="ASWING Extended User Manual" /></div>
 
-					<h2>Context</h2>
-					<p>ASWING (MIT, Prof. Mark Drela) is the standard tool for flexible aircraft analysis. Its original documentation left significant gaps. As part of my PhD I authored an extended manual now hosted on the official MIT ASWING site.</p>
-					<h3>Theoretical Background</h3>
-					<p>Beam-theory structural model, vortex-lattice / lifting-line aerodynamics, and their aeroelastic coupling. Assumptions and limitations clearly stated.</p>
-					<h3>Input File Reference</h3>
-					<p>Annotated descriptions of every keyword: geometry, structural properties (EI, GJ, mass distribution), aero parameters, propulsion, trim conditions — with worked examples.</p>
-					<h3>Running Cases &amp; Post-Processing</h3>
-					<p>Step-by-step walkthroughs for static trim, dynamic linearisation, and time-domain simulation. Python scripts for output parsing and visualisation.</p>
-					<h3>Validation Cases</h3>
-					<p>Benchmarks from a simple flexible beam to a representative HALE aircraft, allowing users to verify installation and build confidence.</p>
-					<h2>Skills</h2>
-					<ul><li>Technical writing &amp; LaTeX</li><li>Aeroelasticity &amp; structural dynamics</li><li>Python post-processing scripts</li></ul>
+					<div class="image-container">
+						<span class="image fit"><img src="images/aero/ExtendedUserManual/EUM_Cover.png" alt="ASWING Extended User Manual cover page" /></span>
+						<p style="text-align: center; font-style: italic; font-size: 0.8em; margin-top: -1.5rem">Cover page of the Extended User Manual — a practical companion to the official ASWING documentation.</p>
+					</div>
+
+					<h2>Context: Why ASWING?</h2>
+					<p>My PhD focuses on the dynamics and control of flexible aircraft. That requires a low-order aerodynamic tool capable of quickly computing performance for airframes where structural flexibility matters — not just rigid-body dynamics. For rigid aircraft the options are plentiful: AVL, OpenVSP, XFLR5, Flow5, and others. Once airframe flexibility enters the picture, the list shrinks considerably.</p>
+
+					<p><a href="https://web.mit.edu/drela/Public/web/aswing/" target="_blank"><strong>ASWING</strong></a>, developed by Mark Drela at MIT, is one of the few tools that fills this gap. It couples a nonlinear unsteady lifting-line model with an extended Euler–Bernoulli beam formulation, making it well suited for aeroelastic trim, time-domain transient simulation, and frequency-domain analysis — including eigenvalue problems and Bode plots from control surface forcing. It is, in short, a remarkably capable piece of software for early-stage flexible aircraft analysis.</p>
+
+					<p>The catch: it has no GUI, and its usage is far from obvious. Its interface is text-command-driven and resembles AVL closely — unsurprisingly, both are authored by Mark Drela. For anyone coming from more modern tools, the learning curve is steep and the documentation, while accurate, leaves a lot to inference.</p>
+
+					<hr />
+
+					<h2>What the Manual Covers</h2>
+					<p>To make ASWING more accessible — both for myself and for others working in the same space — I wrote a comprehensive extended user manual with annotated screenshots of every major menu, workflow, and output format the software offers. The manual walks through:</p>
+					<ul>
+						<li><strong>Software installation and environment setup</strong> on Linux/Ubuntu</li>
+						<li><strong>Aircraft geometry definition</strong> — how to structure an ASWING input file, define beam properties, aerodynamic sections, and control surfaces</li>
+						<li><strong>Trim calculations</strong> — steady-state point analysis and how to interpret the outputs</li>
+						<li><strong>Time-domain simulation</strong> — setting up and running transient flight dynamics cases, including gust responses</li>
+						<li><strong>Frequency-domain analysis</strong> — eigenvalue extraction, mode identification, and Bode plot generation from control surface inputs</li>
+						<li><strong>Output interpretation</strong> — navigating ASWING's various result displays and extracting useful data</li>
+					</ul>
+
+					<div class="box alt">
+						<div class="row gtr-50 gtr-uniform">
+							<div class="col-6">
+								<span class="image fit"><img src="images/aero/ExtendedUserManual/EUM_1.png" alt="Screenshot of manual section on trim analysis" /></span>
+								<p style="text-align: center; font-style: italic; font-size: 0.8em; margin-top: -1.5rem">Example page from the manual — annotated walkthrough of a trim calculation workflow in ASWING.</p>
+							</div>
+							<div class="col-6">
+								<span class="image fit"><img src="images/aero/ExtendedUserManual/EUM_2.png" alt="Screenshot of manual section on time-domain simulation" /></span>
+								<p style="text-align: center; font-style: italic; font-size: 0.8em; margin-top: -1.5rem">Example page from the manual — time-domain simulation setup and output navigation.</p>
+							</div>
+						</div>
+					</div>
+
+					<hr />
+
+					<h2>Featured on the Official ASWING Website</h2>
+					<p>Following its completion, the manual was shared with Mark Drela and subsequently <strong>featured on the official MIT ASWING website</strong> as a supplementary resource for users. It is, to my knowledge, the most complete practical guide to the software currently available publicly.</p>
+
+					<p>In addition to the manual itself, a public GitHub repository collects various ASWING studies and utilities I have developed over the course of my PhD — available at <a href="https://github.com/LeonardoAVONI/91_ASWING_Public/tree/main" target="_blank">github.com/LeonardoAVONI/91_ASWING_Public</a>.</p>
+
+					<hr />
+
+					<h2>Documentation</h2>
+					<p>The manual is freely available for download below.</p>
+					<ul class="actions special">
+						<li><a href="https://github.com/LeonardoAVONI/91_ASWING_Public/blob/main/documents/15_ASWING_Extended_User_Manual.pdf" target="_blank" class="button primary">Download Extended User Manual (PDF)</a></li>
+					</ul>
+
 					<ul class="actions special">
 						<li><a href="projects-aero.html" class="button">← Back to Aerodynamics Projects</a></li>
 					</ul>
 				</section>
 			</div>
 
-			<!-- Footer -->
 			<footer id="footer">
 				<section>
 					<h2>Get in Touch</h2>
@@ -113,7 +151,7 @@
 				<ul><li>&copy; Leonardo Avoni</li><li>Design: <a href="https://html5up.net">HTML5 UP</a></li></ul>
 			</div>
 
-		</div><!-- end #wrapper -->
+		</div>
 
 		<script src="assets/js/jquery.min.js"></script>
 		<script src="assets/js/jquery.scrollex.min.js"></script>

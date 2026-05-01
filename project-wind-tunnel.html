@@ -1,7 +1,7 @@
 <!DOCTYPE HTML>
 <html>
 	<head>
-		<title>Supersonic Wind Tunnel — Design & Testing — Leonardo Avoni</title>
+		<title>Supersonic Wind Tunnel — Design &amp; Testing — Leonardo Avoni</title>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 		<link rel="stylesheet" href="assets/css/main.css" />
@@ -15,7 +15,6 @@
 				<a href="index.html" class="logo">Leonardo Avoni</a>
 			</header>
 
-			<!-- Nav -->
 			<nav id="nav">
 				<ul class="links">
 					<li><a href="index.html">Bio</a></li>
@@ -24,10 +23,10 @@
 						<a href="projects-aero.html">Aerodynamics Projects</a>
 						<ul class="dropdown">
 							<li><a href="project-aswing.html">ASWING Extended User Manual</a></li>
-							<li><a href="project-wingloop.html">WingLoop — Automation & Control Library</a></li>
+							<li><a href="project-wingloop.html">WingLoop — Automation &amp; Control Library</a></li>
 							<li><a href="project-stall.html">Stall Implementation for Flexible Wings</a></li>
 							<li><a href="project-dronedetective.html">DroneDetective — Morphing Drone Wind Tunnel</a></li>
-							<li><a href="project-wind-tunnel.html">Supersonic Wind Tunnel — Design & Testing</a></li>
+							<li><a href="project-wind-tunnel.html">Supersonic Wind Tunnel — Design &amp; Testing</a></li>
 						</ul>
 					</li>
 					<li class="has-dropdown">
@@ -58,33 +57,85 @@
 			<div id="main">
 				<section class="post">
 					<header class="major">
-						<span class="date">Master Course Project · EPFL · 2022</span>
-						<h1>Supersonic Wind Tunnel<br />Design &amp; Testing</h1>
-						<p>Design, manufacturing and experimental testing of a small-scale supersonic wind tunnel.</p>
+						<span class="date">Academic Project · EPFL / Hepia, Geneva · Master's Coursework</span>
+						<h1>Supersonic Wind Tunnel — Design &amp; Testing</h1>
+						<p>Design, construction, and validation of an open supersonic wind tunnel — from compressor architecture to Schlieren visualization — built as a reusable student test bench at Hepia.</p>
 					</header>
-					<div class="image main"><img src="images/pic08.jpg" alt="Supersonic Wind Tunnel — Design & Testing" /></div>
 
-					<h2>Overview</h2>
-					<p>Our team designed and built a small-scale supersonic wind tunnel reaching Mach 1.5–2.5. Full cycle: aero design → structural sizing → manufacturing → instrumentation → experimental validation.</p>
-					<h3>Nozzle Geometry</h3>
-					<p>Method of Characteristics (MoC) nozzle contour for uniform supersonic flow. Area ratios A*/A computed per Mach number; wall profiles generated numerically.</p>
-					<h3>Structural &amp; Sealing Design</h3>
-					<p>Tunnel body sized for pressure differentials. Acrylic optical windows sealed for schlieren. Parts made by CNC machining and 3D printing.</p>
-					<h3>Pitot-Static Measurements</h3>
-					<p>Mach number verified via Rayleigh Pitot formula — good agreement with design targets.</p>
-					<h3>Schlieren Visualisation</h3>
-					<p>Z-type schlieren setup revealing shock waves, expansion fans, and boundary layers.</p>
-					<h3>Shock Wave Analysis</h3>
-					<p>Oblique shock angles measured from schlieren images vs. theoretical predictions — strong agreement.</p>
-					<h2>Skills</h2>
-					<ul><li>Compressible flow · Method of Characteristics</li><li>Optical diagnostics (schlieren)</li><li>CAD / CNC / 3D printing · Experimental analysis</li></ul>
+					<div class="image-container">
+						<span class="image fit"><img src="images/aero/WindTunnel/Testbench_shlieren.png" alt="Assembled supersonic wind tunnel test bench with Schlieren setup" /></span>
+						<p style="text-align: center; font-style: italic; font-size: 0.8em; margin-top: -1.5rem">The completed supersonic wind tunnel test bench, with the Schlieren optical assembly in place for flow visualization.</p>
+					</div>
+
+					<h2>Context</h2>
+					<p>This project was part of my Master's coursework at EPFL, carried out in the aerodynamics laboratory of <a href="https://www.hesge.ch/hepia/" target="_blank"><strong>Hepia (HES-SO Geneva)</strong></a> under the supervision of Prof. Flavio Noca. The objective was both educational and practical: design and build a functional open supersonic wind tunnel from scratch, using the hardware available at Hepia, and leave behind a test bench that future students could continue to use and extend.</p>
+
+					<hr />
+
+					<h2>Project Scope</h2>
+					<p>The work covered the full design chain, from the air supply through to the optical measurement system:</p>
+					<ul>
+						<li><strong>Literature review</strong> on open wind tunnel architectures for supersonic flow, covering nozzle design theory, compressible flow mechanics, and Schlieren visualization techniques</li>
+						<li><strong>Hardware audit</strong> of existing Hepia equipment — compressor capacity, pressure vessels, and available optical components — to define the realistic design envelope before any new procurement</li>
+						<li><strong>Blower architecture design</strong> — laying out the full flow path from compressor outlet through the plenum, nozzle, test section, and diffuser</li>
+						<li><strong>Nozzle design and manufacturing</strong> — dimensioning the convergent-divergent nozzle geometry and producing it via SLA 3D printing</li>
+						<li><strong>Schlieren assembly design and tuning</strong> — setting up the Z-type Schlieren system for density gradient visualization in the supersonic test section</li>
+					</ul>
+
+					<hr />
+
+					<h2>The Compressor Constraint</h2>
+					<p>The dominant engineering challenge throughout was the available compressor capacity. Supersonic flow is inherently mass-flow hungry: to sustain a steady supersonic regime in the test section, the nozzle throat must be sized so that the compressor can maintain choked conditions without running out of stored air too quickly. Working through the compressible flow relations made it clear that only a nozzle with a <strong>2 to 2.5 mm throat diameter</strong> was compatible with the available compressor — a larger throat would exhaust the supply before a meaningful test window could be established.</p>
+
+					<div class="box alt">
+						<div class="row gtr-50 gtr-uniform">
+							<div class="col-6">
+								<span class="image fit"><img src="images/aero/WindTunnel/Supersonic_Blower_Scheme.png" alt="Supersonic wind tunnel flow architecture schematic" /></span>
+								<p style="text-align: center; font-style: italic; font-size: 0.8em; margin-top: -1.5rem">Schematic of the complete blower architecture — from compressor to test section and Schlieren assembly.</p>
+							</div>
+							<div class="col-6">
+								<span class="image fit"><img src="images/aero/WindTunnel/Mach_to_flow.png" alt="Mach number vs. flow area relationship" /></span>
+								<p style="text-align: center; font-style: italic; font-size: 0.8em; margin-top: -1.5rem">Mach number as a function of flow cross-section — the compressible flow relationship that constrained the nozzle throat sizing.</p>
+							</div>
+						</div>
+					</div>
+
+					<h2>Nozzle Manufacturing: Why SLA?</h2>
+					<p>At throat dimensions of 2–2.5 mm, the internal nozzle geometry requires tighter dimensional tolerances than standard FDM 3D printing can reliably deliver. FDM layer lines and surface roughness at this scale are not just cosmetic — they directly affect the flow, potentially triggering premature transition or distorting the Mach number distribution through the throat. The nozzle was therefore produced using <strong>Stereolithography (SLA)</strong> printing, which offers significantly finer resolution and smoother internal surfaces, ensuring that the manufactured geometry matched the designed flow path closely enough to produce clean supersonic flow.</p>
+
+					<div class="image-container">
+						<span class="image fit"><img src="images/aero/WindTunnel/Nozzle_crossection.png" alt="Nozzle cross-section geometry" /></span>
+						<p style="text-align: center; font-style: italic; font-size: 0.8em; margin-top: -1.5rem">Cross-section of the convergent-divergent nozzle — the geometry was SLA-printed to meet the surface finish requirements at the 2–2.5 mm throat.</p>
+					</div>
+
+					<hr />
+
+					<h2>Schlieren Visualization</h2>
+					<p>Supersonic flow is invisible to the naked eye, but density gradients — the hallmark of shock waves, expansion fans, and boundary layer transitions — can be made visible using Schlieren optics. The setup built here uses a Z-type arrangement: a light source, two parabolic mirrors, a knife edge, and a camera. Variations in air density refract light by small angles; the knife edge converts those angular deflections into intensity variations in the image, making shock structures directly visible.</p>
+
+					<div class="image-container">
+						<span class="image fit"><img src="images/aero/WindTunnel/Shlieren_View.png" alt="Schlieren image of supersonic flow" /></span>
+						<p style="text-align: center; font-style: italic; font-size: 0.8em; margin-top: -1.5rem">Schlieren image obtained from the test bench — density gradients in the supersonic jet are clearly visible, confirming supersonic flow establishment.</p>
+					</div>
+
+					<hr />
+
+					<h2>Outcomes &amp; Extensions</h2>
+					<p>The tunnel was successfully commissioned and demonstrated supersonic flow, confirmed by Schlieren imaging. The test bench was designed to be handed over to Hepia for continued student use. Possible extensions identified during the project include increasing the test section cross-section at the cost of a shorter usable run time — a trade-off that would require either a larger compressor or an intermediate storage vessel to buffer more air before each run.</p>
+
+					<hr />
+
+					<h2>Report</h2>
+					<ul class="actions special">
+						<li><a href="images/aero/WindTunnel/Aero_project_MA3_Leonardo_AVONI.pdf" target="_blank" class="button primary">View Full Report (PDF)</a></li>
+					</ul>
+
 					<ul class="actions special">
 						<li><a href="projects-aero.html" class="button">← Back to Aerodynamics Projects</a></li>
 					</ul>
 				</section>
 			</div>
 
-			<!-- Footer -->
 			<footer id="footer">
 				<section>
 					<h2>Get in Touch</h2>
@@ -115,7 +166,7 @@
 				<ul><li>&copy; Leonardo Avoni</li><li>Design: <a href="https://html5up.net">HTML5 UP</a></li></ul>
 			</div>
 
-		</div><!-- end #wrapper -->
+		</div>
 
 		<script src="assets/js/jquery.min.js"></script>
 		<script src="assets/js/jquery.scrollex.min.js"></script>

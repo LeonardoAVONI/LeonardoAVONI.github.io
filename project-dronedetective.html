@@ -15,7 +15,6 @@
 				<a href="index.html" class="logo">Leonardo Avoni</a>
 			</header>
 
-			<!-- Nav -->
 			<nav id="nav">
 				<ul class="links">
 					<li><a href="index.html">Bio</a></li>
@@ -24,10 +23,10 @@
 						<a href="projects-aero.html">Aerodynamics Projects</a>
 						<ul class="dropdown">
 							<li><a href="project-aswing.html">ASWING Extended User Manual</a></li>
-							<li><a href="project-wingloop.html">WingLoop — Automation & Control Library</a></li>
+							<li><a href="project-wingloop.html">WingLoop — Automation &amp; Control Library</a></li>
 							<li><a href="project-stall.html">Stall Implementation for Flexible Wings</a></li>
 							<li><a href="project-dronedetective.html">DroneDetective — Morphing Drone Wind Tunnel</a></li>
-							<li><a href="project-wind-tunnel.html">Supersonic Wind Tunnel — Design & Testing</a></li>
+							<li><a href="project-wind-tunnel.html">Supersonic Wind Tunnel — Design &amp; Testing</a></li>
 						</ul>
 					</li>
 					<li class="has-dropdown">
@@ -58,33 +57,69 @@
 			<div id="main">
 				<section class="post">
 					<header class="major">
-						<span class="date">Master Thesis · EPFL LIS Lab · 2022–2023</span>
-						<h1>DroneDetective<br />Morphing Drone Wind Tunnel</h1>
-						<p>Automated aerodynamic characterisation of a bio-inspired morphing drone — Master's thesis at EPFL's LIS lab.</p>
+						<span class="date">Master's Thesis · EPFL — Laboratory of Intelligent Systems · 2023</span>
+						<h1>DroneDetective — Automated Aerodynamic Characterization of a Morphing VTOL</h1>
+						<p>A Python-based tool for fully automated wind tunnel testing and aerodynamic analysis of morphing drones — cutting characterization time by a factor of 10 while improving repeatability and accuracy.</p>
 					</header>
-					<div class="image main"><img src="images/pic07.jpg" alt="DroneDetective — Morphing Drone Wind Tunnel" /></div>
+
+					<div class="box alt">
+						<div class="row gtr-50 gtr-uniform">
+							<div class="col-6">
+								<span class="image fit"><img src="images/aero/LIS_Elythor/LIS_1.png" alt="DroneDetective experimental setup" /></span>
+								<p style="text-align: center; font-style: italic; font-size: 0.8em; margin-top: -1.5rem">The DroneDetective hardware setup — robotic arm, Windshaper wind tunnel, load cell, and MoCap system integrated around the morphing drone test subject.</p>
+							</div>
+							<div class="col-6">
+								<span class="image fit"><img src="images/aero/LIS_Elythor/LIS_2.png" alt="DroneDetective software interface" /></span>
+								<p style="text-align: center; font-style: italic; font-size: 0.8em; margin-top: -1.5rem">The DroneDetective GUI — providing real-time control over the automated characterization pipeline and live visualization of incoming data.</p>
+							</div>
+						</div>
+					</div>
 
 					<h2>Context</h2>
-					<p>EPFL's LIS lab develops a morphing drone that changes wing shape mid-flight. Characterising its aerodynamic envelope requires sweeping a vast parameter space: airspeed, angle of attack, morphing configuration, yaw.</p>
-					<h2>My Role</h2>
-					<p>Design and implementation of <strong>DroneDetective</strong> — a fully automated wind-tunnel characterisation system.</p>
-					<h3>Mechanical Setup</h3>
-					<p>Force-balance mount with ATI 6-DOF force-torque sensor. Motorised angle-of-attack mechanism for automated incidence sweeps.</p>
-					<h3>Automation Software</h3>
-					<p>Python scripts orchestrating: set wind speed → command morphing → sweep incidence → acquire data → log. Runs overnight unsupervised.</p>
-					<h3>Data Pipeline</h3>
-					<p>Loads corrected for tare, inertia, and support interference. CL, CD, CM computed in polar form per configuration.</p>
-					<h2>Results</h2>
-					<p>Complete validated aero database across the full morphing configuration space — used by LIS for control design and performance optimisation.</p>
-					<h2>Tech Stack</h2>
-					<ul><li>Python · ATI F/T sensor API · EPFL wind tunnel</li><li>SolidWorks · NumPy · Matplotlib</li></ul>
+					<p>This project was carried out as my Master's thesis at the <a href="https://www.epfl.ch/labs/lis/" target="_blank"><strong>Laboratory of Intelligent Systems (LIS)</strong></a> at EPFL, under the supervision of Prof. Dario Floreano, with day-to-day guidance from Dr. Charalampos Vourtsis and Nathan Müller. The work was linked to <a href="https://elythor.com/" target="_blank"><strong>Elythor</strong></a>, a startup developing morphing VTOL drones that can actively reshape their airframe during flight to adapt to varying mission requirements.</p>
+
+					<p>Characterizing the aerodynamics of such a vehicle is non-trivial: a morphing drone doesn't have a single fixed aerodynamic identity — its lift, drag, and moment coefficients change as a function of its shape configuration. Mapping that space experimentally, across a full range of morphing states and wind conditions, represents a substantial experimental campaign. The goal of this thesis was to build a tool that could run that campaign automatically, reproducibly, and without requiring constant operator intervention.</p>
+
+					<hr />
+
+					<h2>What DroneDetective Does</h2>
+					<p>DroneDetective is a Python software framework that orchestrates a multi-instrument hardware setup and processes the resulting data automatically. It can extract three categories of information from a drone under test:</p>
+					<ul>
+						<li><strong>Aerodynamic model</strong> — lift, drag, and moment coefficients as a function of angle of attack, sideslip, airspeed, and morphing state</li>
+						<li><strong>Center of gravity</strong> — automatic estimation from static balance measurements across orientations</li>
+						<li><strong>Vibration characterization</strong> — frequency analysis of structural and rotor-induced vibrations under operational conditions</li>
+					</ul>
+
+					<p>The hardware setup integrated a <strong>robotic arm</strong> (for automated positioning of the drone across test attitudes), a <strong>Windshaper</strong> programmable wind tunnel (for controlled, repeatable airflow conditions), a <strong>load cell</strong> (for direct aerodynamic force and moment measurement), and a <strong>Motion Capture (MoCap) system</strong> (for precise pose tracking throughout the test sequence). All instruments were interfaced via their Python APIs and orchestrated by DroneDetective without human involvement during data collection.</p>
+
+					<hr />
+
+					<h2>Key Contributions</h2>
+					<ul>
+						<li><strong>Full hardware integration:</strong> Python-based interfacing of the robotic arm, Windshaper, load cell, and MoCap system into a single unified pipeline</li>
+						<li><strong>Mechanical design:</strong> Custom mounting hardware for the drone, designed and quick-prototyped to interface with the robotic arm while minimizing aerodynamic interference</li>
+						<li><strong>Characterization procedure:</strong> Definition of the test sequence — attitude sweeps, airspeed profiles, and morphing state schedules — to efficiently cover the relevant parameter space</li>
+						<li><strong>Graphical User Interface:</strong> A GUI providing live control over the test campaign and real-time data visualization</li>
+						<li><strong>Automated data processing:</strong> A full post-processing pipeline extracting the center of mass, vibration signature, and aerodynamic model from raw sensor data with no manual steps</li>
+					</ul>
+
+					<p>The result was a <strong>10× reduction in characterization time</strong> compared to manual testing, alongside improved repeatability — removing operator-dependent variability from the measurement process entirely.</p>
+
+					<p>The full technical report is confidential and not publicly available. The recommendation letter from Prof. Floreano and Dr. Vourtsis, attesting to the scope and quality of the work, is available below. The project received a grade of <strong>5.75 / 6.0</strong>.</p>
+
+					<hr />
+
+					<h2>Recommendation Letter</h2>
+					<ul class="actions special">
+						<li><a href="images/aero/LIS_Elythor/Recommendation_Letter_Leonardo_Avoni_Generic.pdf" target="_blank" class="button primary">View Recommendation Letter (PDF)</a></li>
+					</ul>
+
 					<ul class="actions special">
 						<li><a href="projects-aero.html" class="button">← Back to Aerodynamics Projects</a></li>
 					</ul>
 				</section>
 			</div>
 
-			<!-- Footer -->
 			<footer id="footer">
 				<section>
 					<h2>Get in Touch</h2>
@@ -115,7 +150,7 @@
 				<ul><li>&copy; Leonardo Avoni</li><li>Design: <a href="https://html5up.net">HTML5 UP</a></li></ul>
 			</div>
 
-		</div><!-- end #wrapper -->
+		</div>
 
 		<script src="assets/js/jquery.min.js"></script>
 		<script src="assets/js/jquery.scrollex.min.js"></script>

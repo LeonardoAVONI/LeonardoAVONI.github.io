@@ -1,7 +1,7 @@
 <!DOCTYPE HTML>
 <html>
 	<head>
-		<title>WingLoop — Automation & Control Library — Leonardo Avoni</title>
+		<title>WingLoop — Automation &amp; Control Library — Leonardo Avoni</title>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 		<link rel="stylesheet" href="assets/css/main.css" />
@@ -15,7 +15,6 @@
 				<a href="index.html" class="logo">Leonardo Avoni</a>
 			</header>
 
-			<!-- Nav -->
 			<nav id="nav">
 				<ul class="links">
 					<li><a href="index.html">Bio</a></li>
@@ -24,10 +23,10 @@
 						<a href="projects-aero.html">Aerodynamics Projects</a>
 						<ul class="dropdown">
 							<li><a href="project-aswing.html">ASWING Extended User Manual</a></li>
-							<li><a href="project-wingloop.html">WingLoop — Automation & Control Library</a></li>
+							<li><a href="project-wingloop.html">WingLoop — Automation &amp; Control Library</a></li>
 							<li><a href="project-stall.html">Stall Implementation for Flexible Wings</a></li>
 							<li><a href="project-dronedetective.html">DroneDetective — Morphing Drone Wind Tunnel</a></li>
-							<li><a href="project-wind-tunnel.html">Supersonic Wind Tunnel — Design & Testing</a></li>
+							<li><a href="project-wind-tunnel.html">Supersonic Wind Tunnel — Design &amp; Testing</a></li>
 						</ul>
 					</li>
 					<li class="has-dropdown">
@@ -58,33 +57,78 @@
 			<div id="main">
 				<section class="post">
 					<header class="major">
-						<span class="date">PhD Contribution · AIAA AVIATION FORUM 2025 · Las Vegas</span>
-						<h1>WingLoop<br />Automation &amp; Control Library</h1>
-						<p>Open-source Python library for flexible-aircraft simulation automation — presented at AIAA AVIATION FORUM 2025.</p>
+						<span class="date">PhD Research · ISAE-Supaero, Toulouse · 2023–Present</span>
+						<h1>WingLoop — Closed-Loop Control Framework for ASWING</h1>
+						<p>A Python-based library that extends ASWING with arbitrary closed-loop control laws — enabling nonlinear, multi-backend flight dynamics simulation for flexible aircraft.</p>
 					</header>
-					<div class="image main"><img src="images/pic05.jpg" alt="WingLoop — Automation & Control Library" /></div>
 
-					<h2>Motivation</h2>
-					<p>Flexible-aircraft simulation workflows traditionally require manual setup at every step. WingLoop automates the entire pipeline and exposes a clean Python API for control design and parametric studies.</p>
-					<h3>ASWING Wrapper &amp; Automation</h3>
-					<p>Scripted batch runs, automatic input-file generation, structured output parsing — eliminating manual interactive sessions.</p>
-					<h3>Parametric Sweeps</h3>
-					<p>Define any sweep (airspeed, altitude, payload, stiffness…) in a few lines. Results stored in pandas DataFrames.</p>
-					<h3>Flutter Analysis</h3>
-					<p>Automatic eigenvalue tracking across the flight envelope. Damping / frequency plots generated automatically. Flutter speed and divergence detection built-in.</p>
-					<h3>Control Design Interface</h3>
-					<p>Linearised state-space models exported from ASWING and interfaced with python-control / SciPy for LQR, H∞, and PID design.</p>
-					<h2>AIAA AVIATION FORUM 2025</h2>
-					<p>Presented as a conference paper in Las Vegas — received with interest from the HALE UAV community.</p>
-					<h2>Tech Stack</h2>
-					<ul><li>Python · NumPy · SciPy · pandas · Matplotlib · python-control</li><li>Git / GitHub (open source)</li></ul>
+					<div class="image-container">
+						<span class="image fit"><img src="images/aero/WingLoop/wingLoop_image.jpg" alt="WingLoop logo" /></span>
+						<p style="text-align: center; font-style: italic; font-size: 0.8em; margin-top: -1.5rem">WingLoop — a closed-loop control framework built on top of <a href="https://web.mit.edu/drela/Public/web/aswing/" target="_blank">ASWING</a>, extending its simulation capabilities for flexible aircraft research.</p>
+					</div>
+
+					<h2>The Problem WingLoop Solves</h2>
+					<p><a href="https://web.mit.edu/drela/Public/web/aswing/" target="_blank"><strong>ASWING</strong></a> is a powerful nonlinear aeroelastic tool for flexible aircraft — capable of trim, time-domain transient simulation, and frequency-domain analysis. However, its native controller support is limited to linear, bi-scheduled control laws defined entirely within ASWING's own format. For research into flexible aircraft dynamics and control — where nonlinear, adaptive, or otherwise arbitrary control strategies are often exactly what needs to be tested — this is a significant constraint.</p>
+
+					<p><strong>WingLoop</strong> lifts that constraint entirely. It integrates ASWING with Python — and optionally MATLAB or Simulink — via a time-marching closed-loop interface. At each timestep, the current aircraft state is passed out of ASWING to the chosen controller backend, the control law is evaluated, and the resulting inputs are fed back into ASWING for the next step. The result is a general-purpose simulation framework where the controller can be as simple as a PID or as complex as a nonlinear observer-based law — with no changes required to ASWING itself.</p>
+
+					<hr />
+
+					<h2>Supported Controller Backends</h2>
+					<p>WingLoop supports three controller integration modes, selectable at runtime:</p>
+					<ul>
+						<li><strong>Python</strong> — native Python control laws; the lightest and fastest option, with computational overhead close to ASWING running standalone</li>
+						<li><strong>MATLAB</strong> — control laws implemented in MATLAB, called via MATLAB's Python API; moderate overhead, useful when existing MATLAB toolboxes are needed</li>
+						<li><strong>Simulink</strong> — Simulink block diagram controllers, either run live or exported as compiled FMUs; FMU compilation adds one-off overhead but brings runtime performance close to Python</li>
+					</ul>
+
+					<p>For most research use cases, Python or Simulink FMU are the recommended choices — they offer the best balance of flexibility and speed.</p>
+
+					<hr />
+
+					<h2>Reference Publication</h2>
+					<p>WingLoop was presented at the AIAA AVIATION FORUM AND ASCEND 2025:</p>
+					<blockquote>Leonardo Avoni, Murat Bronz, Jean-Philippe Condomines and Jean-Marc Moschetta. <em>"Enhancing ASWING Flight Dynamics Simulations with Closed-Loop Control for Flexible Aircraft,"</em> AIAA 2025-3425. July 2025. <a href="https://arc.aiaa.org/doi/10.2514/6.2025-3425" target="_blank">https://arc.aiaa.org/doi/10.2514/6.2025-3425</a></blockquote>
+
+					<hr />
+
+					<h2>Simulation Outputs: What WingLoop Makes Easy</h2>
+					<p>Beyond the control loop itself, WingLoop includes utilities for post-processing and visualization of ASWING outputs — things that would otherwise require significant manual work. This includes automated video generation of the aircraft flight, stroboscopic views of structural deformation over time, and real-time plotting of state variables during simulation runs. The examples below were generated from a test case involving a simplified flexible aircraft responding to a 1-cosine vertical gust, with a PID controller applied to stabilize the response.</p>
+
+					<div class="image-container">
+						<span class="image fit"><img src="images/aero/WingLoop/wingloop_test.png" alt="WingLoop GUI during a simulation run" /></span>
+						<p style="text-align: center; font-style: italic; font-size: 0.8em; margin-top: -1.5rem">The WingLoop GUI during a live simulation run — real-time time plots of aircraft states and control inputs across the closed-loop timesteps.</p>
+					</div>
+
+					<div class="box alt">
+						<div class="row gtr-50 gtr-uniform">
+							<div class="col-6">
+								<span class="image fit"><img src="images/aero/WingLoop/plot_wingloop_test_aircraft.gif" alt="Flexible aircraft simulation video" /></span>
+								<p style="text-align: center; font-style: italic; font-size: 0.8em; margin-top: -1.5rem">Animated video output of the flexible aircraft simulation — structural deformation and flight dynamics visualized over time.</p>
+							</div>
+							<div class="col-6">
+								<span class="image fit"><img src="images/aero/WingLoop/plot_wingloop_test_aircraft_strobe.png" alt="Stroboscopic view of flexible aircraft" /></span>
+								<p style="text-align: center; font-style: italic; font-size: 0.8em; margin-top: -1.5rem">Stroboscopic view — multiple flight states overlaid to highlight structural deformation amplitude and mode shapes across the simulation.</p>
+							</div>
+						</div>
+					</div>
+
+					<hr />
+
+					<h2>License &amp; Citation</h2>
+					<p>WingLoop is released under <strong>CC BY-NC-SA 4.0</strong> — free for non-commercial use with attribution. Commercial use requires a separate agreement; contact details are on the GitHub page. If you use WingLoop in academic work, please cite the AIAA 2025-3425 paper above.</p>
+
+					<ul class="actions special">
+						<li><a href="https://github.com/LeonardoAVONI/WingLoop" target="_blank" class="button primary">View WingLoop on GitHub</a></li>
+						<li><a href="https://github.com/LeonardoAVONI/91_ASWING_Public/tree/main" target="_blank" class="button">ASWING Studies Repository</a></li>
+					</ul>
+
 					<ul class="actions special">
 						<li><a href="projects-aero.html" class="button">← Back to Aerodynamics Projects</a></li>
 					</ul>
 				</section>
 			</div>
 
-			<!-- Footer -->
 			<footer id="footer">
 				<section>
 					<h2>Get in Touch</h2>
@@ -115,7 +159,7 @@
 				<ul><li>&copy; Leonardo Avoni</li><li>Design: <a href="https://html5up.net">HTML5 UP</a></li></ul>
 			</div>
 
-		</div><!-- end #wrapper -->
+		</div>
 
 		<script src="assets/js/jquery.min.js"></script>
 		<script src="assets/js/jquery.scrollex.min.js"></script>
