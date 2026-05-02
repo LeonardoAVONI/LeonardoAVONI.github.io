@@ -1,7 +1,7 @@
 <!DOCTYPE HTML>
 <html>
 	<head>
-		<title>First UAV — Hardware Assembly — Leonardo Avoni</title>
+		<title>First UAV Build — Hardware Assembly — Leonardo Avoni</title>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 		<link rel="stylesheet" href="assets/css/main.css" />
@@ -32,10 +32,10 @@
 					<li class="has-dropdown active">
 						<a href="projects-uav.html">UAV Projects</a>
 						<ul class="dropdown">
-							<li><a href="project_uav_1_components.html">First UAV: Component Selection</a></li>
-							<li><a href="project_uav_2_software.html">First UAV: SITL Software</a></li>
-							<li><a href="project_uav_3_practicalbuild.html">First UAV: Hardware Assembly</a></li>
-							<li><a href="project_uav_4_practicalfly.html">First UAV: Real Software, and Flight</a></li>
+							<li><a href="project_uav_1_components.html">First UAV Build: Component Selection</a></li>
+							<li><a href="project_uav_3_practicalbuild.html">First UAV Build: Hardware Assembly</a></li>
+							<li><a href="project_uav_2_software.html">First UAV Build: SITL Software</a></li>
+							<li><a href="project_uav_4_practicalfly.html">First UAV Build: Real Software, and Flight</a></li>
 						</ul>
 					</li>
 					<li class="has-dropdown">
@@ -58,8 +58,8 @@
 				<section class="post">
 					<header class="major">
 						<span class="date">Personal Project · 2025–2026</span>
-						<h1>First UAV Build — Hardware Assembly</h1>
-						<p>Putting the QAV250 together — frame, motors, ESCs, flight controller, wiring — with an emphasis on doing it right the first time rather than fast.</p>
+						<h1>First UAV Build:<br>Hardware Assembly</h1>
+						<p>Putting the QAV250 together — frame, motors, ESCs, flight controller, wiring</p>
 					</header>
 
 					<div class="image-container">
@@ -94,15 +94,17 @@
 					<p>Wiring on a small quadrotor is more involved than it first appears. A few things that required particular care:</p>
 					<ul>
 						<li><strong>Cable twisting:</strong> signal cable groups (Serial, I2C, PWM) were twisted appropriately to reduce crosstalk and electromagnetic noise — especially important near the flight controller.</li>
-						<li><strong>Connector identification:</strong> the GH1.25 connectors used throughout the Pixhawk ecosystem are small and easy to mix up. Every connector was verified against pinout documentation before mating.</li>
-						<li><strong>Short-circuit prevention:</strong> power distribution was checked thoroughly before any power was applied — a short on the main battery bus can damage ESCs, the FC, or worse.</li>
-						<li><strong>Strain relief:</strong> cables were routed and secured to avoid flex fatigue at solder joints during flight vibration.</li>
+						<li><strong>Connector identification:</strong> the GH1.25 connectors used throughout the Pixhawk ecosystem needed to be assembled properly with the GPS cable; compatibility checks were done</li>
+						<li><strong>Pinout Checks:</strong> since some connectors had to be resoldered, it is easy to do mistakes; thus further stressing the need for cross-checks
+						<li><strong>ESC Checks:</strong> all other tutorials around the Web described the use of single ESCs, while my build uses 4-in-1 ESC board; compatibility had again to be checked.
 					</ul>
 
 					<hr />
 
-					<h2>3D Printed Parts</h2>
+					<h2>3D Printed Parts and Retrofitting</h2>
 					<p>Not everything fit perfectly out of the box. A few custom parts had to be designed and 3D printed to properly mount certain components on the QAV250 frame — mostly small brackets and spacers. Nothing exotic, but it was a good reminder that real builds rarely go exactly as planned. The exact parts are described in the build report.</p>
+					<p>Moreover, the Pixhawk 6C Mini flight controller did not fith through the carbon fiber frame (too large), which is a problem that appeared also <a href="https://hamishwillee.github.io/px4_vuepress/en/frames_multicopter/holybro_qav250_pixhawk4_mini.html#holybro-qav250-pixhawk4-mini-build">on other QAV250 designs</a>. Custom modifications, and the manufacturing of a specific support plate had to be made.</p>
+
 
 					<hr />
 
@@ -112,23 +114,11 @@
 						<span class="image fit"><img src="images/UAV/UAV2_assembly.png" alt="QAV250 during assembly" /></span>
 						<p style="text-align: center; font-style: italic; font-size: 0.8em; margin-top: -1.5rem">Mid-assembly view of the QAV250 build — components being installed and wired before the final integration check.</p>
 					</div>
-
 					<hr />
-
-					<h2>Pre-Power Checks</h2>
-					<p>Before applying any power to the assembled drone, a systematic pre-flight checklist was run:</p>
-					<ul>
-						<li>Continuity and short-circuit checks on all power rails with a multimeter.</li>
-						<li>Visual inspection of all solder joints for bridges, cold joints, or exposed copper near adjacent pads.</li>
-						<li>Verification that all ESC signal wires were correctly assigned to the right FC output channels (motor order matters for PX4).</li>
-						<li>Confirmation that the FC orientation was set correctly and that the GPS/compass module was correctly positioned and oriented.</li>
-					</ul>
-					<p>The extra time spent here was deliberate. Rushing this step is how you end up ordering replacement parts.</p>
-
-					<hr />
-
+					<h2>Conclusion of the Hardware Build</h2>
+					<p>By the end of the build, the QAV250 was fully assembled and flight-ready, weighing 682.2 g including battery. Flying drones heavier than 250g outdoors in Europe generally requires proper authorization, so obtaining a licence is the next step. The current setup also lacks a camera and VTx, which will be added in future iterations.</p>
 					<h2>Documentation</h2>
-					<p>The full hardware build process, including the 3D-printed parts, wiring decisions, and pre-power checks, is documented in the report below.</p>
+					<p>The full hardware build process, including the 3D-printed parts, wiring decisions, and final assembly, is documented in the report below.</p>
 					<ul class="actions special">
 						<li><a href="images/UAV/03_QAV250_HardwareBuild.pdf" target="_blank" class="button primary">View Hardware Build Report (PDF)</a></li>
 					</ul>

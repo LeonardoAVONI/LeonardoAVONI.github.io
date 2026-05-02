@@ -1,7 +1,7 @@
 <!DOCTYPE HTML>
 <html>
 	<head>
-		<title>First UAV — Component Selection — Leonardo Avoni</title>
+		<title>First UAV Build — Component Selection — Leonardo Avoni</title>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 		<link rel="stylesheet" href="assets/css/main.css" />
@@ -32,10 +32,10 @@
 					<li class="has-dropdown active">
 						<a href="projects-uav.html">UAV Projects</a>
 						<ul class="dropdown">
-							<li><a href="project_uav_1_components.html">First UAV: Component Selection</a></li>
-							<li><a href="project_uav_2_software.html">First UAV: SITL Software</a></li>
-							<li><a href="project_uav_3_practicalbuild.html">First UAV: Hardware Assembly</a></li>
-							<li><a href="project_uav_4_practicalfly.html">First UAV: Real Software, and Flight</a></li>
+							<li><a href="project_uav_1_components.html">First UAV Build: Component Selection</a></li>
+							<li><a href="project_uav_3_practicalbuild.html">First UAV Build: Hardware Assembly</a></li>
+							<li><a href="project_uav_2_software.html">First UAV Build: SITL Software</a></li>
+							<li><a href="project_uav_4_practicalfly.html">First UAV Build: Real Software, and Flight</a></li>
 						</ul>
 					</li>
 					<li class="has-dropdown">
@@ -53,13 +53,12 @@
 					<li><a href="https://github.com/LeonardoAVONI" target="_blank" class="icon brands fa-github"><span class="label">GitHub</span></a></li>
 				</ul>
 			</nav>
-
 			<div id="main">
 				<section class="post">
 					<header class="major">
 						<span class="date">Personal Project · 2025–2026</span>
-						<h1>First UAV Build — Goals &amp; Component Selection</h1>
-						<p>Defining the platform, choosing the hardware stack, and planning a full quadrotor build from scratch — with zero prior experience in drone electronics.</p>
+						<h1>First UAV Build:<br>Component Selection</h1>
+						<p>A full QAV250 quadrotor design: component selection and early flight sim</p>
 					</header>
 
 					<div class="image-container">
@@ -67,29 +66,23 @@
 						<p style="text-align: center; font-style: italic; font-size: 0.8em; margin-top: -1.5rem">The QAV250 kit from HolyBro — the target build platform for this project. Credits: <a href="https://holybro.com/collections/multicopter-kit/products/qav250-kit" target="_blank">HolyBro</a>.</p>
 					</div>
 
-					<h2>Why Build a Drone at All?</h2>
-					<p>My background is purely mechanical and aerospace — fluid mechanics, structures, aerodynamics. That means I had zero hands-on experience with drone electronics, flight controllers, or ESC calibration when I started this. This project is my way of fixing that: getting my hands dirty with real UAV hardware and software, on a reasonable budget, with proper documentation along the way.</p>
+					<h2>Motivation</h2>
+					<p>My background is in mechanical and aerospace engineering; I handle well aeroelasticity, fluid mechanics and flight dynamics simulation in general. Drone hardware and embedded software were a blind spot I wanted to close. Rather than following a kit tutorial, I decided to go through the full build pipeline independently: define requirements, select and purchase components, assemble and wire the airframe, configure the autopilot, validate in simulation, and fly for real.</p>
+					<p>The platform of choice is a <strong>QAV250</strong> — a 250 mm motor-to-motor quadrotor running <strong>PX4</strong> on a <strong>Pixhawk 6C Mini</strong>. The goal was never performance optimisation; it was to develop genuine end-to-end familiarity with UAV design, from bill of materials to autonomous flight.</p>
 
-					<p>The idea was to go through the whole pipeline — figuring out what kind of quadcopter I wanted to build, selecting the components, assembling the thing, setting up the software, running SITL simulation, and eventually getting it flying for real. The goal was never to end up with the fastest or most efficient drone on the market. It was to understand how all the pieces fit together.</p>
-
-					<p>
-					<strong><em>⚠️ A serious note before anything else:</em></strong>
-					always check and comply with your local drone regulations before flying. Rules vary significantly by country, area, and aircraft weight — it is entirely your responsibility to know and follow them. I take no responsibility for your build, your flights, or any consequences arising from either.
-					</p>
-
+					<p><strong><em>⚠️ Regulatory note:</em></strong> always check and comply with your local drone regulations before flying. Rules vary significantly by country, area, and aircraft weight — it is entirely your responsibility to know and follow them. I take no responsibility for your build, your flights, or any consequences arising from either.</p>
 
 					<hr />
 
-					<h2>Project Objectives</h2>
-					<p>The project was broken into the following stages, each covered by its own page:</p>
-					<ol>
-						<li>Define goals and select components for a flyable quadcopter build</li>
-						<li>Assemble the hardware without burning anything down</li>
-						<li>Set up a ground station (QGroundControl) and run SITL simulation (PX4 + Gazebo)</li>
-						<li>Fly safely in manual mode (Stabilized / Acro) on real hardware</li>
-						<li>Achieve basic autonomous missions using PX4 + QGroundControl</li>
-						<li>Understand the overall drone design pipeline end-to-end</li>
-					</ol>
+					<h2>Project Stages</h2>
+					<p>The project is documented across four stages:</p>
+
+					<ul class="actions special">
+						<li><a href="project_uav_1_components.html" class="button">1. Component Selection</a></li>
+						<li><a href="project_uav_3_practicalbuild.html" class="button">2. SITL Software</a></li>
+						<li><a href="project_uav_2_software.html" class="button">3. Hardware Assembly</a></li>
+						<li><a href="project_uav_4_practicalfly.html" class="button">4. Real Flight</a></li>
+					</ul>
 
 					<hr />
 
@@ -162,11 +155,11 @@
 					<hr />
 
 					<h2>While Waiting: Getting Simulator Time on the Controller</h2>
-					<p>The RC transmitter was one of the first items to arrive. Rather than let it sit idle while the rest of the components shipped, I installed <strong>Liftoff</strong> — a drone racing simulator — to start building muscle memory with the sticks. This turned out to be genuinely useful: the sensitivity of a drone RC is quite different from anything I had flown before, and crashing in a simulator costs nothing.</p>
+					<p>The RC transmitter was one of the first items to arrive. Rather than let it sit idle while the rest of the components shipped, I installed <a href="https://www.liftoff-game.com/">Liftoff</a> — a drone racing simulator — to start building muscle memory with the sticks. The choice was between Liftoff and Uncrashed, as both seem to provide more realistic physics rather than just gaming experience. This turned out to be genuinely useful for learning how to manually fly quadcopters (constantly compensating throttle for instance).</p>
 
 					<div class="image-container">
 						<span class="image fit"><img src="images/UAV/UAV1_Liftoff_Equivalent.png" alt="QAV250-equivalent drone in Liftoff simulator" /></span>
-						<p style="text-align: center; font-style: italic; font-size: 0.8em; margin-top: -1.5rem">A QAV250-equivalent model in the Liftoff simulator — used to get initial controller feel and practice manual flight before the real build was complete.</p>
+						<p style="text-align: center; font-style: italic; font-size: 0.8em; margin-top: -1.5rem">A QAV250-equivalent model in the <a href="https://www.liftoff-game.com/">Liftoff</a> simulator — used to get initial controller feel and practice manual flight before the real build was complete.</p>
 					</div>
 
 					<hr />

@@ -32,10 +32,10 @@
 					<li class="has-dropdown">
 						<a href="projects-uav.html">UAV Projects</a>
 						<ul class="dropdown">
-							<li><a href="project_uav_1_components.html">First UAV: Component Selection</a></li>
-							<li><a href="project_uav_2_software.html">First UAV: SITL Software</a></li>
-							<li><a href="project_uav_3_practicalbuild.html">First UAV: Hardware Assembly</a></li>
-							<li><a href="project_uav_4_practicalfly.html">First UAV: Real Software, and Flight</a></li>
+							<li><a href="project_uav_1_components.html">First UAV Build: Component Selection</a></li>
+							<li><a href="project_uav_3_practicalbuild.html">First UAV Build: Hardware Assembly</a></li>
+							<li><a href="project_uav_2_software.html">First UAV Build: SITL Software</a></li>
+							<li><a href="project_uav_4_practicalfly.html">First UAV Build: Real Software, and Flight</a></li>
 						</ul>
 					</li>
 					<li class="has-dropdown">
@@ -57,61 +57,138 @@
 			<div id="main">
 				<section class="post">
 					<header class="major">
-						<span class="date">PhD Research · ISAE-Supaero, Toulouse · 2023–Present</span>
-						<h1>WingLoop — Closed-Loop Control Framework for ASWING</h1>
-						<p>A Python-based library that extends ASWING with arbitrary closed-loop control laws — enabling nonlinear, multi-backend flight dynamics simulation for flexible aircraft.</p>
+						<span class="date">PhD Research · AIAA AVIATION FORUM 2025 · Las Vegas</span>
+						<h1>WingLoop</h1>
+						<p>A closed-loop control framework extending <a href="https://web.mit.edu/drela/Public/web/aswing/" target="_blank">ASWING</a> with Python, MATLAB, and Simulink control laws!</p>
 					</header>
 
 					<div class="image-container">
 						<span class="image fit"><img src="images/aero/WingLoop/wingLoop_image.jpg" alt="WingLoop logo" /></span>
-						<p style="text-align: center; font-style: italic; font-size: 0.8em; margin-top: -1.5rem">WingLoop — a closed-loop control framework built on top of <a href="https://web.mit.edu/drela/Public/web/aswing/" target="_blank">ASWING</a>, extending its simulation capabilities for flexible aircraft research.</p>
 					</div>
 
 					<h2>The Problem WingLoop Solves</h2>
-					<p><a href="https://web.mit.edu/drela/Public/web/aswing/" target="_blank"><strong>ASWING</strong></a> is a powerful nonlinear aeroelastic tool for flexible aircraft — capable of trim, time-domain transient simulation, and frequency-domain analysis. However, its native controller support is limited to linear, bi-scheduled control laws defined entirely within ASWING's own format. For research into flexible aircraft dynamics and control — where nonlinear, adaptive, or otherwise arbitrary control strategies are often exactly what needs to be tested — this is a significant constraint.</p>
+					<p><a href="https://web.mit.edu/drela/Public/web/aswing/" target="_blank"><strong>ASWING</strong></a> is a powerful nonlinear aeroelastic tool for flexible aircraft — capable of trim, time-domain transient simulation, and frequency-domain analysis. Its native controller support, however, is limited to linear, bi-scheduled control laws defined entirely within ASWING's own format. For research into flexible aircraft dynamics and control — where control strategies can range from as simple as a fixed-gain law to as complex as needed — this is a significant constraint.</p>
 
-					<p><strong>WingLoop</strong> lifts that constraint entirely. It integrates ASWING with Python — and optionally MATLAB or Simulink — via a time-marching closed-loop interface. At each timestep, the current aircraft state is passed out of ASWING to the chosen controller backend, the control law is evaluated, and the resulting inputs are fed back into ASWING for the next step. The result is a general-purpose simulation framework where the controller can be as simple as a PID or as complex as a nonlinear observer-based law — with no changes required to ASWING itself.</p>
+					<p><strong>WingLoop</strong> lifts that constraint entirely. It integrates ASWING with Python, MATLAB, and Simulink via a time-marching closed-loop interface. At each timestep, the current aircraft state is passed out of ASWING to the chosen controller backend, the control law is evaluated, and the resulting inputs are fed back into ASWING for the next step. The result is a general-purpose simulation framework where the controller implementation is completely decoupled from the simulator — with no changes required to ASWING itself.</p>
 
 					<hr />
 
 					<h2>Supported Controller Backends</h2>
-					<p>WingLoop supports three controller integration modes, selectable at runtime:</p>
+					<p>WingLoop supports four controller integration modes:</p>
 					<ul>
-						<li><strong>Python</strong> — native Python control laws; the lightest and fastest option, with computational overhead close to ASWING running standalone</li>
-						<li><strong>MATLAB</strong> — control laws implemented in MATLAB, called via MATLAB's Python API; moderate overhead, useful when existing MATLAB toolboxes are needed</li>
-						<li><strong>Simulink</strong> — Simulink block diagram controllers, either run live or exported as compiled FMUs; FMU compilation adds one-off overhead but brings runtime performance close to Python</li>
+						<li><strong>Python</strong> — native Python control laws; the lightest option, with computational overhead close to ASWING running standalone (~+10% over baseline)</li>
+						<li><strong>MATLAB</strong> — control laws via MATLAB's Python API; modest additional overhead (~+21%) with a ~3 s one-off engine startup cost</li>
+						<li><strong>Simulink</strong> — Simulink block diagram controllers run live; flexible but carries significant per-iteration cost</li>
+						<li><strong>Simulink FMU</strong> — Simulink model compiled once into a standalone binary; after compilation, runtime performance is on par with Python (~+10–12%), making it the recommended option when Simulink is required</li>
 					</ul>
 
-					<p>For most research use cases, Python or Simulink FMU are the recommended choices — they offer the best balance of flexibility and speed.</p>
+					<hr />
+
+					<h2>Runtime Performance</h2>
+					<p>The table below reports wall-clock benchmarks for a 300-iteration gust-response simulation (PID elevator control, Δt = 10 ms), comparing all backends against the ASWING native baseline. Overhead is the one-off startup cost; computational time is the wall-clock duration of all iterations. Timings were collected on a Dell Precision 3581 (Intel Core i7-13800H, 32 GiB RAM, Ubuntu 22.04).</p>
+
+					<div class="table-wrapper">
+						<table>
+							<thead>
+								<tr>
+									<th>Controller</th>
+									<th>Overhead [s]</th>
+									<th>Plot ON [s]</th>
+									<th>Δ ON</th>
+									<th>Plot OFF [s]</th>
+									<th>Δ OFF</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td><em>ASWING native (baseline)</em></td>
+									<td>—</td>
+									<td>—</td>
+									<td>—</td>
+									<td>10.70</td>
+									<td>—</td>
+								</tr>
+								<tr>
+									<td>Python</td>
+									<td>0.49</td>
+									<td>15.01</td>
+									<td>+40.3%</td>
+									<td>11.73</td>
+									<td>+9.6%</td>
+								</tr>
+								<tr>
+									<td>MATLAB</td>
+									<td>2.95</td>
+									<td>15.94</td>
+									<td>+49.0%</td>
+									<td>12.92</td>
+									<td>+20.7%</td>
+								</tr>
+								<tr>
+									<td>Simulink (with GUI)</td>
+									<td>18.58</td>
+									<td>138.0</td>
+									<td>+1190%</td>
+									<td>137.3</td>
+									<td>+1183%</td>
+								</tr>
+								<tr>
+									<td>Simulink (without GUI)</td>
+									<td>13.51</td>
+									<td>105.0</td>
+									<td>+881%</td>
+									<td>91.06</td>
+									<td>+751%</td>
+								</tr>
+								<tr>
+									<td>Simulink FMU (recompiled)</td>
+									<td>26.50</td>
+									<td>14.64</td>
+									<td>+36.8%</td>
+									<td>11.98</td>
+									<td>+12.0%</td>
+								</tr>
+								<tr>
+									<td>Simulink FMU (non-recompiled)</td>
+									<td>0.53</td>
+									<td>14.88</td>
+									<td>+39.1%</td>
+									<td>11.87</td>
+									<td>+10.9%</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+					<p>Δ columns express the percentage increase in computational time relative to the ASWING native baseline. For simple control laws, Python or MATLAB are the natural choice. When Simulink is required, the compiled FMU path recovers Python-level performance at the cost of a one-time ~26 s compilation step — which can be skipped on subsequent runs if the model has not changed. Note that enabling the live GUI adds wall-clock time across all backends, as plot rendering competes for compute time; this effect is particularly visible in the direct Simulink case.</p>
+
+					<hr />
+
+					<h2>Graphical Output</h2>
+					<p>WingLoop provides two categories of graphical output. The first is a <strong>live GUI</strong> displayed during the simulation run, showing time traces of user-defined aircraft state variables and control inputs — useful for monitoring simulation progress and convergence without waiting for the run to finish. The second is a set of <strong>post-processing media tools</strong> in the WingLoop library for extracting publication-quality visuals from ASWING output data: animated videos of the aircraft flight over time, and stroboscopic views overlaying multiple timesteps into a single image to highlight structural deformation mode shapes and amplitudes. The examples below are all generated from the benchmark gust-response test case.</p>
+
+					<div class="image-container">
+						<span class="image fit"><img src="images/aero/WingLoop/wingloop_test.png" alt="WingLoop live GUI during a simulation run" /></span>
+						<p style="text-align: center; font-style: italic; font-size: 0.8em; margin-top: -1.5rem">The WingLoop live GUI — real-time time traces of aircraft states and control inputs displayed throughout the simulation run.</p>
+					</div>
+
+					<div class="box alt">
+						<div class="row gtr-50 gtr-uniform">
+							<div class="col-6">
+								<span class="image fit"><img src="images/aero/WingLoop/plot_wingloop_test_aircraft.gif" alt="Time-transient animation of flexible aircraft response" /></span>
+								<p style="text-align: center; font-style: italic; font-size: 0.8em; margin-top: -1.5rem">Time-transient animation of a deforming flexible aircraft, <br>moving camera view</p>
+							</div>
+							<div class="col-6">
+								<span class="image fit"><img src="images/aero/WingLoop/plot_wingloop_test_aircraft_strobe.png" alt="Stroboscopic view of flexible aircraft deformation" /></span>
+								<p style="text-align: center; font-style: italic; font-size: 0.8em; margin-top: -1.5rem">Stroboscopic view of a deforming flexible aircraft, <br>moving camera view</p>
+							</div>
+						</div>
+					</div>
 
 					<hr />
 
 					<h2>Reference Publication</h2>
 					<p>WingLoop was presented at the AIAA AVIATION FORUM AND ASCEND 2025:</p>
 					<blockquote>Leonardo Avoni, Murat Bronz, Jean-Philippe Condomines and Jean-Marc Moschetta. <em>"Enhancing ASWING Flight Dynamics Simulations with Closed-Loop Control for Flexible Aircraft,"</em> AIAA 2025-3425. July 2025. <a href="https://arc.aiaa.org/doi/10.2514/6.2025-3425" target="_blank">https://arc.aiaa.org/doi/10.2514/6.2025-3425</a></blockquote>
-
-					<hr />
-
-					<h2>Simulation Outputs: What WingLoop Makes Easy</h2>
-					<p>Beyond the control loop itself, WingLoop includes utilities for post-processing and visualization of ASWING outputs — things that would otherwise require significant manual work. This includes automated video generation of the aircraft flight, stroboscopic views of structural deformation over time, and real-time plotting of state variables during simulation runs. The examples below were generated from a test case involving a simplified flexible aircraft responding to a 1-cosine vertical gust, with a PID controller applied to stabilize the response.</p>
-
-					<div class="image-container">
-						<span class="image fit"><img src="images/aero/WingLoop/wingloop_test.png" alt="WingLoop GUI during a simulation run" /></span>
-						<p style="text-align: center; font-style: italic; font-size: 0.8em; margin-top: -1.5rem">The WingLoop GUI during a live simulation run — real-time time plots of aircraft states and control inputs across the closed-loop timesteps.</p>
-					</div>
-
-					<div class="box alt">
-						<div class="row gtr-50 gtr-uniform">
-							<div class="col-6">
-								<span class="image fit"><img src="images/aero/WingLoop/plot_wingloop_test_aircraft.gif" alt="Flexible aircraft simulation video" /></span>
-								<p style="text-align: center; font-style: italic; font-size: 0.8em; margin-top: -1.5rem">Animated video output of the flexible aircraft simulation — structural deformation and flight dynamics visualized over time.</p>
-							</div>
-							<div class="col-6">
-								<span class="image fit"><img src="images/aero/WingLoop/plot_wingloop_test_aircraft_strobe.png" alt="Stroboscopic view of flexible aircraft" /></span>
-								<p style="text-align: center; font-style: italic; font-size: 0.8em; margin-top: -1.5rem">Stroboscopic view — multiple flight states overlaid to highlight structural deformation amplitude and mode shapes across the simulation.</p>
-							</div>
-						</div>
-					</div>
 
 					<hr />
 

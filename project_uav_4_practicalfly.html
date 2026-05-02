@@ -1,7 +1,7 @@
 <!DOCTYPE HTML>
 <html>
 	<head>
-		<title>First UAV — Real Software &amp; Flight — Leonardo Avoni</title>
+		<title>First UAV Build — Real Software &amp; Flight — Leonardo Avoni</title>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 		<link rel="stylesheet" href="assets/css/main.css" />
@@ -32,10 +32,10 @@
 					<li class="has-dropdown active">
 						<a href="projects-uav.html">UAV Projects</a>
 						<ul class="dropdown">
-							<li><a href="project_uav_1_components.html">First UAV: Component Selection</a></li>
-							<li><a href="project_uav_2_software.html">First UAV: SITL Software</a></li>
-							<li><a href="project_uav_3_practicalbuild.html">First UAV: Hardware Assembly</a></li>
-							<li><a href="project_uav_4_practicalfly.html">First UAV: Real Software, and Flight</a></li>
+							<li><a href="project_uav_1_components.html">First UAV Build: Component Selection</a></li>
+							<li><a href="project_uav_3_practicalbuild.html">First UAV Build: Hardware Assembly</a></li>
+							<li><a href="project_uav_2_software.html">First UAV Build: SITL Software</a></li>
+							<li><a href="project_uav_4_practicalfly.html">First UAV Build: Real Software, and Flight</a></li>
 						</ul>
 					</li>
 					<li class="has-dropdown">
@@ -58,8 +58,8 @@
 				<section class="post">
 					<header class="major">
 						<span class="date">Personal Project · 2025–2026</span>
-						<h1>First UAV Build — Real Software &amp; Flight</h1>
-						<p>Transitioning from simulation to reality: flashing the hardware, troubleshooting communication protocols, and the first indoor manual flights.</p>
+						<h1>First UAV Build:<br>Real Software &amp; Flight</h1>
+						<p>Transitioning from simulation to reality: flashing the hardware, troubleshooting communication protocols,<br>and first indoor manual flights.</p>
 					</header>
 
 					<div class="image-container">
@@ -68,16 +68,16 @@
 					</div>
 
 					<h2>From Virtual to Vertical</h2>
-					<p>After getting comfortable with the PX4 stack in <a href="project_uav_2_software.html">SITL simulation</a>, it was time to move to the real thing. While the logic remains the same, hardware introduces a layer of complexity—communication protocols, firmware compilation for specific targets, and the unpredictable nature of real-world electronics.</p>
+					<p>After getting comfortable with the PX4 stack in <a href="project_uav_2_software.html">SITL simulation</a>, it was time to move to the real thing. While the logic remains the same, hardware introduces a layer of complexity—communication protocols, firmware compilation for specific targets, and real-world electronics.</p>
 
 					<hr />
 
-					<h2>Configuration Hurdles: RC and ELRS</h2>
-					<p>Getting the radio link operational was the first major software-on-hardware milestone. I chose <strong>ExpressLRS (ELRS)</strong> for its reliability, but integrating it with PX4 required precise parameter tuning. Specifically, attention was paid to:</p>
+					<h2>Configuration Hurdles</h2>
+					<p>Getting the radio link operational was the first major software-on-hardware milestone. Using the RadioMaster Pocket Crush (ELRS version) forces to use <strong>ExpressLRS (ELRS)</strong>, but integrating it with PX4 required precise parameter tuning. Specifically, attention was paid to:</p>
 					<ul>
 						<li><strong>RC Setup:</strong> Mapping channels correctly within QGroundControl to match the transmitter's stick movements.</li>
 						<li><strong>PX4 Compilation:</strong> Ensuring the firmware was compiled with the correct CRSF (Crossfire) protocol support, which ELRS uses to communicate with the Pixhawk 6C Mini.</li>
-						<li><strong>Failsafes:</strong> Testing the connection loss behavior to ensure the drone would disarm or return safely rather than drifting away.</li>
+						<li><strong>Failsafes and switch mapping:</strong> Testing the arm/disarm/killswitch behavior to ensure the drone would disarm rather than stay powered.</li>
 					</ul>
 
 					<div class="image-container">
@@ -114,7 +114,6 @@
 					<ul>
 						<li>Transitioning from indoor manual flight to <strong>outdoor autonomous missions</strong>.</li>
 						<li>Implementing GPS-based waypoints and return-to-land (RTL) sequences.</li>
-						<li>Fine-tuning the PID loops to optimize the 250mm frame's agility.</li>
 					</ul>
 
 					<hr />

@@ -1,7 +1,7 @@
 <!DOCTYPE HTML>
 <html>
 	<head>
-		<title>First UAV — SITL Software — Leonardo Avoni</title>
+		<title>First UAV Build — SITL Software — Leonardo Avoni</title>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 		<link rel="stylesheet" href="assets/css/main.css" />
@@ -32,10 +32,10 @@
 					<li class="has-dropdown active">
 						<a href="projects-uav.html">UAV Projects</a>
 						<ul class="dropdown">
-							<li><a href="project_uav_1_components.html">First UAV: Component Selection</a></li>
-							<li><a href="project_uav_2_software.html">First UAV: SITL Software</a></li>
-							<li><a href="project_uav_3_practicalbuild.html">First UAV: Hardware Assembly</a></li>
-							<li><a href="project_uav_4_practicalfly.html">First UAV: Real Software, and Flight</a></li>
+							<li><a href="project_uav_1_components.html">First UAV Build: Component Selection</a></li>
+							<li><a href="project_uav_3_practicalbuild.html">First UAV Build: Hardware Assembly</a></li>
+							<li><a href="project_uav_2_software.html">First UAV Build: SITL Software</a></li>
+							<li><a href="project_uav_4_practicalfly.html">First UAV Build: Real Software, and Flight</a></li>
 						</ul>
 					</li>
 					<li class="has-dropdown">
@@ -58,13 +58,13 @@
 				<section class="post">
 					<header class="major">
 						<span class="date">Personal Project · 2025–2026</span>
-						<h1>First UAV Build — SITL Simulation</h1>
-						<p>Setting up PX4 Software-In-The-Loop with Gazebo and QGroundControl — including a custom campus world and a QAV250-matched drone model.</p>
+						<h1>First UAV Build:<br>SITL Simulation</h1>
+						<p>Setting up custom PX4 Software-In-The-Loop with Gazebo and QGroundControl!</p>
 					</header>
 
 					<div class="image-container">
 						<span class="image fit"><img src="images/UAV/UAV3_Cover.png" alt="SITL view showing Gazebo and QGC over ISAE-Supaero campus simulation" /></span>
-						<p style="text-align: center; font-style: italic; font-size: 0.8em; margin-top: -1.5rem">The SITL simulation environment in action — Gazebo (right) rendering the drone flying over a simulated ISAE-Supaero / ENAC campus, with QGroundControl (left) acting as the ground station. The custom world and drone model were both built specifically for this project.</p>
+						<p style="text-align: center; font-style: italic; font-size: 0.8em; margin-top: -1.5rem">The SITL simulation environment in action — Gazebo (left) rendering the drone flying over a simulated ISAE-Supaero / ENAC campus,<br>with QGroundControl (right) acting as the ground station. The custom world and drone model were both built specifically for this project.</p>
 					</div>
 
 					<h2>Why Start with Simulation?</h2>
@@ -76,7 +76,7 @@
 					<p>The simulation environment is built around three tools that interact with each other:</p>
 					<ul>
 						<li><strong>PX4 SITL:</strong> the autopilot firmware compiled to run on the host computer. It handles all flight control logic, state estimation, and mission execution.</li>
-						<li><strong>Gazebo:</strong> the physics and rendering simulator. It models drone dynamics, applies sensor noise, and provides visual feedback of the flight.</li>
+						<li><strong>Gazebo:</strong> the physics and rendering simulator. It models drone dynamics, applies perturbations, and provides visual feedback of the flight.</li>
 						<li><strong>QGroundControl (QGC):</strong> the ground control station. Used for parameter tuning, mission planning, telemetry monitoring, and flight mode management — identical workflow to real operations.</li>
 					</ul>
 
@@ -88,25 +88,22 @@
 					<h3>Custom Simulation World: ISAE-Supaero / ENAC Campus</h3>
 					<p>The default Gazebo worlds are generic and disconnected from reality. To give the simulation concrete spatial meaning, a 3D model of the ISAE-Supaero / ENAC area in Toulouse was generated from <strong>OpenStreetMap</strong> data using OSM2World, then imported into Gazebo as a custom world. Flying over a place I know makes distance and scale immediately interpretable — it converts simulation results into something that translates to real life.</p>
 
-					<div class="box alt">
-						<div class="row gtr-50 gtr-uniform">
-							<div class="col-6">
-								<span class="image fit"><img src="images/UAV/UAV3_RealvsOSM2World.png" alt="ISAE-Supaero campus: Google Maps vs OSM2World comparison" /></span>
-								<p style="text-align: center; font-style: italic; font-size: 0.8em; margin-top: -1.5rem">Side-by-side comparison of the ISAE-Supaero campus — Google Maps satellite view versus the OSM2World-generated 3D model used in the Gazebo simulation world.</p>
-							</div>
-							<div class="col-6">
-								<span class="image fit"><img src="images/UAV/UAV3_CADmodel.png" alt="Custom QAV250 CAD model in Gazebo" /></span>
-								<p style="text-align: center; font-style: italic; font-size: 0.8em; margin-top: -1.5rem">The custom QAV250 drone model imported into Gazebo — inertial properties and geometry tuned to match the real build, so simulated dynamics are representative.</p>
-							</div>
-						</div>
+					<div class="image-container">
+						<span class="image fit"><img src="images/UAV/UAV3_RealvsOSM2World.png" alt="ISAE-Supaero campus: Google Maps vs OSM2World comparison" /></span>
+						<p style="text-align: center; font-style: italic; font-size: 0.8em; margin-top: -1.5rem">Side-by-side comparison of the ISAE-Supaero campus — Google Maps satellite view versus the OSM2World-generated 3D model used in Gazebo.</p>
 					</div>
+
 
 					<h3>Custom Drone Model: QAV250 in Gazebo</h3>
 					<p>The second customisation was replacing the default quadrotor model with one that matches the actual QAV250 build — correct geometry, mass properties, and motor layout. This required editing the SDF model definition and understanding where PX4 and Gazebo exchange vehicle parameters. It also served as a useful exercise in understanding how simulation fidelity is controlled and where the key configuration files live in the PX4 and Gazebo source trees.</p>
 
-					<h3>RC Controller as Joystick Input</h3>
-					<p>The real RC transmitter was also configured as a joystick input for SITL — meaning manual flight modes in simulation were flown with the same hardware that would be used in real life. This is a better setup than a keyboard for two reasons: it keeps hand-eye coordination training directly transferable, and it validated the RC–QGC communication chain before the real drone was involved.</p>
+					<div class="image-container">
+						<span class="image fit"><img src="images/UAV/UAV3_CADmodel.png" alt="Custom QAV250 CAD model in Gazebo" /></span>
+						<p style="text-align: center; font-style: italic; font-size: 0.8em; margin-top: -1.5rem">The custom QAV250 drone model imported into Gazebo — inertial properties and geometry tuned to match the real build.</p>
+					</div>
 
+					<h3>RC Controller as Joystick Input</h3>
+					<p>The real RC transmitter was also configured as a joystick input for SITL — meaning manual flight modes in simulation were flown with the same hardware that would be used in real life.</p>
 					<hr />
 
 					<h2>What Was Tested</h2>
@@ -121,17 +118,34 @@
 					<hr />
 
 					<h2>Issues Encountered</h2>
-					<p>Setting up the SITL stack from scratch is not entirely smooth. A non-exhaustive list of things that required debugging:</p>
-					<ul>
-						<li>Library dependencies and missing packages on the host system.</li>
-						<li>Version incompatibilities between PX4, Gazebo, and ROS/the plugin ecosystem — the versions of these tools need to be matched carefully.</li>
-						<li>RC transmitter / QGroundControl joystick compatibility — not all joystick mappings are automatically recognised correctly.</li>
-						<li>General compatibility issues between PX4 SITL and the custom Gazebo world (coordinate systems, spawn positions, physics parameters).</li>
-						<li>Working with the PX4 Git repository — managing forks, branches, and upstream merges when customising the source.</li>
-						<li>Finding a reliable, generalizable workflow for Gazebo world creation from OSM data — several approaches were tried before landing on one that worked consistently.</li>
-					</ul>
-					<p>None of these were insurmountable, but they each took time. The lesson is to pin your dependency versions early and be conservative about updates.</p>
+					<p>
+						Building a PX4 SITL stack from scratch on Ubuntu is rarely a "plug-and-play" experience. The following challenges required targeted debugging to resolve:
+					</p>
 
+					<ul>
+						<li>
+							<strong>Environment Dependencies:</strong> Numerous library conflicts and missing host system packages required manual identification and installation to complete the build.
+						</li>
+						<li>
+							<strong>Version Incompatibility:</strong> The PX4, Gazebo, and ROS ecosystems require precise version matching to ensure the plugin architecture functions correctly.
+						</li>
+						<li>
+							<strong>Peripheral Mapping:</strong> QGroundControl often failed to automatically recognize the RC transmitter, necessitating manual calibration and custom joystick mapping (RadioMaster Pocket Crush comes without full USB support).
+						</li>
+						<li>
+							<strong>Simulation Alignment:</strong> Discrepancies in coordinate systems, spawn positions, and physics parameters caused integration friction between the custom Gazebo world and the PX4 SITL.
+						</li>
+						<li>
+							<strong>Source Management:</strong> Navigating the PX4 Git repository while managing forks, custom branches, and upstream merges added significant overhead to the development workflow.
+						</li>
+						<li>
+							<strong>Geospatial Workflow:</strong> Developing a reliable, repeatable method for converting OSM data into functional Gazebo worlds required testing several inconsistent toolchains.
+						</li>
+					</ul>
+
+					<p>
+						While none of these obstacles were insurmountable, they underscored a vital lesson: pin your dependency versions early and remain conservative regarding system updates.
+					</p>
 					<hr />
 
 					<h2>Documentation</h2>

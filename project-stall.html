@@ -32,10 +32,10 @@
 					<li class="has-dropdown">
 						<a href="projects-uav.html">UAV Projects</a>
 						<ul class="dropdown">
-							<li><a href="project_uav_1_components.html">First UAV: Component Selection</a></li>
-							<li><a href="project_uav_2_software.html">First UAV: SITL Software</a></li>
-							<li><a href="project_uav_3_practicalbuild.html">First UAV: Hardware Assembly</a></li>
-							<li><a href="project_uav_4_practicalfly.html">First UAV: Real Software, and Flight</a></li>
+							<li><a href="project_uav_1_components.html">First UAV Build: Component Selection</a></li>
+							<li><a href="project_uav_3_practicalbuild.html">First UAV Build: Hardware Assembly</a></li>
+							<li><a href="project_uav_2_software.html">First UAV Build: SITL Software</a></li>
+							<li><a href="project_uav_4_practicalfly.html">First UAV Build: Real Software, and Flight</a></li>
 						</ul>
 					</li>
 					<li class="has-dropdown">
@@ -59,7 +59,7 @@
 					<header class="major">
 						<span class="date">PhD Research · ISAE-Supaero, Toulouse · 2023–Present</span>
 						<h1>Stall Implementation for Flexible Wings</h1>
-						<p>Extending simplified stall modeling within ASWING — toward understanding and recovering from stall on high-altitude flexible aircraft operating autonomously.</p>
+						<p>Extending simplified ASWING stall modeling for high-altitude flexible aircraft recovery.</p>
 					</header>
 
 					<div class="box alt">
@@ -76,9 +76,9 @@
 					</div>
 
 					<h2>Motivation: Stall on Flexible Aircraft</h2>
-					<p>Most aerodynamic analysis — and most aircraft design — focuses on attached flow. Aircraft are typically optimized for cruise conditions, well within the linear lift regime. Stall is something to be avoided, not studied in depth. Yet it remains a leading cause of aircraft mishaps, and for a specific class of vehicle it poses a particularly interesting and underexplored problem: <strong>flexible, high-altitude, long-endurance (HALE) aircraft operating autonomously</strong>.</p>
+					<p>Most aerodynamic analysis — and most aircraft design — focuses on attached flow. Aircraft are typically optimized for cruise conditions, within the linear lift regime. Stall is something to be avoided, not studied in depth. Yet it remains a leading cause of aircraft mishaps, and for a specific class of vehicle it poses a particularly interesting and underexplored problem: <strong>flexible, high-altitude, long-endurance (HALE) aircraft operating autonomously</strong>.</p>
 
-					<p>Why does flexibility change things? A rigid aircraft, when perturbed, sees essentially the same airspeed along the entire span. A flexible aircraft, by contrast, undergoes structural vibrations that introduce local airspeed variations across the wing — different sections of the aircraft can see meaningfully different effective angles of attack at the same instant. This means stall onset, propagation, and recovery dynamics on a flexible airframe are genuinely different from the rigid case, and the existing literature on rigid aircraft stall cannot simply be transferred across.</p>
+					<p>Why does flexibility change things? A rigid aircraft, when perturbed, sees essentially the same airspeed along the entire span (induced velocity aside). A flexible aircraft, by contrast, undergoes structural vibrations that introduce local airspeed variations across the wing — different sections of the aircraft can see meaningfully different effective angles of attack at the same instant. This means stall onset, propagation, and recovery dynamics on a flexible airframe are genuinely different from the rigid case, and the existing literature on rigid aircraft stall cannot simply be transferred across.</p>
 
 					<p>The motivating scenario is straightforward and practically relevant: <em>what happens if a HALE vehicle in autonomous cruise stalls?</em> These aircraft operate at altitudes and in conditions where human intervention is limited or impossible. Understanding how stall develops on a flexible airframe — and how an autonomous control system might recover from it — requires a model. Building that model is what this project is about.</p>
 
