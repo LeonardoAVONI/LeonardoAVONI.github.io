@@ -222,12 +222,12 @@
 
 @media screen and (max-width: 736px) {
     #intro h1 {
-        font-size: 3.5rem;
+        font-size: 3.2rem;
     }
 }
 
 @media screen and (max-width: 480px) {
     #intro h1 {
-        font-size: 3.2rem;
+        font-size: 3.0rem;
     }
 }
