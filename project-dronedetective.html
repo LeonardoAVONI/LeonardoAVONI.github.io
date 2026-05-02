@@ -62,6 +62,25 @@
 						<p>A Python-based tool for fully automated wind tunnel testing and aerodynamic analysis of morphing drones — cutting characterization time by a factor of 10 while improving repeatability and accuracy.</p>
 					</header>
 
+					<div class="image-container">
+						<span class="image fit">
+							<video controls style="width: 100%;">
+								<source src="images/aero/LIS_Elythor/dronedetective_video.mp4" type="video/mp4">
+								Your browser does not support the video tag.
+							</video>
+						</span>
+						<p style="text-align: center; font-style: italic; font-size: 0.8em; margin-top: -1.5rem">
+							DroneDetective code, running on a laptop, controlling the wind tunnel, the robotic arm and the drone; gathering data from the MoCap system and the load cell for an array of different combinations
+						</p>
+					</div>
+
+					<h2>Context</h2>
+					<p>This project was carried out as my Master's thesis at the <a href="https://www.epfl.ch/labs/lis/" target="_blank"><strong>Laboratory of Intelligent Systems (LIS)</strong></a> at EPFL, under the supervision of Prof. Dario Floreano, with day-to-day guidance from Dr. Charalampos Vourtsis and Nathan Müller. The work was linked to <a href="https://elythor.com/" target="_blank"><strong>Elythor</strong></a>, a startup developing morphing VTOL drones that can actively reshape their airframe during flight to adapt to varying mission requirements.</p>
+
+					<p>Characterizing the aerodynamics of such a vehicle is non-trivial: a morphing drone doesn't have a single fixed aerodynamic identity — its lift, drag, and moment coefficients change as a function of its shape configuration. Mapping that space experimentally, across a full range of morphing states and wind conditions, represents a substantial experimental campaign. The goal of this thesis was to build a tool that could run that campaign automatically, reproducibly, and without requiring constant operator intervention.</p>
+
+					<hr />
+
 					<div class="box alt">
 						<div class="row gtr-50 gtr-uniform">
 							<div class="col-6">
@@ -74,13 +93,6 @@
 							</div>
 						</div>
 					</div>
-
-					<h2>Context</h2>
-					<p>This project was carried out as my Master's thesis at the <a href="https://www.epfl.ch/labs/lis/" target="_blank"><strong>Laboratory of Intelligent Systems (LIS)</strong></a> at EPFL, under the supervision of Prof. Dario Floreano, with day-to-day guidance from Dr. Charalampos Vourtsis and Nathan Müller. The work was linked to <a href="https://elythor.com/" target="_blank"><strong>Elythor</strong></a>, a startup developing morphing VTOL drones that can actively reshape their airframe during flight to adapt to varying mission requirements.</p>
-
-					<p>Characterizing the aerodynamics of such a vehicle is non-trivial: a morphing drone doesn't have a single fixed aerodynamic identity — its lift, drag, and moment coefficients change as a function of its shape configuration. Mapping that space experimentally, across a full range of morphing states and wind conditions, represents a substantial experimental campaign. The goal of this thesis was to build a tool that could run that campaign automatically, reproducibly, and without requiring constant operator intervention.</p>
-
-					<hr />
 
 					<h2>What DroneDetective Does</h2>
 					<p>DroneDetective is a Python software framework that orchestrates a multi-instrument hardware setup and processes the resulting data automatically. It can extract three categories of information from a drone under test:</p>
