@@ -1,55 +1,74 @@
-/* nav-dropdown.js
- * Click-toggle dropdowns for desktop (#nav) and mobile (#navPanel).
- *
- * ROOT CAUSE OF MOBILE BUG:
- *   Massively's main.js adds #navPanel to the DOM immediately but as an
- *   empty shell. The nav content (ul.links with li.has-dropdown items) is
- *   only moved into it later when the <=medium breakpoint fires. A
- *   MutationObserver or document.ready handler therefore finds no
- *   li.has-dropdown elements inside #navPanel and attaches nothing.
- *
- * FIX: Use jQuery event delegation on `document`. Delegated handlers match
- *   elements that exist *at click time*, so it doesn't matter when the
- *   elements appear in the DOM.
- *
- * Load AFTER main.js so jQuery is available.
- */
 (function ($) {
     $(document).ready(function () {
 
-        /*
-         * Single delegated handler for BOTH #nav and #navPanel.
-         * Selector: any <a> that is a direct child of li.has-dropdown
-         * inside either container.
-         */
-        $(document).on('click', '#nav li.has-dropdown > a, #navPanel li.has-dropdown > a', function (e) {
+        // ── DESKTOP: click-toggle dropdowns in #nav ──────────────────────
 
+        $(document).on('click', '#nav li.has-dropdown > a', function (e) {
             var $a      = $(this);
             var $parent = $a.closest('li.has-dropdown');
-
-            // Which container are we in? (#nav or #navPanel)
-            var $container = $a.closest('#nav, #navPanel');
-
             var wasOpen = $parent.hasClass('open');
 
-            // Close all dropdowns in this container first
-            $container.find('li.has-dropdown').removeClass('open');
+            $('#nav li.has-dropdown').removeClass('open');
 
             if (!wasOpen) {
-                // Block navigation and show the sub-menu
                 e.preventDefault();
                 e.stopImmediatePropagation();
                 $parent.addClass('open');
             }
-            // If it was already open: we've closed it above, now let
-            // the browser follow the href to the category page.
         });
 
-        /* Close all dropdowns when clicking anywhere outside a dropdown */
         $(document).on('click', function (e) {
-            if (!$(e.target).closest('#nav li.has-dropdown, #navPanel li.has-dropdown').length) {
-                $('li.has-dropdown').removeClass('open');
+            if (!$(e.target).closest('#nav li.has-dropdown').length) {
+                $('#nav li.has-dropdown').removeClass('open');
             }
+        });
+
+        // ── MOBILE: drill-down in #navPanel ──────────────────────────────
+
+        $(document).on('click', '#navPanel li.has-dropdown > a', function (e) {
+            e.preventDefault();
+            e.stopImmediatePropagation();
+
+            var $a          = $(this);
+            var $li         = $a.closest('li.has-dropdown');
+            var $navInner   = $('#navPanel nav');
+            var $mainList   = $navInner.children('ul.links');
+            var $dropdown   = $li.children('ul.dropdown');
+            var title       = $a.text().replace('▾', '').trim();
+            var parentHref  = $a.attr('href');
+
+            // Build the drill-down panel
+            var $drill = $('<div class="navpanel-drill"></div>');
+
+            // Back button
+            $drill.append(
+                '<a href="#" class="navpanel-back">&#8592; Back</a>'
+            );
+
+            // "Overview" link for the category page itself
+            var $sub = $('<ul class="links"></ul>');
+            $sub.append(
+                '<li class="navpanel-overview"><a href="' + parentHref + '">'
+                + title + ' — Overview</a></li>'
+            );
+
+            // Clone all sub-items
+            $dropdown.children('li').each(function () {
+                $sub.append($(this).clone());
+            });
+
+            $drill.append($sub);
+
+            // Swap views
+            $mainList.hide();
+            $navInner.append($drill);
+
+            // Back button: restore main list
+            $drill.find('.navpanel-back').on('click', function (e) {
+                e.preventDefault();
+                $drill.remove();
+                $mainList.show();
+            });
         });
 
     });
