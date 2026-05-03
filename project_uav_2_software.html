@@ -12,7 +12,7 @@
 
 		<meta property="og:type" content="website" />
 		<meta property="og:url" content="leonardoavoni.github.io" />
-		<meta property="og:image" content="leonardoavoni.github.io/images/me/test2.jpg" />
+		<meta property="og:image" content="leonardoavoni.github.io/images/me/test2_c.webp" />
 		<!-- In <head>, add these BEFORE your CSS links: -->
 		<link rel="preconnect" href="https://fonts.googleapis.com">
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -78,7 +78,7 @@
 					</header>
 
 					<div class="image-container">
-						<span class="image fit"><img src="images/UAV/UAV3_Cover.png" alt="SITL view showing Gazebo and QGC over ISAE-Supaero campus simulation" /></span>
+						<span class="image fit"><img src="images/UAV/UAV3_Cover_c.webp" alt="SITL view showing Gazebo and QGC over ISAE-Supaero campus simulation" /></span>
 						<p style="text-align: center; font-style: italic; font-size: 0.8em; margin-top: -1.5rem">The SITL simulation environment in action — Gazebo (left) rendering the drone flying over a simulated ISAE-Supaero / ENAC campus,<br>with QGroundControl (right) acting as the ground station. The custom world and drone model were both built specifically for this project.</p>
 					</div>
 
@@ -104,7 +104,7 @@
 					<p>The default Gazebo worlds are generic and disconnected from reality. To give the simulation concrete spatial meaning, a 3D model of the ISAE-Supaero / ENAC area in Toulouse was generated from <strong>OpenStreetMap</strong> data using OSM2World, then imported into Gazebo as a custom world. Flying over a place I know makes distance and scale immediately interpretable — it converts simulation results into something that translates to real life.</p>
 
 					<div class="image-container">
-						<span class="image fit"><img src="images/UAV/UAV3_RealvsOSM2World.png" alt="ISAE-Supaero campus: Google Maps vs OSM2World comparison" /></span>
+						<span class="image fit"><img src="images/UAV/UAV3_RealvsOSM2World_c.webp" alt="ISAE-Supaero campus: Google Maps vs OSM2World comparison" /></span>
 						<p style="text-align: center; font-style: italic; font-size: 0.8em; margin-top: -1.5rem">Side-by-side comparison of the ISAE-Supaero campus — Google Maps satellite view versus the OSM2World-generated 3D model used in Gazebo.</p>
 					</div>
 
@@ -113,7 +113,7 @@
 					<p>The second customisation was replacing the default quadrotor model with one that matches the actual QAV250 build — correct geometry, mass properties, and motor layout. This required editing the SDF model definition and understanding where PX4 and Gazebo exchange vehicle parameters. It also served as a useful exercise in understanding how simulation fidelity is controlled and where the key configuration files live in the PX4 and Gazebo source trees.</p>
 
 					<div class="image-container">
-						<span class="image fit"><img src="images/UAV/UAV3_CADmodel.png" alt="Custom QAV250 CAD model in Gazebo" /></span>
+						<span class="image fit"><img src="images/UAV/UAV3_CADmodel_c.webp" alt="Custom QAV250 CAD model in Gazebo" /></span>
 						<p style="text-align: center; font-style: italic; font-size: 0.8em; margin-top: -1.5rem">The custom QAV250 drone model imported into Gazebo — inertial properties and geometry tuned to match the real build.</p>
 					</div>
 
