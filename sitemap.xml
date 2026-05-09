@@ -123,12 +123,17 @@
   <priority>0.64</priority>
 </url>
 <url>
-  <loc>https://leonardoavoni.com/images/UAV/02_First_Drone_Build_Wiring_Scheme.pdf</loc>
+  <loc>https://leonardoavoni.com/images/UAV/02_QAV250_Wiring_Scheme.pdf</loc>
   <lastmod>2026-05-03T11:32:13+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
   <loc>https://leonardoavoni.com/images/UAV/03_QAV250_HardwareBuild.pdf</loc>
+  <lastmod>2026-05-03T11:32:13+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://leonardoavoni.com/images/UAV/04_Software_SITL.pdf</loc>
   <lastmod>2026-05-03T11:32:13+00:00</lastmod>
   <priority>0.64</priority>
 </url>
