@@ -1,0 +1,14 @@
+User-agent: *
+
+# Block leftover template files from the original HTML5 UP theme
+Disallow: /elements_old.html
+Disallow: /generic_old.html
+Disallow: /index_old.html
+
+# Block Synova employment certificates (private HR documents)
+Disallow: /images/other_projects/Synova/
+Disallow: /images/aero/LIS_Elythor/
+
+# Everything else — including all PDFs — is allowed
+
+Sitemap: https://leonardoavoni.com/sitemap.xml
