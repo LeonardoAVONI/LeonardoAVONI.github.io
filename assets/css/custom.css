@@ -231,3 +231,54 @@
         font-size: 2.6rem;
     }
 }
+
+/* ══════════════════════════════════════════════════════════════════
+   IMAGES
+   Keep aspect ratio when <img> carries width/height attributes
+   (the template forces width:100%, which would otherwise stretch).
+   ══════════════════════════════════════════════════════════════════ */
+.image img[height] {
+    height: auto;
+}
+
+/* Static "lifted" look: thin border + soft drop shadow, no animation */
+.image.shadow img {
+    border: 1px solid rgba(0, 0, 0, 0.08);
+    border-radius: 3px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.18), 0 1px 3px rgba(0, 0, 0, 0.12);
+}
+
+/* Side-by-side images with equal heights: each column grows in
+   proportion to its image aspect ratio (set inline as --ar: w/h).
+   Stacks vertically on small screens. */
+.img-row {
+    display: flex;
+    gap: 1.5rem;
+    align-items: flex-start;
+}
+.img-row > div {
+    flex: var(--ar, 1) 1 0;
+    min-width: 0;
+}
+@media screen and (max-width: 736px) {
+    .img-row {
+        flex-direction: column;
+        gap: 0;
+    }
+    .img-row > div {
+        flex: none;
+        width: 100%;
+    }
+}
+
+/* Narrower centred figure (75% of column width; full width on phones) */
+.image.fit.w75 {
+    width: 75%;
+    margin-left: auto;
+    margin-right: auto;
+}
+@media screen and (max-width: 736px) {
+    .image.fit.w75 {
+        width: 100%;
+    }
+}

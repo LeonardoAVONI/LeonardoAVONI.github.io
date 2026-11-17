@@ -5,14 +5,14 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
 
 		<title>ASWING Extended User Manual — Leonardo Avoni</title>
-		<meta name="description" content="ASWING Extended User Manual by Leonardo Avoni — a comprehensive, screenshot-driven guide to the MIT ASWING aeroelastic solver covering trim, time-domain simulation, and frequency-domain analysis. Featured on the official MIT ASWING website." />
-		<meta name="keywords" content="ASWING, ASWING tutorial, ASWING user manual, aeroelastic solver, MIT Drela, flexible aircraft, trim analysis, time-domain simulation, frequency-domain, eigenvalue, Bode plot, aeroelasticity, Leonardo Avoni, ISAE-Supaero" />
+		<meta name="description" content="ASWING Extended User Manual by Leonardo Avoni — a comprehensive, screenshot-driven guide to the MIT ASWING aeroelastic solver covering theory, trim, time-domain simulation, and frequency-domain analysis. Version 2.0 (PDF) available for free download. Featured on the official MIT ASWING website." />
+		<meta name="keywords" content="ASWING, ASWING tutorial, ASWING user manual, ASWING manual PDF, ASWING documentation, aeroelastic solver, MIT Drela, flexible aircraft, trim analysis, time-domain simulation, frequency-domain, eigenvalue, Bode plot, aeroelasticity, Leonardo Avoni, ISAE-Supaero, ENAC" />
 		<meta property="og:title" content="ASWING Extended User Manual — Leonardo Avoni" />
-		<meta property="og:description" content="The most complete practical guide to MIT's ASWING aeroelastic solver — covering installation, trim, transient simulation, and frequency-domain analysis. Hosted on the official ASWING website." />
+		<meta property="og:description" content="The most complete practical guide to MIT's ASWING aeroelastic solver — covering installation, trim, transient simulation, and frequency-domain analysis. Version 2.0 now available as a free PDF download." />
 		
 		<meta property="og:type" content="website" />
 		<meta property="og:url" content="https://leonardoavoni.com" />
-		<meta property="og:image" content="https://leonardoavoni.com/images/me/test2_c.webp" />
+		<meta property="og:image" content="https://leonardoavoni.com/images/aero/ExtendedUserManual/EUM2_cover_c.webp" />
 
 		<!-- In <head>, add these BEFORE your CSS links: -->
 		<link rel="preconnect" href="https://fonts.googleapis.com">
@@ -73,17 +73,26 @@
 			<div id="main">
 				<section class="post">
 					<header class="major">
-						<span class="date">PhD Research · ISAE-Supaero, Toulouse · 2023–Present</span>
+						<span class="date">PhD Research · ISAE-Supaero &amp; ENAC, Toulouse · 2023–Present</span>
 						<h1>
 						ASWING Extended<br>
 						User Manual
 						</h1>
-						<p>An extended guide to ASWING software, now featured on the official MIT ASWING website.</p>
+						<p>An extended guide to the ASWING software, featured on the official MIT ASWING website. Version 2.0 is now available for download.</p>
 					</header>
 
 					<div class="image-container">
-						<span class="image fit"><img src="images/aero/ExtendedUserManual/EUM_Cover_c.webp" alt="ASWING Extended User Manual cover page" /></span>
-						<p style="text-align: center; font-style: italic; font-size: 0.8em; margin-top: -1.5rem">Cover page of the Extended User Manual — a practical companion to the official ASWING documentation.</p>
+						<span class="image fit"><img src="images/aero/ExtendedUserManual/EUM2_cover_c.webp" alt="SuperFLEXOP flexible aircraft modeled in ASWING, from the cover of the Extended User Manual V2.0" width="1200" height="374" /></span>
+						<p style="text-align: center; font-style: italic; font-size: 0.8em; margin-top: -1.5rem">SuperFLEXOP aircraft modeled in ASWING, from the cover of the Extended User Manual V2.0 (after Düssler and Palacios).</p>
+					</div>
+
+					<div class="box">
+						<h3>New: Version 2.0 is out</h3>
+						<p>Version 2.0 of the Extended User Manual is newer, cleaner and better laid out, and it adds more detail about the software itself: theory, program structure and the Fortran source code. Enjoy!</p>
+						<p><em>Tip: we recommend printing one copy and annotating it while you use the software.</em></p>
+						<ul class="actions special">
+							<li><a href="images/aero/ExtendedUserManual/ASWING_Extended_User_Manual_V2.0.pdf" download class="button primary icon solid fa-download">Download V2.0 (PDF, 3.7 MB)</a></li>
+						</ul>
 					</div>
 
 					<h2>Context: Why ASWING?</h2>
@@ -91,47 +100,80 @@
 
 					<p><a href="https://web.mit.edu/drela/Public/web/aswing/" target="_blank"><strong>ASWING</strong></a>, developed by Mark Drela at MIT, is one of the few tools that fills this gap. It couples a nonlinear unsteady lifting-line model with an extended Euler–Bernoulli beam formulation, making it well suited for aeroelastic trim, time-domain transient simulation, and frequency-domain analysis — including eigenvalue problems and Bode plots from control surface forcing. It is, in short, a remarkably capable piece of software for early-stage flexible aircraft analysis.</p>
 
+					<span class="image fit w75"><img src="images/aero/ExtendedUserManual/EUM2_model_c.webp" alt="ASWING aircraft model scheme: surface and fuselage beams, point masses, joints, reference frames and gust field" width="1200" height="691" loading="lazy" /></span>
+					<p style="text-align: center; font-style: italic; font-size: 0.8em; margin-top: -1.5rem">How ASWING models an aircraft: lifting-line surface beams, slender-body fuselage beams, point masses, joints, gust field and reference frames. From Chapter 1 of the manual.</p>
+
 					<p>The catch: it has no GUI, and its usage is far from obvious. Its interface is text-command-driven and resembles AVL closely — unsurprisingly, both are authored by Mark Drela. For anyone coming from more modern tools, the learning curve is steep and the documentation, while accurate, needed to be extended.</p>
 
 					<hr />
 
 					<h2>What the Manual Covers</h2>
-					<p>To make ASWING more accessible — both for myself and for others — I wrote a comprehensive extended user manual with annotated screenshots of every major menu, workflow, and output format the software offers. The manual walks through:</p>
+					<p>To make ASWING more accessible — both for myself and for others — I wrote a comprehensive extended user manual with annotated screenshots of every major menu, workflow, and output format the software offers. Version 2.0 (142 pages) is organized in three parts:</p>
 					<ul>
-						<li><strong>Software installation and environment setup</strong> on Linux/Ubuntu</li>
-						<li><strong>Aircraft geometry definition</strong> — how to structure an ASWING input file, define beam properties, aerodynamic sections, and control surfaces</li>
-						<li><strong>Trim calculations</strong> — steady-state point analysis and how to interpret the outputs</li>
-						<li><strong>Time-domain simulation</strong> — setting up and running transient flight dynamics cases, including gust responses</li>
-						<li><strong>Frequency-domain analysis</strong> — eigenvalue extraction, mode identification, and Bode plot generation from control surface inputs</li>
-						<li><strong>Output interpretation</strong> — navigating ASWING's various result displays and extracting useful data</li>
+						<li><strong>Modeling a flexible aircraft with ASWING</strong>: what ASWING can and cannot do, its validated capabilities and available versions, and the theory behind it (reference frames, governing equations, Newton–Raphson solution, lifting-line aerodynamics with the stall model, beam structural theory, closed-loop control and <a href="project-wingloop.html">WingLoop</a> automation)</li>
+						<li><strong>User guide and program structure</strong>: a session and its data flow, every analysis menu (NODE, PLOT, EDIT, OPER, BODE, MODE), constraint tables for trim, gust encounters, forced pitch oscillations, and a map of the Fortran source code</li>
+						<li><strong>The official MIT documentation</strong>, included and reformatted: geometry file description, steady-state and time-marching simulations, Bode and eigenmode frequency analyses</li>
 					</ul>
 
 					<div class="box alt">
-						<div class="row gtr-50 gtr-uniform">
-							<div class="col-6 col-12-small">
-								<span class="image fit"><img src="images/aero/ExtendedUserManual/EUM_1_c.webp" alt="Screenshot of manual section on trim analysis" /></span>
-								<p style="text-align: center; font-style: italic; font-size: 0.8em; margin-top: -1.5rem">Example page from the manual — annotated walkthrough of a trim calculation workflow in ASWING.</p>
+						<div class="img-row">
+							<div style="--ar: 2.0619">
+								<span class="image fit shadow"><img src="images/aero/ExtendedUserManual/EUM2_session_c.webp" alt="ASWING session: terminal in the OPER menu and plot window showing a loading plot" width="1200" height="582" loading="lazy" /></span>
+								<p style="text-align: center; font-style: italic; font-size: 0.8em; margin-top: -1.5rem">An ASWING session: the text-driven terminal (here in the OPER menu) and the plot window.</p>
 							</div>
-							<div class="col-6 col-12-small">
-								<span class="image fit"><img src="images/aero/ExtendedUserManual/EUM_2_c.webp" alt="Screenshot of manual section on time-domain simulation" /></span>
-								<p style="text-align: center; font-style: italic; font-size: 0.8em; margin-top: -1.5rem">Example page from the manual — time-domain simulation setup and output navigation.</p>
+							<div style="--ar: 1.9293">
+								<span class="image fit shadow"><img src="images/aero/ExtendedUserManual/EUM2_plot_c.webp" alt="Outputs of the ASWING PLOT menu: deflections, 3D view, Trefftz plane and gust velocity fields" width="1200" height="622" loading="lazy" /></span>
+								<p style="text-align: center; font-style: italic; font-size: 0.8em; margin-top: -1.5rem">Outputs of the PLOT menu: deflections, 3D view, beam distributions and velocity fields.</p>
 							</div>
 						</div>
 					</div>
 
+					<div class="box alt">
+						<div class="img-row">
+							<div style="--ar: 1.6098">
+								<span class="image fit shadow"><img src="images/aero/ExtendedUserManual/EUM2_rootlocus_c.webp" alt="Root locus of the flexible Hawk aircraft computed in the ASWING MODE menu" width="990" height="615" loading="lazy" /></span>
+								<p style="text-align: center; font-style: italic; font-size: 0.8em; margin-top: -1.5rem">Root locus of the flexible Hawk sample aircraft from the MODE menu, with bending, short-period, roll and Dutch-roll modes grouped.</p>
+							</div>
+							<div style="--ar: 1.8490">
+								<span class="image fit shadow"><img src="images/aero/ExtendedUserManual/EUM2_gust_c.webp" alt="Top view of an aircraft in ASWING outside and inside a 1-minus-cosine gust" width="1200" height="649" loading="lazy" /></span>
+								<p style="text-align: center; font-style: italic; font-size: 0.8em; margin-top: -1.5rem">An aircraft ahead of and inside a 1-minus-cosine gust, with isolines of the vertical gust velocity.</p>
+							</div>
+						</div>
+					</div>
+
+					<span class="image fit w75"><img src="images/aero/ExtendedUserManual/EUM2_modes_c.webp" alt="Bending mode and short-period mode of the flexible Hawk animated in ASWING" width="1200" height="382" loading="lazy" /></span>
+					<p style="text-align: center; font-style: italic; font-size: 0.8em; margin-top: -1.5rem">Animated eigenmodes of the flexible Hawk: a 3.09 Hz bending mode (left) and the short-period mode (right).</p>
+
 					<hr />
 
 					<h2>Featured on the Official ASWING Website</h2>
-					<p>Following its completion, the manual was shared with Mark Drela and subsequently <strong>featured on the official MIT ASWING website</strong> as a supplementary resource for users. It is, to my knowledge, the most complete practical guide to the software currently available publicly.</p>
+					<p>Following its completion, the manual was shared with Mark Drela and subsequently <strong>featured on the <a href="https://web.mit.edu/drela/Public/web/aswing/" target="_blank">official MIT ASWING website</a></strong> as a supplementary resource for users. It is, to my knowledge, the most complete practical guide to the software currently available publicly.</p>
 
-					<p>In addition to the manual itself, a public GitHub repository collects various ASWING studies and utilities I have developed over the course of my PhD — available at <a href="https://github.com/LeonardoAVONI/91_ASWING_Public/tree/main" target="_blank">github.com/LeonardoAVONI/91_ASWING_Public</a>.</p>
+					<p>In addition to the manual itself, a public GitHub repository collects various ASWING studies and utilities I have developed over the course of my PhD — available at <a href="https://github.com/LeonardoAVONI/91_ASWING_Public/tree/main" target="_blank">github.com/LeonardoAVONI/91_ASWING_Public</a>. This includes WingLoop, which drives ASWING with external control laws written in Python, MATLAB or Simulink.</p>
+
+					<span class="image fit w75"><img src="images/aero/ExtendedUserManual/EUM2_wingloop_c.webp" alt="WingLoop live-plot window showing aircraft state and control input time histories" width="1200" height="825" loading="lazy" /></span>
+					<p style="text-align: center; font-style: italic; font-size: 0.8em; margin-top: -1.5rem">WingLoop 3.0 live-plot window at the end of a demonstration run: simulation status, state time histories and control inputs.</p>
 
 					<hr />
 
 					<h2>Documentation</h2>
-					<p>The manual is freely available for download below.</p>
+					<div class="row gtr-50 gtr-uniform">
+						<div class="col-4 col-12-small">
+							<a href="images/aero/ExtendedUserManual/ASWING_Extended_User_Manual_V2.0.pdf" class="image fit shadow" download><img src="images/aero/ExtendedUserManual/EUM2_coverpage_c.webp" alt="Cover page of the ASWING Extended User Manual, Version 2.0" width="600" height="849" loading="lazy" /></a>
+						</div>
+						<div class="col-8 col-12-small">
+							<p><strong>ASWING Extended User Manual, Version 2.0</strong> (14 November 2026), 142 pages, by Leonardo Avoni (ISAE-SUPAERO and ENAC). It is free to download.</p>
+							<p>Compared with the first version, V2.0 has a cleaner, more consistent layout, a reworked theory chapter, and new sections on the program structure and Fortran source code.</p>
+							<p><em>We recommend printing one copy and annotating it while you use the software.</em></p>
+							<ul class="actions">
+								<li><a href="images/aero/ExtendedUserManual/ASWING_Extended_User_Manual_V2.0.pdf" download class="button primary icon solid fa-download">Download V2.0 (PDF)</a></li>
+							</ul>
+						</div>
+					</div>
+
 					<ul class="actions special">
-						<li><a href="https://github.com/LeonardoAVONI/91_ASWING_Public/blob/main/documents/15_ASWING_Extended_User_Manual.pdf" target="_blank" class="button primary">Download Extended User Manual (PDF)</a></li>
+						<li><a href="https://web.mit.edu/drela/Public/web/aswing/" target="_blank" class="button">Official ASWING Website</a></li>
+						<li><a href="https://github.com/LeonardoAVONI/91_ASWING_Public/tree/main" target="_blank" class="button">ASWING Studies on GitHub</a></li>
 					</ul>
 
 					<ul class="actions special">
